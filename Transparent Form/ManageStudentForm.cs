@@ -1,0 +1,152 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+using MySql.Data.MySqlClient;
+
+namespace Transparent_Form
+{
+	public partial class ManageStudentForm : Form
+	{
+		StudentClass student = new StudentClass();
+		public ManageStudentForm()
+		{
+			InitializeComponent();
+		}
+
+		private void ManageStudentForm_Load(object sender, EventArgs e)
+		{
+			showTable();
+			
+		}
+		// To show student list in DatagridView
+		public void showTable()
+		{
+			DataGridView_student.DataSource = student.getStudentlist(new MySqlCommand("SELECT * FROM `eszkozok`"));
+			DataGridView_student.ReadOnly = true;
+
+
+		}
+
+		//Display student data from student to textbox
+		private void DataGridView_student_Click(object sender, EventArgs e)
+		{
+			textBox_id.Text = DataGridView_student.CurrentRow.Cells[0].Value.ToString();
+			textBox_Fname.Text = DataGridView_student.CurrentRow.Cells[1].Value.ToString();
+			textBox_Lname.Text = DataGridView_student.CurrentRow.Cells[2].Value.ToString();
+
+			dateTimePicker1.Value = (DateTime)DataGridView_student.CurrentRow.Cells[3].Value;
+			if (DataGridView_student.CurrentRow.Cells[4].Value.ToString() == "Szerszám")
+				radioButton_male.Checked = true;
+
+			textBox_phone.Text = DataGridView_student.CurrentRow.Cells[5].Value.ToString();
+			textBox_address.Text = DataGridView_student.CurrentRow.Cells[6].Value.ToString();
+
+			if (textBox_Fname.Text != "")
+			{
+				button_history.Visible = true;
+			}
+		}
+
+		private void button_clear_Click(object sender, EventArgs e)
+		{
+			textBox_id.Clear();
+			textBox_Fname.Clear();
+			textBox_Lname.Clear();
+			textBox_phone.Clear();
+			textBox_address.Clear();
+			radioButton_male.Checked = true;
+			dateTimePicker1.Value = DateTime.Now;
+			button_history.Visible = false;
+		}
+
+		private void button_search_Click(object sender, EventArgs e)
+		{
+			DataGridView_student.DataSource = student.searchStudent(textBox_search.Text);
+		}
+		//create a function to verify
+		bool verify()
+		{
+			if ((textBox_Fname.Text == "") || (textBox_Lname.Text == "") ||
+				(textBox_phone.Text == "") || (textBox_address.Text == ""))
+			{
+				return false;
+			}
+			else
+				return true;
+		}
+
+		private void button_update_Click(object sender, EventArgs e)
+		{
+			// update student record
+			int id = Convert.ToInt32(textBox_id.Text);
+			string fname = textBox_Fname.Text;
+			string lname = textBox_Lname.Text;
+			string phone = textBox_phone.Text;
+			string address = textBox_address.Text;
+			string gender = radioButton_male.Checked ? "Szerszám" : "Egyéb";
+
+
+			if (verify())
+			{
+				try
+				{
+					if (student.updateStudent(id, fname, lname, gender, phone, address))
+					{
+						showTable();
+						MessageBox.Show("Bejegyzés adatainak módosítása", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						button_clear.PerformClick();
+					}
+				}
+				catch (Exception ex)
+
+				{
+					MessageBox.Show(ex.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+			else
+			{
+				MessageBox.Show("Üres mező", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+
+		}
+
+		private void button_delete_Click(object sender, EventArgs e)
+		{
+			//remove the selected Student
+			int id = Convert.ToInt32(textBox_id.Text);
+			//Show a confirmation message before delete the student
+			if (MessageBox.Show("Biztosan eltávolítod a bejegyzést?", "Törlés", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				if (student.deleteStudent(id))
+				{
+					showTable();
+					MessageBox.Show("Bejegyzés eltávolítva.", "Sikeres törlés", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					button_clear.PerformClick();
+				}
+			}
+		}
+
+		private void textBox_search_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void button_history_Click(object sender, EventArgs e)
+		{
+			
+			History myForm = new History();
+			myForm.ShowDialog();
+			int toolid = Convert.ToInt32(textBox_id.Text);
+			student.GetHistory(toolid);
+		}
+	
+	
+	}
+}
