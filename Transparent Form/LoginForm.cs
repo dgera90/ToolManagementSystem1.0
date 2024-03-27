@@ -13,7 +13,7 @@ namespace Transparent_Form
 {
     public partial class LoginForm : Form
     {
-        StudentClass student = new StudentClass();
+        ToolClass tool = new ToolClass();
         public LoginForm()
         {
             InitializeComponent();
@@ -44,7 +44,7 @@ namespace Transparent_Form
             {
                 string uname = textBox_usrname.Text;
                 string pass = textBox_password.Text;
-                DataTable table = student.getList(new MySqlCommand("SELECT * FROM `user` WHERE `username`= '" + uname + "' AND `password`='" + pass + "'"));
+                DataTable table = tool.getList(new MySqlCommand("SELECT * FROM `user` WHERE `username`= '" + uname + "' AND `password`='" + pass + "'"));
                 if (table.Rows.Count > 0)
                 {
 

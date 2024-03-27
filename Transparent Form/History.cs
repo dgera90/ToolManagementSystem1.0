@@ -15,17 +15,17 @@ namespace Transparent_Form
 {
 	public partial class History : Form
 	{
-		StudentClass student = new StudentClass();
+		ToolClass tool = new ToolClass();
 
         public History()
 		{
 			InitializeComponent();
-			DataGridView_history.DataSource = student.getHistory(new MySqlCommand("SELECT `modified_date` AS 'Módosítva',`quantity` AS Darabszám, `munkatars` AS Munkatárs FROM `history` WHERE `tool_id`=@toolid"));
+			DataGridView_history.DataSource = tool.getHistory(new MySqlCommand("SELECT `modified_date` AS 'Módosítva',`quantity` AS Darabszám, `munkatars` AS Munkatárs FROM `history` WHERE `tool_id`=@toolid"));
 			DataGridView_history.ReadOnly = true;
 		}
 		private void History_Load(object sender, EventArgs e)
 		{
-			string toolid = StudentClass.toolid;
+			string toolid = ToolClass.toolid;
 		}
 
         // Handler for print call

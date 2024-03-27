@@ -11,7 +11,7 @@ using System.Reflection;
 
 namespace Transparent_Form
 {
-	class StudentClass
+	class ToolClass
 	{
 		static string idtool;
 		public static string toolid
@@ -29,18 +29,18 @@ namespace Transparent_Form
 		//create a function to add a new tool to the database
 
 
-		public bool InsertStudent(string fname, string lname, string gender, string phone, string address)
+		public bool InsertTool(string name, string size, string type, string quantity, string details)
 		{
-			MySqlCommand command = new MySqlCommand("INSERT INTO `eszkozok`(`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`) VALUES(@fn, @ln, @bd, @gd, @ph, @adr)", connect.getconnection);
-	
+			MySqlCommand command = new MySqlCommand("INSERT INTO `eszkozok`(`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`) VALUES(@nm, @sz, @dt, @tp, @qua, @det)", connect.getconnection);
 
-            //@fn, @ln, @bd, @gd, @ph, @ad
-            command.Parameters.Add("@fn", MySqlDbType.VarChar).Value = fname;
-			command.Parameters.Add("@ln", MySqlDbType.VarChar).Value = lname;
-			command.Parameters.Add("@bd", MySqlDbType.DateTime).Value = DateTime.Now;
-			command.Parameters.Add("@gd", MySqlDbType.VarChar).Value = gender;
-			command.Parameters.Add("@ph", MySqlDbType.VarChar).Value = phone;
-			command.Parameters.Add("@adr", MySqlDbType.VarChar).Value = address;
+
+            //@nm, @sz, @dt, @tp, @qua, @det
+            command.Parameters.Add("@nm", MySqlDbType.VarChar).Value = name;
+			command.Parameters.Add("@sz", MySqlDbType.VarChar).Value = size;
+			command.Parameters.Add("@dt", MySqlDbType.DateTime).Value = DateTime.Now;
+			command.Parameters.Add("@tp", MySqlDbType.VarChar).Value = type;
+			command.Parameters.Add("@qua", MySqlDbType.VarChar).Value = quantity;
+			command.Parameters.Add("@det", MySqlDbType.VarChar).Value = details;
 
 
             connect.openConnect();
@@ -59,7 +59,7 @@ namespace Transparent_Form
             
         }
         // to get tool table
-        public DataTable getStudentlist(MySqlCommand command)
+        public DataTable getToollist(MySqlCommand command)
 		{
 			command.Connection = connect.getconnection;
 			MySqlDataAdapter adapter = new MySqlDataAdapter(command);
@@ -70,7 +70,7 @@ namespace Transparent_Form
 
 		public DataTable getHistory(MySqlCommand command)
 		{
-			command.Parameters.Add("@toolid", MySqlDbType.Int32).Value = Convert.ToInt32(StudentClass.toolid);
+			command.Parameters.Add("@toolid", MySqlDbType.Int32).Value = Convert.ToInt32(ToolClass.toolid);
 
 			command.Connection = connect.getconnection;
 			MySqlDataAdapter adapter = new MySqlDataAdapter(command);
@@ -79,7 +79,7 @@ namespace Transparent_Form
 			return table;
 		}
 
-		// Create a function to execute the count query(total, male , female)
+		// Create a function to execute the count query(total, tool , etc)
 		public string exeCount(string query)
 		{
 			MySqlCommand command = new MySqlCommand(query, connect.getconnection);
@@ -88,23 +88,23 @@ namespace Transparent_Form
 			connect.closeConnect();
 			return count;
 		}
-		//to get the total student
-		public string totalStudent()
+		//to get the total tool
+		public string totalTools()
 		{
 			return exeCount("SELECT COUNT(*) FROM eszkozok");
 		}
-		// to get the male student count
-		public string maleStudent()
+		// to get the tool type count
+		public string toolCount()
 		{
 			return exeCount("SELECT COUNT(*) FROM eszkozok WHERE `type`='Szerszám'");
 		}
-		// to get the female student count
-		public string femaleStudent()
+		// to get the etc type count
+		public string etcCount()
 		{
 			return exeCount("SELECT COUNT(*) FROM eszkozok WHERE `type`='Egyéb'");
 		}
 		//create a function search for student (first name, last name, address)
-		public DataTable searchStudent(string searchdata)
+		public DataTable searchTool(string searchdata)
 		{
 			MySqlCommand command = new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok` WHERE CONCAT(`toolName`,`toolSize`,`description`) LIKE '%" + searchdata + "%'", connect.getconnection);
 			MySqlDataAdapter adapter = new MySqlDataAdapter(command);
@@ -112,24 +112,24 @@ namespace Transparent_Form
 			adapter.Fill(table);
 			return table;
 		}
-		//create a function edit for student
-		public bool updateStudent(int id, string fname, string lname, string gender, string phone, string address, string mtars)
+		//create a function edit for tool
+		public bool updateTool(int id, string name, string size, string type, string quantity, string details, string mtars)
 		{
-			MySqlCommand command = new MySqlCommand("UPDATE `eszkozok` SET `toolName`=@fn,`toolSize`=@ln,`type`=@gd,`quantity`=@ph,`description`=@adr WHERE `id`= @id", connect.getconnection);
+			MySqlCommand command = new MySqlCommand("UPDATE `eszkozok` SET `toolName`=@nm,`toolSize`=@sz,`type`=@tp,`quantity`=@qua,`description`=@det WHERE `id`= @id", connect.getconnection);
 			MySqlCommand commandHistory = new MySqlCommand("INSERT INTO `history`(`tool_id`,`modified_date`,`quantity`,`munkatars`) VALUES (@ti,@md,@qua,@mt)", connect.getconnection);
 
 
-			//@id,@fn, @ln, @bd, @gd, @ph, @adr
-			command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
-			command.Parameters.Add("@fn", MySqlDbType.VarChar).Value = fname;
-			command.Parameters.Add("@ln", MySqlDbType.VarChar).Value = lname;
-			command.Parameters.Add("@gd", MySqlDbType.VarChar).Value = gender;
-			command.Parameters.Add("@ph", MySqlDbType.VarChar).Value = phone;
-			command.Parameters.Add("@adr", MySqlDbType.VarChar).Value = address;
+            //@id,@nm, @sz, @dt, @tp, @qua, @det
+            command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+			command.Parameters.Add("@nm", MySqlDbType.VarChar).Value = name;
+			command.Parameters.Add("@sz", MySqlDbType.VarChar).Value = size;
+			command.Parameters.Add("@tp", MySqlDbType.VarChar).Value = type;
+			command.Parameters.Add("@qua", MySqlDbType.VarChar).Value = quantity;
+			command.Parameters.Add("@det", MySqlDbType.VarChar).Value = details;
 
 			commandHistory.Parameters.Add("@ti", MySqlDbType.Int32).Value = id;
 			commandHistory.Parameters.Add("@md", MySqlDbType.DateTime).Value = DateTime.Now;
-			commandHistory.Parameters.Add("@qua", MySqlDbType.Int32).Value = phone;
+			commandHistory.Parameters.Add("@qua", MySqlDbType.Int32).Value = quantity;
 			commandHistory.Parameters.Add("@mt", MySqlDbType.VarChar).Value = mtars;
 
 
@@ -148,7 +148,7 @@ namespace Transparent_Form
 		}
 		//Create a function to delete data
 		//we need only id 
-		public bool deleteStudent(int id)
+		public bool deleteTool(int id)
 		{
 			MySqlCommand command = new MySqlCommand("DELETE FROM `eszkozok` WHERE `id`=@id", connect.getconnection);
 
@@ -168,7 +168,7 @@ namespace Transparent_Form
 			}
 
 		}
-		// create a function for any command in studentDb
+		// create a function for any command in toolDb
 		public DataTable getList(MySqlCommand command)
 		{
 			command.Connection = connect.getconnection;

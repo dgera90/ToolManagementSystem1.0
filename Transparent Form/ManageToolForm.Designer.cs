@@ -1,7 +1,7 @@
 ﻿
 namespace Transparent_Form
 {
-    partial class ManageStudentForm
+    partial class ManageToolForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,29 +29,31 @@ namespace Transparent_Form
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox_phone = new System.Windows.Forms.TextBox();
+            this.textBox_quantity = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button_delete = new System.Windows.Forms.Button();
             this.button_update = new System.Windows.Forms.Button();
-            this.textBox_address = new System.Windows.Forms.TextBox();
-            this.radioButton_female = new System.Windows.Forms.RadioButton();
-            this.radioButton_male = new System.Windows.Forms.RadioButton();
+            this.textBox_details = new System.Windows.Forms.TextBox();
+            this.radioButton_etc = new System.Windows.Forms.RadioButton();
+            this.radioButton_tool = new System.Windows.Forms.RadioButton();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox_Lname = new System.Windows.Forms.TextBox();
+            this.textBox_size = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox_Fname = new System.Windows.Forms.TextBox();
+            this.textBox_name = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.DataGridView_student = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.DataGridView_tool = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox_mtars = new System.Windows.Forms.TextBox();
             this.button_history = new System.Windows.Forms.Button();
             this.button_clear = new System.Windows.Forms.Button();
             this.textBox_id = new System.Windows.Forms.TextBox();
@@ -59,9 +61,7 @@ namespace Transparent_Form
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_search = new System.Windows.Forms.Button();
             this.textBox_search = new System.Windows.Forms.TextBox();
-            this.textBox_mtars = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_student)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_tool)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -76,13 +76,13 @@ namespace Transparent_Form
             this.panel3.Size = new System.Drawing.Size(1109, 10);
             this.panel3.TabIndex = 32;
             // 
-            // textBox_phone
+            // textBox_quantity
             // 
-            this.textBox_phone.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox_phone.Location = new System.Drawing.Point(647, 18);
-            this.textBox_phone.Name = "textBox_phone";
-            this.textBox_phone.Size = new System.Drawing.Size(77, 27);
-            this.textBox_phone.TabIndex = 31;
+            this.textBox_quantity.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox_quantity.Location = new System.Drawing.Point(647, 18);
+            this.textBox_quantity.Name = "textBox_quantity";
+            this.textBox_quantity.Size = new System.Drawing.Size(77, 27);
+            this.textBox_quantity.TabIndex = 31;
             // 
             // label6
             // 
@@ -126,42 +126,42 @@ namespace Transparent_Form
             this.button_update.UseVisualStyleBackColor = false;
             this.button_update.Click += new System.EventHandler(this.button_update_Click);
             // 
-            // textBox_address
+            // textBox_details
             // 
-            this.textBox_address.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox_address.Location = new System.Drawing.Point(145, 102);
-            this.textBox_address.Multiline = true;
-            this.textBox_address.Name = "textBox_address";
-            this.textBox_address.Size = new System.Drawing.Size(445, 50);
-            this.textBox_address.TabIndex = 25;
+            this.textBox_details.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox_details.Location = new System.Drawing.Point(145, 102);
+            this.textBox_details.Multiline = true;
+            this.textBox_details.Name = "textBox_details";
+            this.textBox_details.Size = new System.Drawing.Size(445, 50);
+            this.textBox_details.TabIndex = 25;
             // 
-            // radioButton_female
+            // radioButton_etc
             // 
-            this.radioButton_female.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.radioButton_female.AutoSize = true;
-            this.radioButton_female.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_female.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
-            this.radioButton_female.Location = new System.Drawing.Point(715, 63);
-            this.radioButton_female.Name = "radioButton_female";
-            this.radioButton_female.Size = new System.Drawing.Size(76, 23);
-            this.radioButton_female.TabIndex = 24;
-            this.radioButton_female.Text = "Egyéb";
-            this.radioButton_female.UseVisualStyleBackColor = true;
+            this.radioButton_etc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radioButton_etc.AutoSize = true;
+            this.radioButton_etc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton_etc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
+            this.radioButton_etc.Location = new System.Drawing.Point(715, 63);
+            this.radioButton_etc.Name = "radioButton_etc";
+            this.radioButton_etc.Size = new System.Drawing.Size(76, 23);
+            this.radioButton_etc.TabIndex = 24;
+            this.radioButton_etc.Text = "Egyéb";
+            this.radioButton_etc.UseVisualStyleBackColor = true;
             // 
-            // radioButton_male
+            // radioButton_tool
             // 
-            this.radioButton_male.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.radioButton_male.AutoSize = true;
-            this.radioButton_male.Checked = true;
-            this.radioButton_male.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_male.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
-            this.radioButton_male.Location = new System.Drawing.Point(612, 63);
-            this.radioButton_male.Name = "radioButton_male";
-            this.radioButton_male.Size = new System.Drawing.Size(97, 23);
-            this.radioButton_male.TabIndex = 23;
-            this.radioButton_male.TabStop = true;
-            this.radioButton_male.Text = "Szerszám";
-            this.radioButton_male.UseVisualStyleBackColor = true;
+            this.radioButton_tool.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radioButton_tool.AutoSize = true;
+            this.radioButton_tool.Checked = true;
+            this.radioButton_tool.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton_tool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
+            this.radioButton_tool.Location = new System.Drawing.Point(612, 63);
+            this.radioButton_tool.Name = "radioButton_tool";
+            this.radioButton_tool.Size = new System.Drawing.Size(97, 23);
+            this.radioButton_tool.TabIndex = 23;
+            this.radioButton_tool.TabStop = true;
+            this.radioButton_tool.Text = "Szerszám";
+            this.radioButton_tool.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
             // 
@@ -172,13 +172,13 @@ namespace Transparent_Form
             this.dateTimePicker1.TabIndex = 22;
             this.dateTimePicker1.Visible = false;
             // 
-            // textBox_Lname
+            // textBox_size
             // 
-            this.textBox_Lname.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox_Lname.Location = new System.Drawing.Point(395, 18);
-            this.textBox_Lname.Name = "textBox_Lname";
-            this.textBox_Lname.Size = new System.Drawing.Size(135, 27);
-            this.textBox_Lname.TabIndex = 21;
+            this.textBox_size.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox_size.Location = new System.Drawing.Point(395, 18);
+            this.textBox_size.Name = "textBox_size";
+            this.textBox_size.Size = new System.Drawing.Size(135, 27);
+            this.textBox_size.TabIndex = 21;
             // 
             // label4
             // 
@@ -204,13 +204,13 @@ namespace Transparent_Form
             this.label2.TabIndex = 19;
             this.label2.Text = "Típus:";
             // 
-            // textBox_Fname
+            // textBox_name
             // 
-            this.textBox_Fname.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox_Fname.Location = new System.Drawing.Point(145, 18);
-            this.textBox_Fname.Name = "textBox_Fname";
-            this.textBox_Fname.Size = new System.Drawing.Size(140, 27);
-            this.textBox_Fname.TabIndex = 18;
+            this.textBox_name.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox_name.Location = new System.Drawing.Point(145, 18);
+            this.textBox_name.Name = "textBox_name";
+            this.textBox_name.Size = new System.Drawing.Size(140, 27);
+            this.textBox_name.TabIndex = 18;
             // 
             // label5
             // 
@@ -249,70 +249,70 @@ namespace Transparent_Form
             this.label1.TabIndex = 15;
             this.label1.Text = "Név:";
             // 
-            // DataGridView_student
+            // DataGridView_tool
             // 
-            this.DataGridView_student.AllowUserToAddRows = false;
-            this.DataGridView_student.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DataGridView_student.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
-            this.DataGridView_student.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.DataGridView_tool.AllowUserToAddRows = false;
+            this.DataGridView_tool.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DataGridView_tool.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.DataGridView_tool.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DataGridView_student.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DataGridView_student.BackgroundColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(69)))), ((int)(((byte)(107)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView_student.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
-            this.DataGridView_student.ColumnHeadersHeight = 24;
-            this.DataGridView_student.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.DataGridView_student.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridView_student.DefaultCellStyle = dataGridViewCellStyle19;
-            this.DataGridView_student.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DataGridView_student.Location = new System.Drawing.Point(13, 93);
-            this.DataGridView_student.Margin = new System.Windows.Forms.Padding(1);
-            this.DataGridView_student.Name = "DataGridView_student";
-            this.DataGridView_student.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.DataGridView_student.RowHeadersVisible = false;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DataGridView_student.RowsDefaultCellStyle = dataGridViewCellStyle20;
-            this.DataGridView_student.RowTemplate.Height = 80;
-            this.DataGridView_student.Size = new System.Drawing.Size(1109, 281);
-            this.DataGridView_student.TabIndex = 15;
-            this.DataGridView_student.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.DataGridView_student.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.DataGridView_student.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.DataGridView_student.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.DataGridView_student.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.DataGridView_student.ThemeStyle.BackColor = System.Drawing.Color.Gainsboro;
-            this.DataGridView_student.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DataGridView_student.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.DataGridView_student.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.DataGridView_student.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DataGridView_student.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.DataGridView_student.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.DataGridView_student.ThemeStyle.HeaderStyle.Height = 24;
-            this.DataGridView_student.ThemeStyle.ReadOnly = false;
-            this.DataGridView_student.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.DataGridView_student.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.DataGridView_student.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DataGridView_student.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.DataGridView_student.ThemeStyle.RowsStyle.Height = 80;
-            this.DataGridView_student.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DataGridView_student.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.DataGridView_student.Click += new System.EventHandler(this.DataGridView_student_Click);
+            this.DataGridView_tool.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DataGridView_tool.BackgroundColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(69)))), ((int)(((byte)(107)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView_tool.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.DataGridView_tool.ColumnHeadersHeight = 24;
+            this.DataGridView_tool.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.DataGridView_tool.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView_tool.DefaultCellStyle = dataGridViewCellStyle7;
+            this.DataGridView_tool.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_tool.Location = new System.Drawing.Point(13, 93);
+            this.DataGridView_tool.Margin = new System.Windows.Forms.Padding(1);
+            this.DataGridView_tool.Name = "DataGridView_tool";
+            this.DataGridView_tool.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.DataGridView_tool.RowHeadersVisible = false;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DataGridView_tool.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.DataGridView_tool.RowTemplate.Height = 80;
+            this.DataGridView_tool.Size = new System.Drawing.Size(1109, 281);
+            this.DataGridView_tool.TabIndex = 15;
+            this.DataGridView_tool.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_tool.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.DataGridView_tool.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_tool.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.DataGridView_tool.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_tool.ThemeStyle.BackColor = System.Drawing.Color.Gainsboro;
+            this.DataGridView_tool.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_tool.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.DataGridView_tool.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridView_tool.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DataGridView_tool.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.DataGridView_tool.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.DataGridView_tool.ThemeStyle.HeaderStyle.Height = 24;
+            this.DataGridView_tool.ThemeStyle.ReadOnly = false;
+            this.DataGridView_tool.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_tool.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DataGridView_tool.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DataGridView_tool.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.DataGridView_tool.ThemeStyle.RowsStyle.Height = 80;
+            this.DataGridView_tool.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_tool.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.DataGridView_tool.Click += new System.EventHandler(this.DataGridView_tool_Click);
             // 
             // label7
             // 
@@ -334,18 +334,18 @@ namespace Transparent_Form
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.textBox_id);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.textBox_phone);
+            this.panel2.Controls.Add(this.textBox_quantity);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.button_delete);
             this.panel2.Controls.Add(this.button_update);
-            this.panel2.Controls.Add(this.textBox_address);
-            this.panel2.Controls.Add(this.radioButton_female);
-            this.panel2.Controls.Add(this.radioButton_male);
+            this.panel2.Controls.Add(this.textBox_details);
+            this.panel2.Controls.Add(this.radioButton_etc);
+            this.panel2.Controls.Add(this.radioButton_tool);
             this.panel2.Controls.Add(this.dateTimePicker1);
-            this.panel2.Controls.Add(this.textBox_Lname);
+            this.panel2.Controls.Add(this.textBox_size);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBox_Fname);
+            this.panel2.Controls.Add(this.textBox_name);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label1);
@@ -354,6 +354,26 @@ namespace Transparent_Form
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1134, 235);
             this.panel2.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
+            this.label9.Location = new System.Drawing.Point(616, 118);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(93, 19);
+            this.label9.TabIndex = 36;
+            this.label9.Text = "Munkatárs:";
+            // 
+            // textBox_mtars
+            // 
+            this.textBox_mtars.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox_mtars.Location = new System.Drawing.Point(715, 114);
+            this.textBox_mtars.Name = "textBox_mtars";
+            this.textBox_mtars.Size = new System.Drawing.Size(168, 27);
+            this.textBox_mtars.TabIndex = 35;
             // 
             // button_history
             // 
@@ -442,44 +462,23 @@ namespace Transparent_Form
             this.textBox_search.Name = "textBox_search";
             this.textBox_search.Size = new System.Drawing.Size(156, 27);
             this.textBox_search.TabIndex = 31;
-            this.textBox_search.TextChanged += new System.EventHandler(this.textBox_search_TextChanged);
             // 
-            // textBox_mtars
-            // 
-            this.textBox_mtars.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox_mtars.Location = new System.Drawing.Point(715, 114);
-            this.textBox_mtars.Name = "textBox_mtars";
-            this.textBox_mtars.Size = new System.Drawing.Size(168, 27);
-            this.textBox_mtars.TabIndex = 35;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
-            this.label9.Location = new System.Drawing.Point(616, 118);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(93, 19);
-            this.label9.TabIndex = 36;
-            this.label9.Text = "Munkatárs:";
-            // 
-            // ManageStudentForm
+            // ManageToolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 613);
             this.Controls.Add(this.button_search);
-            this.Controls.Add(this.DataGridView_student);
+            this.Controls.Add(this.DataGridView_tool);
             this.Controls.Add(this.textBox_search);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "ManageStudentForm";
+            this.Name = "ManageToolForm";
             this.Text = "ManageStudentForm";
-            this.Load += new System.EventHandler(this.ManageStudentForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_student)).EndInit();
+            this.Load += new System.EventHandler(this.ManageToolForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_tool)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -492,22 +491,22 @@ namespace Transparent_Form
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox_phone;
+        private System.Windows.Forms.TextBox textBox_quantity;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button_delete;
         private System.Windows.Forms.Button button_update;
-        private System.Windows.Forms.TextBox textBox_address;
-        private System.Windows.Forms.RadioButton radioButton_female;
-        private System.Windows.Forms.RadioButton radioButton_male;
+        private System.Windows.Forms.TextBox textBox_details;
+        private System.Windows.Forms.RadioButton radioButton_etc;
+        private System.Windows.Forms.RadioButton radioButton_tool;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox_Lname;
+        private System.Windows.Forms.TextBox textBox_size;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox_Fname;
+        private System.Windows.Forms.TextBox textBox_name;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2DataGridView DataGridView_student;
+        private Guna.UI2.WinForms.Guna2DataGridView DataGridView_tool;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button_clear;

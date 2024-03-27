@@ -12,12 +12,12 @@ using DGVPrinterHelper;
 
 namespace Transparent_Form
 {
-    public partial class PrintStudent : Form
+    public partial class PrintTool : Form
     {
-        StudentClass student = new StudentClass();
+        ToolClass tool = new ToolClass();
         DGVPrinter printer = new DGVPrinter();
         
-        public PrintStudent()
+        public PrintTool()
         {
             InitializeComponent();
         }
@@ -27,11 +27,11 @@ namespace Transparent_Form
             showData(new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok`"));
         }
 
-        // create a function to show the student list in datagridview
+        // create a function to show the tool list in datagridview
         public void showData(MySqlCommand command)
         {
-            DataGridView_student.ReadOnly = true;
-            DataGridView_student.DataSource = student.getList(command);
+            DataGridView_tool.ReadOnly = true;
+            DataGridView_tool.DataSource = tool.getList(command);
         }
 
         private void button_search_Click(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace Transparent_Form
             {
                 selectQuery = "SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok`";
             }
-            else if (radioButton_male.Checked)
+            else if (radioButton_tool.Checked)
             {
                 selectQuery = "SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok` WHERE `type`='Szerszám'";
             }
@@ -66,7 +66,7 @@ namespace Transparent_Form
             printer.Footer = "foxlearn";
             printer.FooterSpacing = 15;
             printer.printDocument.DefaultPageSettings.Landscape = true;
-            printer.PrintDataGridView(DataGridView_student);
+            printer.PrintDataGridView(DataGridView_tool);
         }
     }
 }

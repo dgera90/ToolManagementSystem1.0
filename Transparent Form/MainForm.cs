@@ -15,7 +15,7 @@ namespace Transparent_Form
 
 
     {
-        StudentClass student = new StudentClass();
+        ToolClass tool = new ToolClass();
         public MainForm()
         {
             InitializeComponent();
@@ -28,13 +28,13 @@ namespace Transparent_Form
 
         }
 
-        //create a function to display student count
+        //create a function to display tool count
         private void studentCount()
         {
             //Display the values
-            label_totalStd.Text = "Teljes készlet : " + student.totalStudent();
-            label_maleStd.Text = "Szerszám : " + student.maleStudent();
-            label_femaleStd.Text = "Egyéb : " + student.femaleStudent();
+            label_totalStd.Text = "Teljes készlet : " + tool.totalTools();
+            label_maleStd.Text = "Szerszám : " + tool.toolCount();
+            label_femaleStd.Text = "Egyéb : " + tool.etcCount();
 
         }
 
@@ -42,7 +42,6 @@ namespace Transparent_Form
         private void customizeDesign()
         {
             panel_stdsubmenu.Visible = false;
-            panel_courseSubmenu.Visible = false;
         
         }
 
@@ -50,8 +49,6 @@ namespace Transparent_Form
         {
             if (panel_stdsubmenu.Visible == true)
                 panel_stdsubmenu.Visible = false;
-            if (panel_courseSubmenu.Visible == true)
-                panel_courseSubmenu.Visible = false;
         }
 
         private void showSubmenu(Panel submenu)
@@ -70,19 +67,9 @@ namespace Transparent_Form
             showSubmenu(panel_stdsubmenu);
         }
         #region StdSubmenu
-        private void button_registration_Click(object sender, EventArgs e)
-        {
-            openChildForm(new RegisterForm());
-            //...
-            //..Your code
-            //...
-            hideSubmenu();
-            
-        }
-
         private void button_manageStd_Click(object sender, EventArgs e)
         {
-            openChildForm(new ManageStudentForm());
+            openChildForm(new ManageToolForm());
             //...
             //..Your code
             //...
@@ -99,7 +86,7 @@ namespace Transparent_Form
 
         private void button_stdPrint_Click(object sender, EventArgs e)
         {
-            openChildForm(new PrintStudent());
+            openChildForm(new PrintTool());
             //...
             //..Your code
             //...
@@ -107,10 +94,6 @@ namespace Transparent_Form
         }
 
         #endregion StdSubmenu
-        private void button_course_Click(object sender, EventArgs e)
-        {
-            showSubmenu(panel_courseSubmenu);
-        }
 
         //to show register form in mainform
         private Form activeForm = null;

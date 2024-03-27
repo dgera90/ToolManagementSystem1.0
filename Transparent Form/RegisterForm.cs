@@ -15,7 +15,7 @@ namespace Transparent_Form
 {
     public partial class RegisterForm : Form
     {
-        StudentClass student = new StudentClass();
+        ToolClass tool = new ToolClass();
         public RegisterForm()
         {
             InitializeComponent();
@@ -27,8 +27,8 @@ namespace Transparent_Form
         //create a function to verify
         bool verify()
         {
-            if ((textBox_Fname.Text == "") || (textBox_Lname.Text == "") ||
-                (textBox_phone.Text == "") || (textBox_address.Text == ""))
+            if ((textBox_name.Text == "") || (textBox_size.Text == "") ||
+                (textBox_quantity.Text == "") || (textBox_details.Text == ""))
             {
                 return false;
             }
@@ -45,30 +45,30 @@ namespace Transparent_Form
         // To show tool list in DatagridView
         public void showTable()
         {
-            DataGridView_student.DataSource = student.getStudentlist(new MySqlCommand("SELECT * FROM `eszkozok`"));
+            DataGridView_tool.DataSource = tool.getToollist(new MySqlCommand("SELECT * FROM `eszkozok`"));
             
         }
 
         private void button_add_Click(object sender, EventArgs e)
         {
             // add new student
-            string fname = textBox_Fname.Text;
-            string lname = textBox_Lname.Text;
-            string phone = textBox_phone.Text;
-            string address = textBox_address.Text;
-            string gender = radioButton_male.Checked ? "Szerszám" : "Egyéb";
+            string name = textBox_name.Text;
+            string size = textBox_size.Text;
+            string quantity = textBox_quantity.Text;
+            string details = textBox_details.Text;
+            string type = radioButton_tool.Checked ? "Szerszám" : "Egyéb";
 
 
             if (verify())
             {
-                string eszkozadatok = ($"Biztosan hozzá kívánja adni a következő eszközt?\nNév: {fname}\nMéret: {lname}\nDarabszám: {phone}\nTípus: {gender}\nRészletek: {address}");
+                string eszkozadatok = ($"Biztosan hozzá kívánja adni a következő eszközt?\nNév: {name}\nMéret: {size}\nDarabszám: {quantity}\nTípus: {type}\nRészletek: {details}");
                 DialogResult result = MessageBox.Show($"{eszkozadatok}", "Eszköz felvétele", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result==DialogResult.Yes)
                 {
                     try
                     {
                         // to get photo from picture box
-                        if (student.InsertStudent(fname, lname, gender, phone, address))
+                        if (tool.InsertTool(name, size, type, quantity, details))
                         {
                             showTable();
                             MessageBox.Show("Új bejegyzés hozzáadva!", "Sikeres hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -92,11 +92,11 @@ namespace Transparent_Form
 
         private void button_clear_Click(object sender, EventArgs e)
         {
-            textBox_Fname.Clear();
-            textBox_Lname.Clear();
-            textBox_phone.Clear();
-            textBox_address.Clear();
-            radioButton_male.Checked = true;
+            textBox_name.Clear();
+            textBox_size.Clear();
+            textBox_quantity.Clear();
+            textBox_details.Clear();
+            radioButton_tool.Checked = true;
         }
     }
 }

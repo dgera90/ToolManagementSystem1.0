@@ -33,7 +33,6 @@ namespace Transparent_Form
             this.panel_slide = new System.Windows.Forms.Panel();
             this.button_exit = new System.Windows.Forms.Button();
             this.button_dashboard = new System.Windows.Forms.Button();
-            this.panel_courseSubmenu = new System.Windows.Forms.Panel();
             this.panel_stdsubmenu = new System.Windows.Forms.Panel();
             this.button_stdPrint = new System.Windows.Forms.Button();
             this.button_manageStd = new System.Windows.Forms.Button();
@@ -70,7 +69,6 @@ namespace Transparent_Form
             this.panel_slide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(69)))), ((int)(((byte)(107)))));
             this.panel_slide.Controls.Add(this.button_exit);
             this.panel_slide.Controls.Add(this.button_dashboard);
-            this.panel_slide.Controls.Add(this.panel_courseSubmenu);
             this.panel_slide.Controls.Add(this.panel_stdsubmenu);
             this.panel_slide.Controls.Add(this.button_std);
             this.panel_slide.Controls.Add(this.panel_logo);
@@ -87,7 +85,7 @@ namespace Transparent_Form
             this.button_exit.FlatAppearance.BorderSize = 0;
             this.button_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_exit.ForeColor = System.Drawing.Color.White;
-            this.button_exit.Location = new System.Drawing.Point(0, 556);
+            this.button_exit.Location = new System.Drawing.Point(0, 405);
             this.button_exit.Margin = new System.Windows.Forms.Padding(5);
             this.button_exit.Name = "button_exit";
             this.button_exit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -104,7 +102,7 @@ namespace Transparent_Form
             this.button_dashboard.FlatAppearance.BorderSize = 0;
             this.button_dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_dashboard.ForeColor = System.Drawing.Color.White;
-            this.button_dashboard.Location = new System.Drawing.Point(0, 501);
+            this.button_dashboard.Location = new System.Drawing.Point(0, 350);
             this.button_dashboard.Margin = new System.Windows.Forms.Padding(5);
             this.button_dashboard.Name = "button_dashboard";
             this.button_dashboard.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -114,15 +112,6 @@ namespace Transparent_Form
             this.button_dashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_dashboard.UseVisualStyleBackColor = true;
             this.button_dashboard.Click += new System.EventHandler(this.button_exit_Click);
-            // 
-            // panel_courseSubmenu
-            // 
-            this.panel_courseSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(69)))), ((int)(((byte)(107)))));
-            this.panel_courseSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_courseSubmenu.Location = new System.Drawing.Point(0, 350);
-            this.panel_courseSubmenu.Name = "panel_courseSubmenu";
-            this.panel_courseSubmenu.Size = new System.Drawing.Size(200, 151);
-            this.panel_courseSubmenu.TabIndex = 4;
             // 
             // panel_stdsubmenu
             // 
@@ -182,7 +171,6 @@ namespace Transparent_Form
             this.button_registration.Text = "Felvétel";
             this.button_registration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_registration.UseVisualStyleBackColor = true;
-            this.button_registration.Click += new System.EventHandler(this.button_registration_Click);
             // 
             // button_std
             // 
@@ -407,7 +395,6 @@ namespace Transparent_Form
         private System.Windows.Forms.Label label_totalStd;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button_exit;
-		private System.Windows.Forms.Panel panel_courseSubmenu;
 		private System.Windows.Forms.PictureBox pictureBox1;
 	}
 }
