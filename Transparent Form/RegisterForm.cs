@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using MySql.Data.MySqlClient;
+using System.Security.Policy;
 
 namespace Transparent_Form
 {
@@ -18,6 +19,7 @@ namespace Transparent_Form
         public RegisterForm()
         {
             InitializeComponent();
+
         }
 
  
@@ -31,6 +33,7 @@ namespace Transparent_Form
                 return false;
             }
             else
+
                 return true;
         }
 
@@ -58,20 +61,26 @@ namespace Transparent_Form
 
             if (verify())
             {
-                try
+                string eszkozadatok = ($"Biztosan hozzá kívánja adni a következő eszközt?\nNév: {fname}\nMéret: {lname}\nDarabszám: {phone}\nTípus: {gender}\nRészletek: {address}");
+                DialogResult result = MessageBox.Show($"{eszkozadatok}", "Eszköz felvétele", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result==DialogResult.Yes)
                 {
-                    // to get photo from picture box
-                    if (student.insertStudent(fname, lname, gender, phone, address))
+                    try
                     {
-                        showTable();
-                        MessageBox.Show("Új bejegyzés hozzáadva!", "Sikeres hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // to get photo from picture box
+                        if (student.InsertStudent(fname, lname, gender, phone, address))
+                        {
+                            showTable();
+                            MessageBox.Show("Új bejegyzés hozzáadva!", "Sikeres hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+
+                    {
+                        MessageBox.Show(ex.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch (Exception ex)
-
-                {
-                    MessageBox.Show(ex.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                
             }
             else
             {

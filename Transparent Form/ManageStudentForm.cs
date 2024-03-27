@@ -19,6 +19,8 @@ namespace Transparent_Form
 		public ManageStudentForm()
 		{
 			InitializeComponent();
+			button_update.Enabled = false;
+			button_delete.Enabled = false;
 		}
 
 		private void ManageStudentForm_Load(object sender, EventArgs e)
@@ -50,6 +52,8 @@ namespace Transparent_Form
 			if (textBox_Fname.Text != "")
 			{
 				button_history.Visible = true;
+				button_update.Enabled = true;
+				button_delete.Enabled = true;
 			}
 		}
 
@@ -63,7 +67,9 @@ namespace Transparent_Form
 			radioButton_male.Checked = true;
 			dateTimePicker1.Value = DateTime.Now;
 			button_history.Visible = false;
-		}
+            button_delete.Enabled = false;
+            button_update.Enabled = false;
+        }
 
 		private void button_search_Click(object sender, EventArgs e)
 		{
@@ -90,33 +96,50 @@ namespace Transparent_Form
 			string phone = textBox_phone.Text;
 			string address = textBox_address.Text;
 			string gender = radioButton_male.Checked ? "Szerszám" : "Egyéb";
+			string mtars = textBox_mtars.Text;
 
 
 			if (verify())
 			{
-				try
+                string eszkozadatok = ($"Biztosan módosítani kívánja a következő eszközt?\nNév: {fname}\nMéret: {lname}\nDarabszám: {phone}\nTípus: {gender}\nRészletek: {address}\nMunkatárs: {mtars}");
+                DialogResult result = MessageBox.Show($"{eszkozadatok}", "Eszköz felvétele", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				if (result == DialogResult.Yes)
 				{
-					if (student.updateStudent(id, fname, lname, gender, phone, address))
+					try
 					{
-						showTable();
-						MessageBox.Show("Bejegyzés adatainak módosítása", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Information);
-						button_clear.PerformClick();
+						if (student.updateStudent(id, fname, lname, gender, phone, address, mtars))
+						{
+							showTable();
+							MessageBox.Show("Bejegyzés adatainak módosítása", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Information);
+							button_clear.PerformClick();
+						}
 					}
-				}
-				catch (Exception ex)
+					catch (Exception ex)
 
-				{
-					MessageBox.Show(ex.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					{
+						MessageBox.Show(ex.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
 				}
 			}
 			else
 			{
 				MessageBox.Show("Üres mező", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
+            textBox_id.Clear();
+            textBox_Fname.Clear();
+            textBox_Lname.Clear();
+            textBox_phone.Clear();
+            textBox_address.Clear();
+            radioButton_male.Checked = true;
+            dateTimePicker1.Value = DateTime.Now;
+            button_history.Visible = false;
+            button_update.Enabled = false;
+            button_delete.Enabled = false;
+			textBox_mtars.Clear();
 
-		}
+        }
 
-		private void button_delete_Click(object sender, EventArgs e)
+        private void button_delete_Click(object sender, EventArgs e)
 		{
 			//remove the selected Student
 			int id = Convert.ToInt32(textBox_id.Text);
@@ -130,9 +153,12 @@ namespace Transparent_Form
 					button_clear.PerformClick();
 				}
 			}
-		}
+            button_delete.Enabled = false;
+            button_update.Enabled = false;
 
-		private void textBox_search_TextChanged(object sender, EventArgs e)
+        }
+
+        private void textBox_search_TextChanged(object sender, EventArgs e)
 		{
 
 		}

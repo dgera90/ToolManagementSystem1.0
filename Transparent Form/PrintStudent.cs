@@ -31,7 +31,6 @@ namespace Transparent_Form
         public void showData(MySqlCommand command)
         {
             DataGridView_student.ReadOnly = true;
-            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
             DataGridView_student.DataSource = student.getList(command);
         }
 
