@@ -173,6 +173,16 @@ namespace Transparent_Form.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap rsz_2steel_surface {
+            get {
+                object obj = ResourceManager.GetObject("rsz_2steel-surface", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap shutdown_50px {
             get {
                 object obj = ResourceManager.GetObject("shutdown_50px", resourceCulture);

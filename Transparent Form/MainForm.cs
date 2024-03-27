@@ -127,5 +127,13 @@ namespace Transparent_Form
             login.Show();
         }
 
+		private void button_registration_Click(object sender, EventArgs e)
+		{
+			openChildForm(new RegisterForm());
+			//...
+			//..Your code
+			//...
+			hideSubmenu();
+		}
 	}
 }

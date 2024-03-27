@@ -26,6 +26,7 @@ namespace Transparent_Form
 		private void History_Load(object sender, EventArgs e)
 		{
 			string toolid = ToolClass.toolid;
+           
 		}
 
         // Handler for print call
@@ -60,5 +61,6 @@ namespace Transparent_Form
             // No longer deeded - dispose it
             _bitmap.Dispose();
         }
-    }
+
+	}
 }

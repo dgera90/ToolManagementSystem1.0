@@ -19,8 +19,9 @@ namespace Transparent_Form
 		public ManageToolForm()
 		{
 			InitializeComponent();
-			button_update.Enabled = false;
-			button_delete.Enabled = false;
+			button_update.Visible = false;
+			button_delete.Visible = false;
+			button_clear.Visible = false;
 		}
 
 		private void ManageToolForm_Load(object sender, EventArgs e)
@@ -58,10 +59,12 @@ namespace Transparent_Form
 			if (textBox_name.Text != "")
 			{
 				button_history.Visible = true;
-				button_update.Enabled = true;
-				button_delete.Enabled = true;
+				button_update.Visible = true;
+				button_delete.Visible = true;
+				button_clear.Visible = true;
+
+				}
 			}
-            }
         }
 
 		private void button_clear_Click(object sender, EventArgs e)
@@ -74,8 +77,9 @@ namespace Transparent_Form
 			radioButton_tool.Checked = true;
 			dateTimePicker1.Value = DateTime.Now;
 			button_history.Visible = false;
-            button_delete.Enabled = false;
-            button_update.Enabled = false;
+            button_delete.Visible = false;
+            button_update.Visible = false;
+			button_clear.Visible = false;
         }
 
 		private void button_search_Click(object sender, EventArgs e)
@@ -140,8 +144,9 @@ namespace Transparent_Form
             radioButton_tool.Checked = true;
             dateTimePicker1.Value = DateTime.Now;
             button_history.Visible = false;
-            button_update.Enabled = false;
-            button_delete.Enabled = false;
+            button_update.Visible = false;
+            button_delete.Visible = false;
+			button_clear.Visible = false;
 			textBox_mtars.Clear();
 
         }
@@ -160,9 +165,9 @@ namespace Transparent_Form
 					button_clear.PerformClick();
 				}
 			}
-            button_delete.Enabled = false;
-            button_update.Enabled = false;
-
+            button_delete.Visible = false;
+            button_update.Visible = false;
+			button_clear.Visible = false;
         }
 
 		private void button_history_Click(object sender, EventArgs e)
