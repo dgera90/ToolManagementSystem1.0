@@ -5,12 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
+using Microsoft.Identity.Client;
 
 namespace Transparent_Form
 {
 	class StudentClass
 	{
-		DBconnect connect = new DBconnect();
+		static string idtool;
+		public static string toolid
+		{
+			get
+			{
+				return idtool;
+			}
+			set
+			{
+				idtool = value;
+			}
+		}
+			DBconnect connect = new DBconnect();
 		//create a function to add a new students to the database
 
 
@@ -18,14 +31,14 @@ namespace Transparent_Form
 		{
 			MySqlCommand command = new MySqlCommand("INSERT INTO `eszkozok`(`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`) VALUES(@fn, @ln, @bd, @gd, @ph, @adr)", connect.getconnection);
 
-			//@fn, @ln, @bd, @gd, @ph, @adr
+
+			//@fn, @ln, @bd, @gd, @ph, @ad
 			command.Parameters.Add("@fn", MySqlDbType.VarChar).Value = fname;
 			command.Parameters.Add("@ln", MySqlDbType.VarChar).Value = lname;
 			command.Parameters.Add("@bd", MySqlDbType.DateTime).Value = DateTime.Now;
 			command.Parameters.Add("@gd", MySqlDbType.VarChar).Value = gender;
 			command.Parameters.Add("@ph", MySqlDbType.VarChar).Value = phone;
 			command.Parameters.Add("@adr", MySqlDbType.VarChar).Value = address;
-
 
 			connect.openConnect();
 			if (command.ExecuteNonQuery() == 1)
@@ -49,6 +62,18 @@ namespace Transparent_Form
 			adapter.Fill(table);
 			return table;
 		}
+
+		public DataTable getHistory(MySqlCommand command)
+		{
+			command.Parameters.Add("@toolid", MySqlDbType.Int32).Value = Convert.ToInt32(StudentClass.toolid);
+
+			command.Connection = connect.getconnection;
+			MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+			DataTable table = new DataTable();
+			adapter.Fill(table);
+			return table;
+		}
+
 		// Create a function to execute the count query(total, male , female)
 		public string exeCount(string query)
 		{
@@ -85,7 +110,7 @@ namespace Transparent_Form
 		//create a function edit for student
 		public bool updateStudent(int id, string fname, string lname, string gender, string phone, string address)
 		{
-			MySqlCommand command = new MySqlCommand("UPDATE `eszkozok` SET `toolName`=@fn,`toolSize`=@ln,`inDate`=@bd,`type`=@gd,`quantity`=@ph,`description`=@adr WHERE `id`= @id", connect.getconnection);
+			MySqlCommand command = new MySqlCommand("UPDATE `eszkozok` SET `toolName`=@fn,`toolSize`=@ln,`type`=@gd,`quantity`=@ph,`description`=@adr WHERE `id`= @id", connect.getconnection);
 			MySqlCommand commandHistory = new MySqlCommand("INSERT INTO `history`(`tool_id`,`modified_date`,`quantity`) VALUES (@ti,@md,@qua)", connect.getconnection);
 
 
@@ -93,7 +118,6 @@ namespace Transparent_Form
 			command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
 			command.Parameters.Add("@fn", MySqlDbType.VarChar).Value = fname;
 			command.Parameters.Add("@ln", MySqlDbType.VarChar).Value = lname;
-			command.Parameters.Add("@bd", MySqlDbType.DateTime).Value = DateTime.Now;
 			command.Parameters.Add("@gd", MySqlDbType.VarChar).Value = gender;
 			command.Parameters.Add("@ph", MySqlDbType.VarChar).Value = phone;
 			command.Parameters.Add("@adr", MySqlDbType.VarChar).Value = address;
@@ -138,28 +162,6 @@ namespace Transparent_Form
 			}
 
 		}
-
-		public bool GetHistory(int toolid)
-		{
-			MySqlCommand command = new MySqlCommand("SELECT * FROM `history` WHERE `id`=@id", connect.getconnection);
-
-			//@id
-			command.Parameters.Add("@id", MySqlDbType.Int32).Value = toolid;
-
-			connect.openConnect();
-				if (command.ExecuteNonQuery() == 1)
-				{
-					connect.closeConnect();
-					return true;
-				}
-				else
-				{
-					connect.closeConnect();
-					return false;
-				}
-			
-
-		}
 		// create a function for any command in studentDb
 		public DataTable getList(MySqlCommand command)
 		{
@@ -169,5 +171,6 @@ namespace Transparent_Form
 			adapter.Fill(table);
 			return table;
 		}
+
 	}
 }

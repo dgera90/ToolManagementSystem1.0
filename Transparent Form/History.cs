@@ -14,24 +14,15 @@ namespace Transparent_Form
 	public partial class History : Form
 	{
 		StudentClass student = new StudentClass();
-		DBconnect connect = new DBconnect();
-
 		public History()
 		{
 			InitializeComponent();
+			DataGridView_history.DataSource = student.getHistory(new MySqlCommand("SELECT `modified_date`,`quantity` FROM `history` WHERE `tool_id`=@toolid"));
+			DataGridView_history.ReadOnly = true;
 		}
 		private void History_Load(object sender, EventArgs e)
 		{
-			showTable();
-
+			string toolid = StudentClass.toolid;
 		}
-		// To show student list in DatagridView
-		public void showTable()
-		{
-			DataGridView_history.DataSource = student.getStudentlist(new MySqlCommand("SELECT * FROM `history`"));
-			DataGridView_history.ReadOnly = true;
-
-		}
-			
 	}
 }

@@ -88,7 +88,6 @@ namespace Transparent_Form
             textBox_phone.Clear();
             textBox_address.Clear();
             radioButton_male.Checked = true;
-            dateTimePicker1.Value = DateTime.Now;
         }
     }
 }

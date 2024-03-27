@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using MySql.Data.MySqlClient;
+using System.Reflection.Emit;
 
 namespace Transparent_Form
 {
@@ -28,10 +29,8 @@ namespace Transparent_Form
 		// To show student list in DatagridView
 		public void showTable()
 		{
-			DataGridView_student.DataSource = student.getStudentlist(new MySqlCommand("SELECT * FROM `eszkozok`"));
+			DataGridView_student.DataSource = student.getStudentlist(new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok`"));
 			DataGridView_student.ReadOnly = true;
-
-
 		}
 
 		//Display student data from student to textbox
@@ -140,13 +139,13 @@ namespace Transparent_Form
 
 		private void button_history_Click(object sender, EventArgs e)
 		{
-			
+			StudentClass.toolid = textBox_id.Text;
 			History myForm = new History();
-			myForm.ShowDialog();
 			int toolid = Convert.ToInt32(textBox_id.Text);
-			student.GetHistory(toolid);
+			myForm.Show();
 		}
+	}
 	
 	
 	}
-}
+
