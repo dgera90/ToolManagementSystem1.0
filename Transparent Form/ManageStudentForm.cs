@@ -38,6 +38,10 @@ namespace Transparent_Form
 		//Display student data from student to textbox
 		private void DataGridView_student_Click(object sender, EventArgs e)
 		{
+			if (DataGridView_student.Rows.Count>0)
+			{
+
+			
 			textBox_id.Text = DataGridView_student.CurrentRow.Cells[0].Value.ToString();
 			textBox_Fname.Text = DataGridView_student.CurrentRow.Cells[1].Value.ToString();
 			textBox_Lname.Text = DataGridView_student.CurrentRow.Cells[2].Value.ToString();
@@ -55,7 +59,8 @@ namespace Transparent_Form
 				button_update.Enabled = true;
 				button_delete.Enabled = true;
 			}
-		}
+            }
+        }
 
 		private void button_clear_Click(object sender, EventArgs e)
 		{

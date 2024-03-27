@@ -42,7 +42,7 @@ namespace Transparent_Form
         {
             showTable();
         }
-        // To show student list in DatagridView
+        // To show tool list in DatagridView
         public void showTable()
         {
             DataGridView_student.DataSource = student.getStudentlist(new MySqlCommand("SELECT * FROM `eszkozok`"));

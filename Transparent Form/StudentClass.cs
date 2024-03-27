@@ -26,7 +26,7 @@ namespace Transparent_Form
 			}
 		}
 			DBconnect connect = new DBconnect();
-		//create a function to add a new students to the database
+		//create a function to add a new tool to the database
 
 
 		public bool InsertStudent(string fname, string lname, string gender, string phone, string address)
@@ -58,7 +58,7 @@ namespace Transparent_Form
             
             
         }
-        // to get student table
+        // to get tool table
         public DataTable getStudentlist(MySqlCommand command)
 		{
 			command.Connection = connect.getconnection;

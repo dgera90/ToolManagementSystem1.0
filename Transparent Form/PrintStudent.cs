@@ -24,7 +24,7 @@ namespace Transparent_Form
 
         private void PrintStudent_Load(object sender, EventArgs e)
         {
-            showData(new MySqlCommand("SELECT * FROM `eszkozok`"));
+            showData(new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok`"));
         }
 
         // create a function to show the student list in datagridview
@@ -40,15 +40,15 @@ namespace Transparent_Form
             string selectQuery;
             if (radioButton_all.Checked)
             {
-                selectQuery = "SELECT* FROM `eszkozok`";
+                selectQuery = "SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok`";
             }
             else if (radioButton_male.Checked)
             {
-                selectQuery = "SELECT * FROM `eszkozok` WHERE `type`='Szerszám'";
+                selectQuery = "SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok` WHERE `type`='Szerszám'";
             }
             else
             {
-                selectQuery = "SELECT * FROM `eszkozok` WHERE `type`='Egyéb'";
+                selectQuery = "SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok` WHERE `type`='Egyéb'";
             }
             showData(new MySqlCommand(selectQuery));
         }
