@@ -8,6 +8,8 @@ using System.Data;
 using Microsoft.Identity.Client;
 using System.Windows.Forms;
 using System.Reflection;
+using Mysqlx.Crud;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Transparent_Form
 {
@@ -25,9 +27,8 @@ namespace Transparent_Form
 				idtool = value;
 			}
 		}
-			DBconnect connect = new DBconnect();
+		DBconnect connect = new DBconnect();
 		//create a function to add a new tool to the database
-
 
 		public bool InsertTool(string name, string size, string type, string quantity, string details)
 		{
@@ -58,8 +59,9 @@ namespace Transparent_Form
             
             
         }
-        // to get tool table
-        public DataTable getToollist(MySqlCommand command)
+
+		// to get tool table
+		public DataTable getToollist(MySqlCommand command)
 		{
 			command.Connection = connect.getconnection;
 			MySqlDataAdapter adapter = new MySqlDataAdapter(command);

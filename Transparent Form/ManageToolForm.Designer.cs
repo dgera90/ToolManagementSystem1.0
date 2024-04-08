@@ -29,10 +29,10 @@ namespace Transparent_Form
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.textBox_quantity = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
@@ -88,11 +88,11 @@ namespace Transparent_Form
 			// 
 			this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
 			this.label6.Location = new System.Drawing.Point(539, 22);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(125, 23);
+			this.label6.Size = new System.Drawing.Size(120, 23);
 			this.label6.TabIndex = 30;
 			this.label6.Text = "Darabszám:";
 			// 
@@ -139,11 +139,11 @@ namespace Transparent_Form
 			// 
 			this.radioButton_etc.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.radioButton_etc.AutoSize = true;
-			this.radioButton_etc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.radioButton_etc.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.radioButton_etc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
 			this.radioButton_etc.Location = new System.Drawing.Point(715, 63);
 			this.radioButton_etc.Name = "radioButton_etc";
-			this.radioButton_etc.Size = new System.Drawing.Size(92, 27);
+			this.radioButton_etc.Size = new System.Drawing.Size(86, 27);
 			this.radioButton_etc.TabIndex = 24;
 			this.radioButton_etc.Text = "Egyéb";
 			this.radioButton_etc.UseVisualStyleBackColor = true;
@@ -153,7 +153,7 @@ namespace Transparent_Form
 			this.radioButton_tool.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.radioButton_tool.AutoSize = true;
 			this.radioButton_tool.Checked = true;
-			this.radioButton_tool.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.radioButton_tool.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.radioButton_tool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
 			this.radioButton_tool.Location = new System.Drawing.Point(612, 63);
 			this.radioButton_tool.Name = "radioButton_tool";
@@ -184,11 +184,11 @@ namespace Transparent_Form
 			// 
 			this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
 			this.label4.Location = new System.Drawing.Point(291, 22);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(72, 23);
+			this.label4.Size = new System.Drawing.Size(76, 23);
 			this.label4.TabIndex = 20;
 			this.label4.Text = "Méret:";
 			// 
@@ -196,11 +196,11 @@ namespace Transparent_Form
 			// 
 			this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
 			this.label2.Location = new System.Drawing.Point(525, 65);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(63, 23);
+			this.label2.Size = new System.Drawing.Size(76, 23);
 			this.label2.TabIndex = 19;
 			this.label2.Text = "Típus:";
 			// 
@@ -216,11 +216,11 @@ namespace Transparent_Form
 			// 
 			this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
-			this.label5.Location = new System.Drawing.Point(60, 102);
+			this.label5.Location = new System.Drawing.Point(19, 102);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(108, 23);
+			this.label5.Size = new System.Drawing.Size(120, 23);
 			this.label5.TabIndex = 16;
 			this.label5.Text = "Részletek:";
 			// 
@@ -228,11 +228,11 @@ namespace Transparent_Form
 			// 
 			this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
 			this.label3.Location = new System.Drawing.Point(28, 65);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(147, 23);
+			this.label3.Size = new System.Drawing.Size(175, 23);
 			this.label3.TabIndex = 17;
 			this.label3.Text = "Felvétel ideje:";
 			this.label3.Visible = false;
@@ -241,11 +241,11 @@ namespace Transparent_Form
 			// 
 			this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
 			this.label1.Location = new System.Drawing.Point(41, 22);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(55, 23);
+			this.label1.Size = new System.Drawing.Size(54, 23);
 			this.label1.TabIndex = 15;
 			this.label1.Text = "Név:";
 			// 
@@ -253,33 +253,33 @@ namespace Transparent_Form
 			// 
 			this.DataGridView_tool.AllowUserToAddRows = false;
 			this.DataGridView_tool.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.DataGridView_tool.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.DataGridView_tool.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.DataGridView_tool.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.DataGridView_tool.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.DataGridView_tool.BackgroundColor = System.Drawing.Color.Gainsboro;
-			dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
-			dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(69)))), ((int)(((byte)(107)))));
-			dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.DataGridView_tool.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(69)))), ((int)(((byte)(107)))));
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.DataGridView_tool.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.DataGridView_tool.ColumnHeadersHeight = 24;
 			this.DataGridView_tool.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
 			this.DataGridView_tool.Cursor = System.Windows.Forms.Cursors.Default;
-			dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle15.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-			dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-			dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.DataGridView_tool.DefaultCellStyle = dataGridViewCellStyle15;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.DataGridView_tool.DefaultCellStyle = dataGridViewCellStyle3;
 			this.DataGridView_tool.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
 			this.DataGridView_tool.Location = new System.Drawing.Point(13, 93);
 			this.DataGridView_tool.Margin = new System.Windows.Forms.Padding(1);
@@ -287,8 +287,8 @@ namespace Transparent_Form
 			this.DataGridView_tool.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			this.DataGridView_tool.RowHeadersVisible = false;
 			this.DataGridView_tool.RowHeadersWidth = 51;
-			dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.DataGridView_tool.RowsDefaultCellStyle = dataGridViewCellStyle16;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.DataGridView_tool.RowsDefaultCellStyle = dataGridViewCellStyle4;
 			this.DataGridView_tool.RowTemplate.Height = 80;
 			this.DataGridView_tool.Size = new System.Drawing.Size(1109, 281);
 			this.DataGridView_tool.TabIndex = 15;
@@ -361,11 +361,11 @@ namespace Transparent_Form
 			// 
 			this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label9.AutoSize = true;
-			this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label9.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
 			this.label9.Location = new System.Drawing.Point(616, 118);
 			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(117, 23);
+			this.label9.Size = new System.Drawing.Size(120, 23);
 			this.label9.TabIndex = 36;
 			this.label9.Text = "Munkatárs:";
 			// 
@@ -381,8 +381,9 @@ namespace Transparent_Form
 			// 
 			this.button_history.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.button_history.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.button_history.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.button_history.Cursor = System.Windows.Forms.Cursors.Default;
 			this.button_history.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+			this.button_history.FlatAppearance.BorderSize = 0;
 			this.button_history.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button_history.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.button_history.ForeColor = System.Drawing.SystemColors.ButtonFace;
