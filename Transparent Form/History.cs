@@ -1,15 +1,19 @@
 ﻿using DGVPrinterHelper;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace Transparent_Form
 {
@@ -17,14 +21,16 @@ namespace Transparent_Form
 	{
 		ToolClass tool = new ToolClass();
 
+
         public History()
-		{
-			InitializeComponent();
-			DataGridView_history.DataSource = tool.getHistory(new MySqlCommand("SELECT `modified_date` AS 'Módosítva',`quantity` AS Darabszám, `munkatars` AS Munkatárs FROM `history` WHERE `tool_id`=@toolid"));
-			DataGridView_history.ReadOnly = true;
-			string toolid = ToolClass.toolid;
-		}
-		private void History_Load(object sender, EventArgs e)
+        {
+            InitializeComponent();
+            DataGridView_history.DataSource = tool.getHistory(new MySqlCommand("SELECT `modified_date` AS 'Módosítva',`quantity` AS Darabszám, `munkatars` AS Munkatárs FROM `history` WHERE `tool_id`=@toolid"));
+            DataGridView_history.ReadOnly = true;
+            string toolid = ToolClass.toolid;
+        }
+    }
+        private void History_Load(object sender, EventArgs e)
 		{
             
 

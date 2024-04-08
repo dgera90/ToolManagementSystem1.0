@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tool Management System 1.0", "Transparent Form\Tool Management System 1.0.csproj", "{AD5FFA51-27EF-4B14-9309-C4F69D4E257A}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{C5ABE553-30A9-4075-ABDB-8915897B273C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{AD5FFA51-27EF-4B14-9309-C4F69D4E257A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD5FFA51-27EF-4B14-9309-C4F69D4E257A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD5FFA51-27EF-4B14-9309-C4F69D4E257A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5ABE553-30A9-4075-ABDB-8915897B273C}.Debug|Any CPU.ActiveCfg = Debug
+		{C5ABE553-30A9-4075-ABDB-8915897B273C}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Reflection;
 using Mysqlx.Crud;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using Mysqlx;
+using MySqlX.XDevAPI.Common;
 
 namespace Transparent_Form
 {
@@ -33,6 +35,7 @@ namespace Transparent_Form
 		public bool InsertTool(string name, string size, string type, string quantity, string details)
 		{
 			MySqlCommand command = new MySqlCommand("INSERT INTO `eszkozok`(`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`) VALUES(@nm, @sz, @dt, @tp, @qua, @det)", connect.getconnection);
+			MySqlCommand command2 = new MySqlCommand("INSERT INTO `felvetel`(`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`) VALUES(@nm, @sz, @dt, @tp, @qua, @det)", connect.getconnection);
 
 
             //@nm, @sz, @dt, @tp, @qua, @det
@@ -43,10 +46,17 @@ namespace Transparent_Form
 			command.Parameters.Add("@qua", MySqlDbType.VarChar).Value = quantity;
 			command.Parameters.Add("@det", MySqlDbType.VarChar).Value = details;
 
+            command2.Parameters.Add("@nm", MySqlDbType.VarChar).Value = name;
+            command2.Parameters.Add("@sz", MySqlDbType.VarChar).Value = size;
+            command2.Parameters.Add("@dt", MySqlDbType.DateTime).Value = DateTime.Now;
+            command2.Parameters.Add("@tp", MySqlDbType.VarChar).Value = type;
+            command2.Parameters.Add("@qua", MySqlDbType.VarChar).Value = quantity;
+            command2.Parameters.Add("@det", MySqlDbType.VarChar).Value = details;
+
 
             connect.openConnect();
 
-				if (command.ExecuteNonQuery() == 1)
+				if (command.ExecuteNonQuery() == 1 && command2.ExecuteNonQuery() == 1)
 				{
 					connect.closeConnect();
 					return true;
@@ -81,8 +91,8 @@ namespace Transparent_Form
 			return table;
 		}
 
-		// Create a function to execute the count query(total, tool , etc)
-		public string exeCount(string query)
+        // Create a function to execute the count query(total, tool , etc)
+        public string exeCount(string query)
 		{
 			MySqlCommand command = new MySqlCommand(query, connect.getconnection);
 			connect.openConnect();
@@ -148,9 +158,9 @@ namespace Transparent_Form
 			}
 
 		}
-		//Create a function to delete data
-		//we need only id 
-		public bool deleteTool(int id)
+        //Create a function to delete data
+        //we need only id 
+        public bool deleteTool(int id)
 		{
 			MySqlCommand command = new MySqlCommand("DELETE FROM `eszkozok` WHERE `id`=@id", connect.getconnection);
 
