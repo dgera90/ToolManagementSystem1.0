@@ -38,7 +38,7 @@ namespace Transparent_Form
         {
             if (textBox_usrname.Text == "" || textBox_password.Text == "")
             {
-                MessageBox.Show("Need login data", "Wrong Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hiányzó adatok!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -55,10 +55,19 @@ namespace Transparent_Form
                 }
                 else
                 {
-                    MessageBox.Show("Your username and password are not exists", "Wrong Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nem megfelelő felhasználónév vagy jelszó!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }   
 
         }
-    }
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			DialogResult result = MessageBox.Show($"Biztosan ki szeretne lépni?", "Kilépés", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+			}
+	}
 }

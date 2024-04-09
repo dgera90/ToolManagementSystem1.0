@@ -28,8 +28,11 @@ namespace Transparent_Form
             DataGridView_history.DataSource = tool.getHistory(new MySqlCommand("SELECT `modified_date` AS 'Módosítva',`quantity` AS Darabszám, `munkatars` AS Munkatárs FROM `history` WHERE `tool_id`=@toolid"));
             DataGridView_history.ReadOnly = true;
             string toolid = ToolClass.toolid;
-        }
-    }
+
+			
+
+		}
+    
         private void History_Load(object sender, EventArgs e)
 		{
             

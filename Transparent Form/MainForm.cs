@@ -122,10 +122,12 @@ namespace Transparent_Form
 
         private void button_exit_Click_1(object sender, EventArgs e)
         {
-            LoginForm login = new LoginForm();
-            this.Hide();
-            login.Show();
-        }
+			DialogResult result = MessageBox.Show($"Biztosan ki szeretne lépni?", "Kilépés", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			if (result == DialogResult.Yes)
+			{
+				Application.Exit();
+			}
+		}
 
 		private void button_registration_Click(object sender, EventArgs e)
 		{
