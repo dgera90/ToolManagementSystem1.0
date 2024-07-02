@@ -91,6 +91,17 @@ namespace Transparent_Form
 			return table;
 		}
 
+        public DataTable originTool(MySqlCommand command)
+        {
+            command.Parameters.Add("@toolid", MySqlDbType.Int32).Value = Convert.ToInt32(ToolClass.toolid);
+
+            command.Connection = connect.getconnection;
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
         // Create a function to execute the count query(total, tool , etc)
         public string exeCount(string query)
 		{
@@ -158,17 +169,22 @@ namespace Transparent_Form
 			}
 
 		}
+       
         //Create a function to delete data
         //we need only id 
         public bool deleteTool(int id)
 		{
 			MySqlCommand command = new MySqlCommand("DELETE FROM `eszkozok` WHERE `id`=@id", connect.getconnection);
+            MySqlCommand command2 = new MySqlCommand("DELETE FROM `felvetel` WHERE `id`=@id", connect.getconnection);
 
-			//@id
-			command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
 
-			connect.openConnect();
-			if (command.ExecuteNonQuery() == 1)
+            //@id
+            command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+            command2.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+
+
+            connect.openConnect();
+			if (command.ExecuteNonQuery() == 1 && command2.ExecuteNonQuery()==1)
 			{
 				connect.closeConnect();
 				return true;

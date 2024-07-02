@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Transparent_Form
 {
@@ -28,10 +29,12 @@ namespace Transparent_Form
             DataGridView_history.DataSource = tool.getHistory(new MySqlCommand("SELECT `modified_date` AS 'Módosítva',`quantity` AS Darabszám, `munkatars` AS Munkatárs FROM `history` WHERE `tool_id`=@toolid"));
             DataGridView_history.ReadOnly = true;
             string toolid = ToolClass.toolid;
+            
+            DataOrigin.DataSource = tool.originTool(new MySqlCommand("SELECT `toolName` AS 'Név', `toolSize` AS 'Méret', `inDate` AS 'Felvétel ideje', `type` AS 'Típus', `quantity` AS 'Darabszám', `description` AS 'Részletek' FROM `felvetel` WHERE `id`=@toolid"));
+            DataOrigin.ReadOnly = true;
 
-			
 
-		}
+        }
     
         private void History_Load(object sender, EventArgs e)
 		{

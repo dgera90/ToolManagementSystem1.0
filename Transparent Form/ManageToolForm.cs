@@ -32,9 +32,10 @@ namespace Transparent_Form
 		// To show student list in DatagridView
 		public void showTable()
 		{
-			DataGridView_tool.DataSource = tool.getToollist(new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok`"));
+			DataGridView_tool.DataSource = tool.getToollist(new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Darabszám, `description` AS Részletek FROM `eszkozok`"));
 			DataGridView_tool.ReadOnly = true;
-		}
+			DataGridView_tool.Columns["Azonosító"].Visible = false;
+        }
 
 		//Display student data from student to textbox
 		private void DataGridView_tool_Click(object sender, EventArgs e)
@@ -121,7 +122,7 @@ namespace Transparent_Form
 						if (tool.updateTool(id, name, size, type, quantity, details, mtars))
 						{
 							showTable();
-							MessageBox.Show("Bejegyzés adatainak módosítása", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Information);
+							MessageBox.Show("Bejegyzcés adatainak módosítása", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Information);
 							button_clear.PerformClick();
 						}
 					}

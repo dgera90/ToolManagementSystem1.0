@@ -29,92 +29,92 @@ namespace Transparent_Form
         /// </summary>
         private void InitializeComponent()
         {
-			this.components = new System.ComponentModel.Container();
-			this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
-			this.guna2CircleButton2 = new Guna.UI2.WinForms.Guna2CircleButton();
-			this.guna2CircleButton3 = new Guna.UI2.WinForms.Guna2CircleButton();
-			this.label1 = new System.Windows.Forms.Label();
-			this.ProgressIndicator1 = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
-			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.SuspendLayout();
-			// 
-			// guna2CircleButton1
-			// 
-			this.guna2CircleButton1.FillColor = System.Drawing.Color.White;
-			this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
-			this.guna2CircleButton1.Location = new System.Drawing.Point(599, -29);
-			this.guna2CircleButton1.Name = "guna2CircleButton1";
-			this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-			this.guna2CircleButton1.Size = new System.Drawing.Size(315, 301);
-			this.guna2CircleButton1.TabIndex = 0;
-			// 
-			// guna2CircleButton2
-			// 
-			this.guna2CircleButton2.FillColor = System.Drawing.Color.White;
-			this.guna2CircleButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.guna2CircleButton2.ForeColor = System.Drawing.Color.White;
-			this.guna2CircleButton2.Location = new System.Drawing.Point(-25, 333);
-			this.guna2CircleButton2.Name = "guna2CircleButton2";
-			this.guna2CircleButton2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-			this.guna2CircleButton2.Size = new System.Drawing.Size(229, 196);
-			this.guna2CircleButton2.TabIndex = 0;
-			// 
-			// guna2CircleButton3
-			// 
-			this.guna2CircleButton3.FillColor = System.Drawing.Color.White;
-			this.guna2CircleButton3.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.guna2CircleButton3.ForeColor = System.Drawing.Color.White;
-			this.guna2CircleButton3.Location = new System.Drawing.Point(-100, -3);
-			this.guna2CircleButton3.Name = "guna2CircleButton3";
-			this.guna2CircleButton3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-			this.guna2CircleButton3.Size = new System.Drawing.Size(229, 196);
-			this.guna2CircleButton3.TabIndex = 0;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(241, 136);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(441, 37);
-			this.label1.TabIndex = 1;
-			this.label1.Text = "Tool Management System 1.0";
-			// 
-			// ProgressIndicator1
-			// 
-			this.ProgressIndicator1.CircleSize = 1F;
-			this.ProgressIndicator1.Location = new System.Drawing.Point(372, 333);
-			this.ProgressIndicator1.Name = "ProgressIndicator1";
-			this.ProgressIndicator1.ProgressColor = System.Drawing.Color.DarkViolet;
-			this.ProgressIndicator1.Size = new System.Drawing.Size(90, 90);
-			this.ProgressIndicator1.TabIndex = 2;
-			// 
-			// timer1
-			// 
-			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-			// 
-			// SplashForm
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(69)))), ((int)(((byte)(107)))));
-			this.ClientSize = new System.Drawing.Size(828, 447);
-			this.Controls.Add(this.ProgressIndicator1);
-			this.Controls.Add(this.label1);
-			this.Controls.Add(this.guna2CircleButton3);
-			this.Controls.Add(this.guna2CircleButton2);
-			this.Controls.Add(this.guna2CircleButton1);
-			this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ForeColor = System.Drawing.Color.White;
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.Margin = new System.Windows.Forms.Padding(5);
-			this.Name = "SplashForm";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "SplashForm";
-			this.Load += new System.EventHandler(this.SplashForm_Load);
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.components = new System.ComponentModel.Container();
+            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.guna2CircleButton2 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.guna2CircleButton3 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ProgressIndicator1 = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.SuspendLayout();
+            // 
+            // guna2CircleButton1
+            // 
+            this.guna2CircleButton1.FillColor = System.Drawing.Color.White;
+            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButton1.Location = new System.Drawing.Point(599, -29);
+            this.guna2CircleButton1.Name = "guna2CircleButton1";
+            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleButton1.Size = new System.Drawing.Size(315, 301);
+            this.guna2CircleButton1.TabIndex = 0;
+            // 
+            // guna2CircleButton2
+            // 
+            this.guna2CircleButton2.FillColor = System.Drawing.Color.White;
+            this.guna2CircleButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2CircleButton2.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButton2.Location = new System.Drawing.Point(-25, 333);
+            this.guna2CircleButton2.Name = "guna2CircleButton2";
+            this.guna2CircleButton2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleButton2.Size = new System.Drawing.Size(229, 196);
+            this.guna2CircleButton2.TabIndex = 0;
+            // 
+            // guna2CircleButton3
+            // 
+            this.guna2CircleButton3.FillColor = System.Drawing.Color.White;
+            this.guna2CircleButton3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2CircleButton3.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButton3.Location = new System.Drawing.Point(-100, -3);
+            this.guna2CircleButton3.Name = "guna2CircleButton3";
+            this.guna2CircleButton3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleButton3.Size = new System.Drawing.Size(229, 196);
+            this.guna2CircleButton3.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(241, 136);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(434, 36);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Tool Management System 1.0";
+            // 
+            // ProgressIndicator1
+            // 
+            this.ProgressIndicator1.CircleSize = 1F;
+            this.ProgressIndicator1.Location = new System.Drawing.Point(372, 333);
+            this.ProgressIndicator1.Name = "ProgressIndicator1";
+            this.ProgressIndicator1.ProgressColor = System.Drawing.SystemColors.ControlDark;
+            this.ProgressIndicator1.Size = new System.Drawing.Size(90, 90);
+            this.ProgressIndicator1.TabIndex = 2;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // SplashForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(69)))), ((int)(((byte)(107)))));
+            this.ClientSize = new System.Drawing.Size(828, 447);
+            this.Controls.Add(this.ProgressIndicator1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.guna2CircleButton3);
+            this.Controls.Add(this.guna2CircleButton2);
+            this.Controls.Add(this.guna2CircleButton1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Name = "SplashForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "SplashForm";
+            this.Load += new System.EventHandler(this.SplashForm_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
