@@ -29,7 +29,6 @@ namespace Transparent_Form
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel_slide = new System.Windows.Forms.Panel();
             this.button_exit = new System.Windows.Forms.Button();
             this.button_dashboard = new System.Windows.Forms.Button();
@@ -39,12 +38,10 @@ namespace Transparent_Form
             this.button_registration = new System.Windows.Forms.Button();
             this.button_std = new System.Windows.Forms.Button();
             this.panel_logo = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel_main = new System.Windows.Forms.Panel();
             this.panel_cover = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label_femaleStd = new System.Windows.Forms.Label();
             this.label_maleStd = new System.Windows.Forms.Label();
@@ -55,10 +52,8 @@ namespace Transparent_Form
             this.panel_slide.SuspendLayout();
             this.panel_stdsubmenu.SuspendLayout();
             this.panel_logo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_main.SuspendLayout();
             this.panel_cover.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +61,7 @@ namespace Transparent_Form
             // panel_slide
             // 
             this.panel_slide.AutoScroll = true;
-            this.panel_slide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(69)))), ((int)(((byte)(107)))));
+            this.panel_slide.BackColor = System.Drawing.SystemColors.HotTrack;
             this.panel_slide.Controls.Add(this.button_exit);
             this.panel_slide.Controls.Add(this.button_dashboard);
             this.panel_slide.Controls.Add(this.panel_stdsubmenu);
@@ -115,7 +110,7 @@ namespace Transparent_Form
             // 
             // panel_stdsubmenu
             // 
-            this.panel_stdsubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
+            this.panel_stdsubmenu.BackColor = System.Drawing.SystemColors.HotTrack;
             this.panel_stdsubmenu.Controls.Add(this.button_stdPrint);
             this.panel_stdsubmenu.Controls.Add(this.button_manageStd);
             this.panel_stdsubmenu.Controls.Add(this.button_registration);
@@ -127,6 +122,7 @@ namespace Transparent_Form
             // 
             // button_stdPrint
             // 
+            this.button_stdPrint.BackColor = System.Drawing.SystemColors.Highlight;
             this.button_stdPrint.Dock = System.Windows.Forms.DockStyle.Top;
             this.button_stdPrint.FlatAppearance.BorderSize = 0;
             this.button_stdPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -138,11 +134,12 @@ namespace Transparent_Form
             this.button_stdPrint.TabIndex = 3;
             this.button_stdPrint.Text = "Nyomtat";
             this.button_stdPrint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_stdPrint.UseVisualStyleBackColor = true;
+            this.button_stdPrint.UseVisualStyleBackColor = false;
             this.button_stdPrint.Click += new System.EventHandler(this.button_stdPrint_Click);
             // 
             // button_manageStd
             // 
+            this.button_manageStd.BackColor = System.Drawing.SystemColors.Highlight;
             this.button_manageStd.Dock = System.Windows.Forms.DockStyle.Top;
             this.button_manageStd.FlatAppearance.BorderSize = 0;
             this.button_manageStd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -154,11 +151,12 @@ namespace Transparent_Form
             this.button_manageStd.TabIndex = 1;
             this.button_manageStd.Text = "Keresés";
             this.button_manageStd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_manageStd.UseVisualStyleBackColor = true;
+            this.button_manageStd.UseVisualStyleBackColor = false;
             this.button_manageStd.Click += new System.EventHandler(this.button_manageStd_Click);
             // 
             // button_registration
             // 
+            this.button_registration.BackColor = System.Drawing.SystemColors.Highlight;
             this.button_registration.Dock = System.Windows.Forms.DockStyle.Top;
             this.button_registration.FlatAppearance.BorderSize = 0;
             this.button_registration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -170,7 +168,7 @@ namespace Transparent_Form
             this.button_registration.TabIndex = 0;
             this.button_registration.Text = "Felvétel";
             this.button_registration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_registration.UseVisualStyleBackColor = true;
+            this.button_registration.UseVisualStyleBackColor = false;
             this.button_registration.Click += new System.EventHandler(this.button_registration_Click);
             // 
             // button_std
@@ -192,8 +190,7 @@ namespace Transparent_Form
             // 
             // panel_logo
             // 
-            this.panel_logo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
-            this.panel_logo.Controls.Add(this.pictureBox1);
+            this.panel_logo.BackColor = System.Drawing.SystemColors.HotTrack;
             this.panel_logo.Controls.Add(this.label4);
             this.panel_logo.Controls.Add(this.label3);
             this.panel_logo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -203,16 +200,6 @@ namespace Transparent_Form
             this.panel_logo.Size = new System.Drawing.Size(200, 141);
             this.panel_logo.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(39, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(106, 71);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -220,7 +207,7 @@ namespace Transparent_Form
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(92, 111);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 25);
+            this.label4.Size = new System.Drawing.Size(68, 20);
             this.label4.TabIndex = 0;
             this.label4.Text = "System";
             // 
@@ -231,7 +218,7 @@ namespace Transparent_Form
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(3, 88);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(186, 25);
+            this.label3.Size = new System.Drawing.Size(152, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tool Management";
             // 
@@ -249,7 +236,6 @@ namespace Transparent_Form
             this.panel_cover.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel_cover.BackgroundImage = global::Transparent_Form.Properties.Resources.rsz_2steel_surface;
             this.panel_cover.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel_cover.Controls.Add(this.pictureBox2);
             this.panel_cover.Controls.Add(this.panel3);
             this.panel_cover.Controls.Add(this.panel2);
             this.panel_cover.Controls.Add(this.panel1);
@@ -259,23 +245,9 @@ namespace Transparent_Form
             this.panel_cover.Size = new System.Drawing.Size(1134, 613);
             this.panel_cover.TabIndex = 0;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(327, 196);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(476, 317);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(69)))), ((int)(((byte)(107)))));
+            this.panel3.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel3.Controls.Add(this.label_femaleStd);
             this.panel3.Controls.Add(this.label_maleStd);
             this.panel3.Controls.Add(this.label_totalStd);
@@ -292,7 +264,7 @@ namespace Transparent_Form
             this.label_femaleStd.ForeColor = System.Drawing.Color.White;
             this.label_femaleStd.Location = new System.Drawing.Point(153, 49);
             this.label_femaleStd.Name = "label_femaleStd";
-            this.label_femaleStd.Size = new System.Drawing.Size(74, 25);
+            this.label_femaleStd.Size = new System.Drawing.Size(58, 20);
             this.label_femaleStd.TabIndex = 2;
             this.label_femaleStd.Text = "Egyéb:";
             // 
@@ -303,7 +275,7 @@ namespace Transparent_Form
             this.label_maleStd.ForeColor = System.Drawing.Color.White;
             this.label_maleStd.Location = new System.Drawing.Point(40, 49);
             this.label_maleStd.Name = "label_maleStd";
-            this.label_maleStd.Size = new System.Drawing.Size(111, 25);
+            this.label_maleStd.Size = new System.Drawing.Size(88, 20);
             this.label_maleStd.TabIndex = 2;
             this.label_maleStd.Text = "Szerszám :";
             // 
@@ -314,13 +286,13 @@ namespace Transparent_Form
             this.label_totalStd.ForeColor = System.Drawing.Color.White;
             this.label_totalStd.Location = new System.Drawing.Point(35, 13);
             this.label_totalStd.Name = "label_totalStd";
-            this.label_totalStd.Size = new System.Drawing.Size(142, 25);
+            this.label_totalStd.Size = new System.Drawing.Size(112, 20);
             this.label_totalStd.TabIndex = 1;
             this.label_totalStd.Text = "Teljes készlet :";
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(69)))), ((int)(((byte)(107)))));
+            this.panel2.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 69);
             this.panel2.Name = "panel2";
@@ -329,6 +301,7 @@ namespace Transparent_Form
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel1.Controls.Add(this.label12);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -340,16 +313,16 @@ namespace Transparent_Form
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(69)))), ((int)(((byte)(107)))));
+            this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(8, 24);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(264, 25);
+            this.label12.Size = new System.Drawing.Size(216, 20);
             this.label12.TabIndex = 0;
             this.label12.Text = "Tool Management System";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1334, 613);
             this.Controls.Add(this.panel_main);
@@ -366,10 +339,8 @@ namespace Transparent_Form
             this.panel_stdsubmenu.ResumeLayout(false);
             this.panel_logo.ResumeLayout(false);
             this.panel_logo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_main.ResumeLayout(false);
             this.panel_cover.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -400,7 +371,5 @@ namespace Transparent_Form
         private System.Windows.Forms.Label label_totalStd;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button_exit;
-		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.PictureBox pictureBox2;
 	}
 }

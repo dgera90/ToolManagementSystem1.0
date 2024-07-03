@@ -24,7 +24,7 @@ namespace Transparent_Form
 
         private void PrintStudent_Load(object sender, EventArgs e)
         {
-            showData(new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok`"));
+            showData(new MySqlCommand("SELECT `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok`"));
         }
 
         // create a function to show the tool list in datagridview
