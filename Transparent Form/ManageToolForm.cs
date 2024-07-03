@@ -91,7 +91,7 @@ namespace Transparent_Form
 		bool verify()
 		{
 			if ((textBox_name.Text == "") || (textBox_size.Text == "") ||
-				(textBox_quantity.Text == "") || (textBox_details.Text == ""))
+				(textBox_quantity.Text == ""))
 			{
 				return false;
 			}
