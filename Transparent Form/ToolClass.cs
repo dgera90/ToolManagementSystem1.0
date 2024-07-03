@@ -126,7 +126,7 @@ namespace Transparent_Form
 		{
 			return exeCount("SELECT COUNT(*) FROM eszkozok WHERE `type`='Egyéb'");
 		}
-		//create a function search for student (first name, last name, address)
+		//create a function search for tool
 		public DataTable searchTool(string searchdata)
 		{
 			MySqlCommand command = new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok` WHERE CONCAT(`toolName`,`toolSize`,`description`) LIKE '%" + searchdata + "%'", connect.getconnection);

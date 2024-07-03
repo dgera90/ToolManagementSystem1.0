@@ -27,8 +27,8 @@ namespace Transparent_Form
         //create a function to verify
         bool verify()
         {
-            if ((textBox_name.Text == "") || (textBox_size.Text == "") ||
-                (textBox_quantity.Text == "") || (textBox_details.Text == ""))
+            if ((comboBox_name.Text == "") || (textBox_size.Text == "") ||
+                (textBox_quantity.Text == ""))
             {
                 return false;
             }
@@ -51,9 +51,9 @@ namespace Transparent_Form
 
         private void button_add_Click(object sender, EventArgs e)
         {
-            // add new student
-            string name = textBox_name.Text;
-            string size = textBox_size.Text;
+            // add new tool
+            string name = comboBox_name.Text;
+            string size = textBox_size.Text.Replace(",", "."); ;
             string quantity = textBox_quantity.Text;
             string details = textBox_details.Text;
             string type = radioButton_tool.Checked ? "Szerszám" : "Egyéb";
@@ -61,13 +61,14 @@ namespace Transparent_Form
 
             if (verify())
             {
+
                 string eszkozadatok = ($"Biztosan hozzá kívánja adni a következő eszközt?\nNév: {name}\nMéret: {size}\nDarabszám: {quantity}\nTípus: {type}\nRészletek: {details}");
                 DialogResult result = MessageBox.Show($"{eszkozadatok}", "Eszköz felvétele", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result==DialogResult.Yes)
                 {
                     try
                     {
-                        // to get photo from picture box
+                       
                         if (tool.InsertTool(name, size, type, quantity, details))
                         {
                             showTable();
@@ -92,7 +93,6 @@ namespace Transparent_Form
 
         private void button_clear_Click(object sender, EventArgs e)
         {
-            textBox_name.Clear();
             textBox_size.Clear();
             textBox_quantity.Clear();
             textBox_details.Clear();

@@ -113,25 +113,36 @@ namespace Transparent_Form
 
 			if (verify())
 			{
-                string eszkozadatok = ($"Biztosan módosítani kívánja a következő eszközt?\nNév: {name}\nMéret: {size}\nDarabszám: {quantity}\nTípus: {type}\nRészletek: {details}\nMunkatárs: {mtars}");
-                DialogResult result = MessageBox.Show($"{eszkozadatok}", "Eszköz felvétele", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-				if (result == DialogResult.Yes)
-				{
-					try
+					string eszkozadatok = ($"Biztosan módosítani kívánja a következő eszközt?\nNév: {name}\nMéret: {size}\nDarabszám: {quantity}\nTípus: {type}\nRészletek: {details}\nMunkatárs: {mtars}");
+					DialogResult result = MessageBox.Show($"{eszkozadatok}", "Eszköz felvétele", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+					if (result == DialogResult.Yes)
 					{
-						if (tool.updateTool(id, name, size, type, quantity, details, mtars))
+						try
 						{
-							showTable();
-							MessageBox.Show("Bejegyzcés adatainak módosítása", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Information);
-							button_clear.PerformClick();
+							if (textBox_mtars.Text != "")
+							{
+
+						
+								if (tool.updateTool(id, name, size, type, quantity, details, mtars))
+								{
+									showTable();
+									MessageBox.Show("Bejegyzés adatainak módosítása", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Information);
+									button_clear.PerformClick();
+								}
+							}
+							else
+							{
+								MessageBox.Show("Munkatárs mező üres!","Hiba", MessageBoxButtons.OK);
+
+							}
+						}
+						catch (Exception ex)
+
+						{
+							MessageBox.Show(ex.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
 						}
 					}
-					catch (Exception ex)
-
-					{
-						MessageBox.Show(ex.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					}
-				}
+				
 			}
 			else
 			{
@@ -154,9 +165,9 @@ namespace Transparent_Form
 
         private void button_delete_Click(object sender, EventArgs e)
 		{
-			//remove the selected Student
+			//remove the selected tool
 			int id = Convert.ToInt32(textBox_id.Text);
-			//Show a confirmation message before delete the student
+			//Show a confirmation message before delete the tool
 			if (MessageBox.Show("Biztosan eltávolítod a bejegyzést?", "Törlés", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				if (tool.deleteTool(id))
