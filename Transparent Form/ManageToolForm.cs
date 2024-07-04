@@ -14,8 +14,11 @@ using System.Reflection.Emit;
 namespace Transparent_Form
 {
 	public partial class ManageToolForm : Form
+
 	{
-		ToolClass tool = new ToolClass();
+        DBconnect connect = new DBconnect();
+
+        ToolClass tool = new ToolClass();
 		public ManageToolForm()
 		{
 			InitializeComponent();
@@ -34,7 +37,7 @@ namespace Transparent_Form
 		{
 			DataGridView_tool.DataSource = tool.getToollist(new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Darabszám, `description` AS Részletek FROM `eszkozok`"));
 			DataGridView_tool.ReadOnly = true;
-			DataGridView_tool.Columns["Azonosító"].Visible = false;
+			DataGridView_tool.Columns["Azonosító"].Visible = true;
         }
 
 		//Display student data from student to textbox
@@ -66,6 +69,25 @@ namespace Transparent_Form
 
 				}
 			}
+
+            try
+            {
+                comboBox_mtars.Items.Clear();
+
+                string selectQuery = "SELECT `name` FROM `munkatars`";
+                connect.openConnect();
+                MySqlCommand command = new MySqlCommand(selectQuery, connect.getconnection);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    comboBox_mtars.Items.Add(reader.GetString("name"));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            connect.closeConnect();
         }
 
 		private void button_clear_Click(object sender, EventArgs e)
@@ -75,6 +97,7 @@ namespace Transparent_Form
 			textBox_size.Clear();
 			textBox_quantity.Clear();
 			textBox_details.Clear();
+			comboBox_mtars.Items.Clear();
 			radioButton_tool.Checked = true;
 			dateTimePicker1.Value = DateTime.Now;
 			button_history.Visible = false;
@@ -108,7 +131,7 @@ namespace Transparent_Form
 			string quantity = textBox_quantity.Text;
 			string details = textBox_details.Text;
 			string type = radioButton_tool.Checked ? "Szerszám" : "Egyéb";
-			string mtars = textBox_mtars.Text;
+			string mtars = comboBox_mtars.Text;
 
 
 			if (verify())
@@ -119,7 +142,7 @@ namespace Transparent_Form
 					{
 						try
 						{
-							if (textBox_mtars.Text != "")
+							if (comboBox_mtars.Text != "")
 							{
 
 						
@@ -159,7 +182,7 @@ namespace Transparent_Form
             button_update.Visible = false;
             button_delete.Visible = false;
 			button_clear.Visible = false;
-			textBox_mtars.Clear();
+			comboBox_mtars.Items.Clear();
 
         }
 

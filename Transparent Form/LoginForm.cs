@@ -11,6 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace Transparent_Form
 {
+
     public partial class LoginForm : Form
     {
         ToolClass tool = new ToolClass();
@@ -47,7 +48,6 @@ namespace Transparent_Form
                 DataTable table = tool.getList(new MySqlCommand("SELECT * FROM `user` WHERE `username`= '" + uname + "' AND `password`='" + pass + "'"));
                 if (table.Rows.Count > 0)
                 {
-
                     MainForm main = new MainForm();
                     this.Hide();
                     main.Show();

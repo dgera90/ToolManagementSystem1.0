@@ -205,6 +205,27 @@ namespace Transparent_Form
 			adapter.Fill(table);
 			return table;
 		}
+        public bool getRole(string role)
+        {
+            MySqlCommand command = new MySqlCommand("SELECT `role` FROM `user` WHERE `role`=@role", connect.getconnection);
+			
 
+            //@id
+            command.Parameters.Add("@role", MySqlDbType.String).Value = "admin";
+
+
+            connect.openConnect();
+            if (command.ExecuteNonQuery() == 1)
+            {
+                connect.closeConnect();
+                return true;
+            }
+            else
+            {
+                connect.closeConnect();
+                return false;
+            }
+
+        }
     }
 }
