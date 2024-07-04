@@ -185,6 +185,12 @@
     <Compile Include="ManageToolForm.Designer.cs">
       <DependentUpon>ManageToolForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModifyName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyName.Designer.cs">
+      <DependentUpon>ModifyName.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrintTool.cs">
       <SubType>Form</SubType>
     </Compile>

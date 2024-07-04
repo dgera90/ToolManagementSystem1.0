@@ -10,19 +10,37 @@ using System.Windows.Forms;
 using System.IO;
 using MySql.Data.MySqlClient;
 using System.Security.Policy;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Transparent_Form
 {
     public partial class RegisterForm : Form
     {
         ToolClass tool = new ToolClass();
+
         public RegisterForm()
         {
             InitializeComponent();
-
+            radioButton_tool.Checked = false;
         }
 
- 
+        private void radioButton_tool_CheckedChanged(object sender, EventArgs e)
+        {
+            string[] tools = {};
+            string[] etc = {};
+
+            if (radioButton_tool.Checked)
+            {
+                comboBox_name.Items.Clear();
+                comboBox_name.Items.AddRange(tools);
+                
+            }
+            else
+            {
+                comboBox_name.Items.Clear();
+                comboBox_name.Items.AddRange(etc);
+            }
+        }
 
         //create a function to verify
         bool verify()
@@ -97,6 +115,12 @@ namespace Transparent_Form
             textBox_quantity.Clear();
             textBox_details.Clear();
             radioButton_tool.Checked = true;
+        }
+
+        private void button_addName_Click(object sender, EventArgs e)
+        {
+            ModifyName myForm = new ModifyName();            
+            myForm.Show();
         }
     }
 }
