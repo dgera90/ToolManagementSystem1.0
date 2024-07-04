@@ -17,29 +17,58 @@ namespace Transparent_Form
     public partial class RegisterForm : Form
     {
         ToolClass tool = new ToolClass();
+        DBconnect connect = new DBconnect();
 
         public RegisterForm()
         {
             InitializeComponent();
-            radioButton_tool.Checked = false;
         }
 
         private void radioButton_tool_CheckedChanged(object sender, EventArgs e)
         {
-            string[] tools = {};
-            string[] etc = {};
 
             if (radioButton_tool.Checked)
             {
-                comboBox_name.Items.Clear();
-                comboBox_name.Items.AddRange(tools);
-                
+                try
+                {
+                    comboBox_name.Items.Clear();
+
+                    string selectQuery = "SELECT `name` FROM `szerszam`";
+                    connect.openConnect();
+                    MySqlCommand command = new MySqlCommand(selectQuery, connect.getconnection);
+                    MySqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        comboBox_name.Items.Add(reader.GetString("name"));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
             {
-                comboBox_name.Items.Clear();
-                comboBox_name.Items.AddRange(etc);
+                try
+                {
+                    comboBox_name.Items.Clear();
+
+                    string selectQuery = "SELECT `name` FROM `egyeb`";
+                    connect.openConnect();
+                    MySqlCommand command = new MySqlCommand(selectQuery, connect.getconnection);
+                    MySqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        comboBox_name.Items.Add(reader.GetString("name"));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
+            connect.closeConnect();
+
         }
 
         //create a function to verify
@@ -91,6 +120,12 @@ namespace Transparent_Form
                         {
                             showTable();
                             MessageBox.Show("Új bejegyzés hozzáadva!", "Sikeres hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            textBox_size.Clear();
+                            textBox_quantity.Clear();
+                            textBox_details.Clear();
+                            radioButton_tool.Checked = false;
+                            radioButton_etc.Checked = false;
+                            comboBox_name.Items.Clear();
                         }
                     }
                     catch (Exception ex)
@@ -114,7 +149,10 @@ namespace Transparent_Form
             textBox_size.Clear();
             textBox_quantity.Clear();
             textBox_details.Clear();
-            radioButton_tool.Checked = true;
+            radioButton_tool.Checked = false;
+            radioButton_etc.Checked = false;
+            comboBox_name.Items.Clear();
+
         }
 
         private void button_addName_Click(object sender, EventArgs e)

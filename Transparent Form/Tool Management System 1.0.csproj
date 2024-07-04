@@ -191,6 +191,12 @@
     <Compile Include="ModifyName.Designer.cs">
       <DependentUpon>ModifyName.cs</DependentUpon>
     </Compile>
+    <Compile Include="MtarsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MtarsForm.Designer.cs">
+      <DependentUpon>MtarsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrintTool.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManageToolForm.resx">
       <DependentUpon>ManageToolForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyName.resx">
+      <DependentUpon>ModifyName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MtarsForm.resx">
+      <DependentUpon>MtarsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrintTool.resx">
       <DependentUpon>PrintTool.cs</DependentUpon>

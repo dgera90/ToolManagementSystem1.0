@@ -32,6 +32,7 @@ namespace Transparent_Form
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button_print = new System.Windows.Forms.Button();
             this.radioButton_etc = new System.Windows.Forms.RadioButton();
@@ -115,6 +116,8 @@ namespace Transparent_Form
             // 
             this.DataGridView_tool.AllowUserToAddRows = false;
             this.DataGridView_tool.AllowUserToDeleteRows = false;
+            this.DataGridView_tool.AllowUserToResizeColumns = false;
+            this.DataGridView_tool.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.DataGridView_tool.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridView_tool.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -143,8 +146,11 @@ namespace Transparent_Form
             this.DataGridView_tool.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataGridView_tool.Location = new System.Drawing.Point(13, 95);
             this.DataGridView_tool.Name = "DataGridView_tool";
+            this.DataGridView_tool.ReadOnly = true;
             this.DataGridView_tool.RowHeadersVisible = false;
             this.DataGridView_tool.RowHeadersWidth = 51;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.DataGridView_tool.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DataGridView_tool.RowTemplate.Height = 80;
             this.DataGridView_tool.Size = new System.Drawing.Size(909, 413);
             this.DataGridView_tool.TabIndex = 15;
@@ -161,7 +167,7 @@ namespace Transparent_Form
             this.DataGridView_tool.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.DataGridView_tool.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DataGridView_tool.ThemeStyle.HeaderStyle.Height = 24;
-            this.DataGridView_tool.ThemeStyle.ReadOnly = false;
+            this.DataGridView_tool.ThemeStyle.ReadOnly = true;
             this.DataGridView_tool.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.DataGridView_tool.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DataGridView_tool.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

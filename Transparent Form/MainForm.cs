@@ -137,5 +137,14 @@ namespace Transparent_Form
 			//...
 			hideSubmenu();
 		}
-	}
+
+        private void button_mtars_Click(object sender, EventArgs e)
+        {
+            openChildForm(new MtarsForm());
+            //...
+            //..Your code
+            //...
+            hideSubmenu();
+        }
+    }
 }

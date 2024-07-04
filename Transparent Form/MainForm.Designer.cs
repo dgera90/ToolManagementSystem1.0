@@ -49,6 +49,7 @@ namespace Transparent_Form
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
+            this.button_mtars = new System.Windows.Forms.Button();
             this.panel_slide.SuspendLayout();
             this.panel_stdsubmenu.SuspendLayout();
             this.panel_logo.SuspendLayout();
@@ -80,7 +81,7 @@ namespace Transparent_Form
             this.button_exit.FlatAppearance.BorderSize = 0;
             this.button_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_exit.ForeColor = System.Drawing.Color.White;
-            this.button_exit.Location = new System.Drawing.Point(0, 405);
+            this.button_exit.Location = new System.Drawing.Point(0, 451);
             this.button_exit.Margin = new System.Windows.Forms.Padding(5);
             this.button_exit.Name = "button_exit";
             this.button_exit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -97,7 +98,7 @@ namespace Transparent_Form
             this.button_dashboard.FlatAppearance.BorderSize = 0;
             this.button_dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_dashboard.ForeColor = System.Drawing.Color.White;
-            this.button_dashboard.Location = new System.Drawing.Point(0, 350);
+            this.button_dashboard.Location = new System.Drawing.Point(0, 396);
             this.button_dashboard.Margin = new System.Windows.Forms.Padding(5);
             this.button_dashboard.Name = "button_dashboard";
             this.button_dashboard.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -111,13 +112,14 @@ namespace Transparent_Form
             // panel_stdsubmenu
             // 
             this.panel_stdsubmenu.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panel_stdsubmenu.Controls.Add(this.button_mtars);
             this.panel_stdsubmenu.Controls.Add(this.button_stdPrint);
             this.panel_stdsubmenu.Controls.Add(this.button_manageStd);
             this.panel_stdsubmenu.Controls.Add(this.button_registration);
             this.panel_stdsubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_stdsubmenu.Location = new System.Drawing.Point(0, 196);
             this.panel_stdsubmenu.Name = "panel_stdsubmenu";
-            this.panel_stdsubmenu.Size = new System.Drawing.Size(200, 154);
+            this.panel_stdsubmenu.Size = new System.Drawing.Size(200, 200);
             this.panel_stdsubmenu.TabIndex = 2;
             // 
             // button_stdPrint
@@ -320,6 +322,23 @@ namespace Transparent_Form
             this.label12.TabIndex = 0;
             this.label12.Text = "Tool Management System";
             // 
+            // button_mtars
+            // 
+            this.button_mtars.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button_mtars.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button_mtars.FlatAppearance.BorderSize = 0;
+            this.button_mtars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_mtars.ForeColor = System.Drawing.Color.White;
+            this.button_mtars.Location = new System.Drawing.Point(0, 150);
+            this.button_mtars.Name = "button_mtars";
+            this.button_mtars.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.button_mtars.Size = new System.Drawing.Size(200, 50);
+            this.button_mtars.TabIndex = 4;
+            this.button_mtars.Text = "Munkatársak";
+            this.button_mtars.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_mtars.UseVisualStyleBackColor = false;
+            this.button_mtars.Click += new System.EventHandler(this.button_mtars_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -371,5 +390,6 @@ namespace Transparent_Form
         private System.Windows.Forms.Label label_totalStd;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button_exit;
-	}
+        private System.Windows.Forms.Button button_mtars;
+    }
 }
