@@ -52,10 +52,6 @@ namespace Transparent_Form
 			textBox_size.Text = DataGridView_tool.CurrentRow.Cells[2].Value.ToString();
 
 			dateTimePicker1.Value = (DateTime)DataGridView_tool.CurrentRow.Cells[3].Value;
-			if (DataGridView_tool.CurrentRow.Cells[4].Value.ToString() == "Szerszám")
-				radioButton_tool.Checked = true;
-             if (DataGridView_tool.CurrentRow.Cells[4].Value.ToString() == "Egyéb")
-                radioButton_etc.Checked = true;
 
                 textBox_quantity.Text = DataGridView_tool.CurrentRow.Cells[5].Value.ToString();
 			textBox_details.Text = DataGridView_tool.CurrentRow.Cells[6].Value.ToString();
@@ -98,7 +94,6 @@ namespace Transparent_Form
 			textBox_quantity.Clear();
 			textBox_details.Clear();
 			comboBox_mtars.Items.Clear();
-			radioButton_tool.Checked = true;
 			dateTimePicker1.Value = DateTime.Now;
 			button_history.Visible = false;
             button_delete.Visible = false;
@@ -130,13 +125,12 @@ namespace Transparent_Form
 			string size = textBox_size.Text;
 			string quantity = textBox_quantity.Text;
 			string details = textBox_details.Text;
-			string type = radioButton_tool.Checked ? "Szerszám" : "Egyéb";
 			string mtars = comboBox_mtars.Text;
 
 
 			if (verify())
 			{
-					string eszkozadatok = ($"Biztosan módosítani kívánja a következő eszközt?\nNév: {name}\nMéret: {size}\nDarabszám: {quantity}\nTípus: {type}\nRészletek: {details}\nMunkatárs: {mtars}");
+					string eszkozadatok = ($"Biztosan módosítani kívánja a következő eszközt?\nNév: {name}\nMéret: {size}\nDarabszám: {quantity}\nRészletek: {details}\nMunkatárs: {mtars}");
 					DialogResult result = MessageBox.Show($"{eszkozadatok}", "Eszköz felvétele", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 					if (result == DialogResult.Yes)
 					{
@@ -146,7 +140,7 @@ namespace Transparent_Form
 							{
 
 						
-								if (tool.updateTool(id, name, size, type, quantity, details, mtars))
+								if (tool.updateTool(id, name, size, quantity, details, mtars))
 								{
 									showTable();
 									MessageBox.Show("Bejegyzés adatainak módosítása", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -176,7 +170,6 @@ namespace Transparent_Form
             textBox_size.Clear();
             textBox_quantity.Clear();
             textBox_details.Clear();
-            radioButton_tool.Checked = true;
             dateTimePicker1.Value = DateTime.Now;
             button_history.Visible = false;
             button_update.Visible = false;

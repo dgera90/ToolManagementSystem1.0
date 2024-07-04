@@ -136,9 +136,9 @@ namespace Transparent_Form
 			return table;
 		}
 		//create a function edit for tool
-		public bool updateTool(int id, string name, string size, string type, string quantity, string details, string mtars)
+		public bool updateTool(int id, string name, string size, string quantity, string details, string mtars)
 		{
-			MySqlCommand command = new MySqlCommand("UPDATE `eszkozok` SET `toolName`=@nm,`toolSize`=@sz,`type`=@tp,`quantity`=@qua,`description`=@det WHERE `id`= @id", connect.getconnection);
+			MySqlCommand command = new MySqlCommand("UPDATE `eszkozok` SET `toolName`=@nm,`toolSize`=@sz,`quantity`=@qua,`description`=@det WHERE `id`= @id", connect.getconnection);
 			MySqlCommand commandHistory = new MySqlCommand("INSERT INTO `history`(`tool_id`,`modified_date`,`quantity`,`munkatars`) VALUES (@ti,@md,@qua,@mt)", connect.getconnection);
 
 
@@ -146,7 +146,6 @@ namespace Transparent_Form
             command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
 			command.Parameters.Add("@nm", MySqlDbType.VarChar).Value = name;
 			command.Parameters.Add("@sz", MySqlDbType.VarChar).Value = size;
-			command.Parameters.Add("@tp", MySqlDbType.VarChar).Value = type;
 			command.Parameters.Add("@qua", MySqlDbType.VarChar).Value = quantity;
 			command.Parameters.Add("@det", MySqlDbType.VarChar).Value = details;
 
@@ -205,27 +204,6 @@ namespace Transparent_Form
 			adapter.Fill(table);
 			return table;
 		}
-        public bool getRole(string role)
-        {
-            MySqlCommand command = new MySqlCommand("SELECT `role` FROM `user` WHERE `role`=@role", connect.getconnection);
-			
-
-            //@id
-            command.Parameters.Add("@role", MySqlDbType.String).Value = "admin";
-
-
-            connect.openConnect();
-            if (command.ExecuteNonQuery() == 1)
-            {
-                connect.closeConnect();
-                return true;
-            }
-            else
-            {
-                connect.closeConnect();
-                return false;
-            }
-
-        }
+       
     }
 }
