@@ -193,9 +193,17 @@ namespace Transparent_Form
 					button_clear.PerformClick();
 				}
 			}
-            button_delete.Visible = false;
+            textBox_id.Clear();
+            textBox_name.Clear();
+            textBox_size.Clear();
+            textBox_quantity.Clear();
+            textBox_details.Clear();
+            dateTimePicker1.Value = DateTime.Now;
+            button_history.Visible = false;
             button_update.Visible = false;
-			button_clear.Visible = false;
+            button_delete.Visible = false;
+            button_clear.Visible = false;
+            comboBox_mtars.Items.Clear();
         }
 
 		private void button_history_Click(object sender, EventArgs e)
