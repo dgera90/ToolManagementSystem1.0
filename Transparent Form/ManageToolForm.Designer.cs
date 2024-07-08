@@ -47,6 +47,9 @@ namespace Transparent_Form
             this.DataGridView_tool = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button_addQua = new System.Windows.Forms.Button();
             this.button_out = new System.Windows.Forms.Button();
             this.numericUpDown_qua = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_limit = new System.Windows.Forms.NumericUpDown();
@@ -60,7 +63,6 @@ namespace Transparent_Form
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_search = new System.Windows.Forms.Button();
             this.textBox_search = new System.Windows.Forms.TextBox();
-            this.button_addQua = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_tool)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_qua)).BeginInit();
@@ -75,13 +77,13 @@ namespace Transparent_Form
             this.panel3.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel3.Location = new System.Drawing.Point(13, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1109, 10);
+            this.panel3.Size = new System.Drawing.Size(1368, 10);
             this.panel3.TabIndex = 32;
             // 
             // textBox_quantity
             // 
-            this.textBox_quantity.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox_quantity.Location = new System.Drawing.Point(647, 18);
+            this.textBox_quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBox_quantity.Location = new System.Drawing.Point(136, 96);
             this.textBox_quantity.Name = "textBox_quantity";
             this.textBox_quantity.ReadOnly = true;
             this.textBox_quantity.Size = new System.Drawing.Size(77, 26);
@@ -89,11 +91,11 @@ namespace Transparent_Form
             // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label6.Location = new System.Drawing.Point(539, 22);
+            this.label6.Location = new System.Drawing.Point(28, 100);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(99, 19);
             this.label6.TabIndex = 30;
@@ -106,7 +108,7 @@ namespace Transparent_Form
             this.button_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_delete.ForeColor = System.Drawing.Color.White;
-            this.button_delete.Location = new System.Drawing.Point(967, 187);
+            this.button_delete.Location = new System.Drawing.Point(1226, 187);
             this.button_delete.Name = "button_delete";
             this.button_delete.Size = new System.Drawing.Size(155, 39);
             this.button_delete.TabIndex = 29;
@@ -121,9 +123,9 @@ namespace Transparent_Form
             this.button_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_update.ForeColor = System.Drawing.Color.White;
-            this.button_update.Location = new System.Drawing.Point(929, 12);
+            this.button_update.Location = new System.Drawing.Point(446, 130);
             this.button_update.Name = "button_update";
-            this.button_update.Size = new System.Drawing.Size(155, 39);
+            this.button_update.Size = new System.Drawing.Size(130, 46);
             this.button_update.TabIndex = 28;
             this.button_update.Text = "Módosítás";
             this.button_update.UseVisualStyleBackColor = false;
@@ -131,29 +133,29 @@ namespace Transparent_Form
             // 
             // textBox_details
             // 
-            this.textBox_details.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox_details.Location = new System.Drawing.Point(145, 102);
+            this.textBox_details.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_details.Location = new System.Drawing.Point(430, 50);
             this.textBox_details.Multiline = true;
             this.textBox_details.Name = "textBox_details";
-            this.textBox_details.Size = new System.Drawing.Size(445, 50);
+            this.textBox_details.Size = new System.Drawing.Size(265, 30);
             this.textBox_details.TabIndex = 25;
             // 
             // textBox_size
             // 
-            this.textBox_size.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox_size.Location = new System.Drawing.Point(369, 18);
+            this.textBox_size.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBox_size.Location = new System.Drawing.Point(102, 54);
             this.textBox_size.Name = "textBox_size";
             this.textBox_size.ReadOnly = true;
-            this.textBox_size.Size = new System.Drawing.Size(135, 26);
+            this.textBox_size.Size = new System.Drawing.Size(140, 26);
             this.textBox_size.TabIndex = 21;
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(291, 22);
+            this.label4.Location = new System.Drawing.Point(24, 58);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 19);
             this.label4.TabIndex = 20;
@@ -161,7 +163,7 @@ namespace Transparent_Form
             // 
             // textBox_name
             // 
-            this.textBox_name.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox_name.Location = new System.Drawing.Point(102, 18);
             this.textBox_name.Name = "textBox_name";
             this.textBox_name.ReadOnly = true;
@@ -170,11 +172,11 @@ namespace Transparent_Form
             // 
             // label5
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(19, 102);
+            this.label5.Location = new System.Drawing.Point(315, 54);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 19);
             this.label5.TabIndex = 16;
@@ -182,7 +184,7 @@ namespace Transparent_Form
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -234,7 +236,7 @@ namespace Transparent_Form
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.DataGridView_tool.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.DataGridView_tool.RowTemplate.Height = 80;
-            this.DataGridView_tool.Size = new System.Drawing.Size(1109, 281);
+            this.DataGridView_tool.Size = new System.Drawing.Size(1368, 281);
             this.DataGridView_tool.TabIndex = 15;
             this.DataGridView_tool.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.DataGridView_tool.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -265,7 +267,7 @@ namespace Transparent_Form
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(470, 13);
+            this.label7.Location = new System.Drawing.Point(599, 13);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(163, 25);
             this.label7.TabIndex = 0;
@@ -274,6 +276,8 @@ namespace Transparent_Form
             // panel2
             // 
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.button_addQua);
             this.panel2.Controls.Add(this.button_out);
             this.panel2.Controls.Add(this.numericUpDown_qua);
@@ -300,8 +304,46 @@ namespace Transparent_Form
             this.panel2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel2.Location = new System.Drawing.Point(0, 378);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1134, 235);
+            this.panel2.Size = new System.Drawing.Size(1393, 235);
             this.panel2.TabIndex = 17;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(429, 17);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(236, 24);
+            this.checkBox1.TabIndex = 46;
+            this.checkBox1.Text = "Limit és részletek módosítása";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label3.Location = new System.Drawing.Point(816, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(279, 19);
+            this.label3.TabIndex = 45;
+            this.label3.Text = "Darabszám módosítása ennyivel:";
+            // 
+            // button_addQua
+            // 
+            this.button_addQua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_addQua.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button_addQua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_addQua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_addQua.ForeColor = System.Drawing.Color.White;
+            this.button_addQua.Location = new System.Drawing.Point(1227, 76);
+            this.button_addQua.Name = "button_addQua";
+            this.button_addQua.Size = new System.Drawing.Size(100, 40);
+            this.button_addQua.TabIndex = 44;
+            this.button_addQua.Text = "Hozzáad";
+            this.button_addQua.UseVisualStyleBackColor = false;
+            this.button_addQua.Click += new System.EventHandler(this.button_addQua_Click);
             // 
             // button_out
             // 
@@ -310,9 +352,9 @@ namespace Transparent_Form
             this.button_out.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_out.ForeColor = System.Drawing.Color.White;
-            this.button_out.Location = new System.Drawing.Point(645, 187);
+            this.button_out.Location = new System.Drawing.Point(1227, 30);
             this.button_out.Name = "button_out";
-            this.button_out.Size = new System.Drawing.Size(155, 39);
+            this.button_out.Size = new System.Drawing.Size(100, 40);
             this.button_out.TabIndex = 43;
             this.button_out.Text = "Kivétel";
             this.button_out.UseVisualStyleBackColor = false;
@@ -321,7 +363,7 @@ namespace Transparent_Form
             // numericUpDown_qua
             // 
             this.numericUpDown_qua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown_qua.Location = new System.Drawing.Point(741, 155);
+            this.numericUpDown_qua.Location = new System.Drawing.Point(1101, 58);
             this.numericUpDown_qua.Minimum = new decimal(new int[] {
             1,
             0,
@@ -338,8 +380,8 @@ namespace Transparent_Form
             // 
             // numericUpDown_limit
             // 
-            this.numericUpDown_limit.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.numericUpDown_limit.Location = new System.Drawing.Point(929, 54);
+            this.numericUpDown_limit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDown_limit.Location = new System.Drawing.Point(609, 96);
             this.numericUpDown_limit.Minimum = new decimal(new int[] {
             1,
             0,
@@ -356,33 +398,33 @@ namespace Transparent_Form
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(616, 61);
+            this.label2.Location = new System.Drawing.Point(315, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(288, 19);
             this.label2.TabIndex = 38;
-            this.label2.Text = "Figyelmeztető limit beállítása:";
+            this.label2.Text = "Figyelmeztető limit módosítása:";
             // 
             // comboBox_mtars
             // 
-            this.comboBox_mtars.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.comboBox_mtars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox_mtars.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_mtars.FormattingEnabled = true;
-            this.comboBox_mtars.Location = new System.Drawing.Point(858, 113);
+            this.comboBox_mtars.Location = new System.Drawing.Point(1117, 140);
             this.comboBox_mtars.Name = "comboBox_mtars";
             this.comboBox_mtars.Size = new System.Drawing.Size(206, 28);
             this.comboBox_mtars.TabIndex = 37;
             // 
             // label9
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label9.Location = new System.Drawing.Point(616, 118);
+            this.label9.Location = new System.Drawing.Point(997, 144);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(99, 19);
             this.label9.TabIndex = 36;
@@ -398,7 +440,7 @@ namespace Transparent_Form
             this.button_history.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_history.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button_history.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_history.Location = new System.Drawing.Point(323, 187);
+            this.button_history.Location = new System.Drawing.Point(582, 187);
             this.button_history.Name = "button_history";
             this.button_history.Size = new System.Drawing.Size(155, 39);
             this.button_history.TabIndex = 34;
@@ -414,7 +456,7 @@ namespace Transparent_Form
             this.button_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_clear.ForeColor = System.Drawing.Color.White;
-            this.button_clear.Location = new System.Drawing.Point(484, 187);
+            this.button_clear.Location = new System.Drawing.Point(743, 187);
             this.button_clear.Name = "button_clear";
             this.button_clear.Size = new System.Drawing.Size(155, 39);
             this.button_clear.TabIndex = 33;
@@ -425,7 +467,7 @@ namespace Transparent_Form
             // textBox_id
             // 
             this.textBox_id.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox_id.Location = new System.Drawing.Point(225, 183);
+            this.textBox_id.Location = new System.Drawing.Point(218, 128);
             this.textBox_id.Name = "textBox_id";
             this.textBox_id.Size = new System.Drawing.Size(85, 26);
             this.textBox_id.TabIndex = 31;
@@ -437,7 +479,7 @@ namespace Transparent_Form
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label8.Location = new System.Drawing.Point(151, 187);
+            this.label8.Location = new System.Drawing.Point(144, 132);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 20);
             this.label8.TabIndex = 30;
@@ -453,7 +495,7 @@ namespace Transparent_Form
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1134, 51);
+            this.panel1.Size = new System.Drawing.Size(1393, 51);
             this.panel1.TabIndex = 16;
             // 
             // button_search
@@ -463,7 +505,7 @@ namespace Transparent_Form
             this.button_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_search.ForeColor = System.Drawing.Color.White;
-            this.button_search.Location = new System.Drawing.Point(1004, 51);
+            this.button_search.Location = new System.Drawing.Point(1263, 51);
             this.button_search.Name = "button_search";
             this.button_search.Size = new System.Drawing.Size(118, 39);
             this.button_search.TabIndex = 33;
@@ -474,31 +516,16 @@ namespace Transparent_Form
             // textBox_search
             // 
             this.textBox_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_search.Location = new System.Drawing.Point(842, 58);
+            this.textBox_search.Location = new System.Drawing.Point(1101, 58);
             this.textBox_search.Name = "textBox_search";
             this.textBox_search.Size = new System.Drawing.Size(156, 26);
             this.textBox_search.TabIndex = 31;
-            // 
-            // button_addQua
-            // 
-            this.button_addQua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_addQua.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button_addQua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_addQua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_addQua.ForeColor = System.Drawing.Color.White;
-            this.button_addQua.Location = new System.Drawing.Point(806, 187);
-            this.button_addQua.Name = "button_addQua";
-            this.button_addQua.Size = new System.Drawing.Size(155, 39);
-            this.button_addQua.TabIndex = 44;
-            this.button_addQua.Text = "Hozzáadás";
-            this.button_addQua.UseVisualStyleBackColor = false;
-            this.button_addQua.Click += new System.EventHandler(this.button_addQua_Click);
             // 
             // ManageToolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 613);
+            this.ClientSize = new System.Drawing.Size(1393, 613);
             this.Controls.Add(this.button_search);
             this.Controls.Add(this.DataGridView_tool);
             this.Controls.Add(this.textBox_search);
@@ -550,5 +577,7 @@ namespace Transparent_Form
         private System.Windows.Forms.NumericUpDown numericUpDown_qua;
         private System.Windows.Forms.Button button_out;
         private System.Windows.Forms.Button button_addQua;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

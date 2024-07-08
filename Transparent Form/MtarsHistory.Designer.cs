@@ -32,14 +32,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button_mtarsSearch = new System.Windows.Forms.Button();
+            this.comboBox_mtars = new System.Windows.Forms.ComboBox();
             this.button_reset = new System.Windows.Forms.Button();
             this.button_search = new System.Windows.Forms.Button();
             this.textBox_search = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.DataGridView_mtars = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.comboBox_mtars = new System.Windows.Forms.ComboBox();
-            this.button_mtarsSearch = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_mtars)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,6 @@
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel1.Controls.Add(this.button_mtarsSearch);
             this.panel1.Controls.Add(this.comboBox_mtars);
-            this.panel1.Controls.Add(this.button_reset);
             this.panel1.Controls.Add(this.button_search);
             this.panel1.Controls.Add(this.textBox_search);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -57,9 +57,30 @@
             this.panel1.Size = new System.Drawing.Size(800, 93);
             this.panel1.TabIndex = 0;
             // 
+            // button_mtarsSearch
+            // 
+            this.button_mtarsSearch.Location = new System.Drawing.Point(155, 19);
+            this.button_mtarsSearch.Name = "button_mtarsSearch";
+            this.button_mtarsSearch.Size = new System.Drawing.Size(96, 48);
+            this.button_mtarsSearch.TabIndex = 4;
+            this.button_mtarsSearch.Text = "Munkatárs keresés";
+            this.button_mtarsSearch.UseVisualStyleBackColor = true;
+            this.button_mtarsSearch.Click += new System.EventHandler(this.button_mtarsSearch_Click);
+            // 
+            // comboBox_mtars
+            // 
+            this.comboBox_mtars.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_mtars.FormattingEnabled = true;
+            this.comboBox_mtars.Location = new System.Drawing.Point(12, 33);
+            this.comboBox_mtars.Name = "comboBox_mtars";
+            this.comboBox_mtars.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_mtars.TabIndex = 3;
+            // 
             // button_reset
             // 
-            this.button_reset.Location = new System.Drawing.Point(669, 27);
+            this.button_reset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_reset.Location = new System.Drawing.Point(348, 15);
             this.button_reset.Name = "button_reset";
             this.button_reset.Size = new System.Drawing.Size(75, 23);
             this.button_reset.TabIndex = 2;
@@ -69,7 +90,8 @@
             // 
             // button_search
             // 
-            this.button_search.Location = new System.Drawing.Point(569, 27);
+            this.button_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_search.Location = new System.Drawing.Point(681, 23);
             this.button_search.Name = "button_search";
             this.button_search.Size = new System.Drawing.Size(94, 40);
             this.button_search.TabIndex = 1;
@@ -79,7 +101,8 @@
             // 
             // textBox_search
             // 
-            this.textBox_search.Location = new System.Drawing.Point(444, 29);
+            this.textBox_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_search.Location = new System.Drawing.Point(549, 33);
             this.textBox_search.Name = "textBox_search";
             this.textBox_search.Size = new System.Drawing.Size(100, 20);
             this.textBox_search.TabIndex = 0;
@@ -87,6 +110,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel2.Controls.Add(this.button_reset);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 400);
             this.panel2.Name = "panel2";
@@ -151,25 +175,6 @@
             this.DataGridView_mtars.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataGridView_mtars.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // comboBox_mtars
-            // 
-            this.comboBox_mtars.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_mtars.FormattingEnabled = true;
-            this.comboBox_mtars.Location = new System.Drawing.Point(302, 29);
-            this.comboBox_mtars.Name = "comboBox_mtars";
-            this.comboBox_mtars.Size = new System.Drawing.Size(121, 21);
-            this.comboBox_mtars.TabIndex = 3;
-            // 
-            // button_mtarsSearch
-            // 
-            this.button_mtarsSearch.Location = new System.Drawing.Point(185, 19);
-            this.button_mtarsSearch.Name = "button_mtarsSearch";
-            this.button_mtarsSearch.Size = new System.Drawing.Size(96, 48);
-            this.button_mtarsSearch.TabIndex = 4;
-            this.button_mtarsSearch.Text = "Munkatárs keresés";
-            this.button_mtarsSearch.UseVisualStyleBackColor = true;
-            this.button_mtarsSearch.Click += new System.EventHandler(this.button_mtarsSearch_Click);
-            // 
             // MtarsHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,6 +187,7 @@
             this.Text = "MtarsHistory";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_mtars)).EndInit();
             this.ResumeLayout(false);
 

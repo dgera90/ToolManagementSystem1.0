@@ -268,7 +268,7 @@ namespace Transparent_Form
         }
         public DataTable searchSzerszam(string searchdata)
         {
-            MySqlCommand command = new MySqlCommand("SELECT `tool_name` AS Név, `tool_size` AS Méret, `modified_date` AS Dátum, `munkatars` AS Munkatárs FROM `history` WHERE CONCAT(`tool_name`,`tool_size`) LIKE '%" + searchdata + "%'", connect.getconnection);
+            MySqlCommand command = new MySqlCommand("SELECT `tool_name` AS Név, `tool_size` AS Méret, `modified_date` AS Dátum, `munkatars` AS Munkatárs, `kiadott` AS Kiadott, `hozzaadott` AS Hozzáadott FROM `history` WHERE CONCAT(`tool_name`,`tool_size`) LIKE '%" + searchdata + "%'", connect.getconnection);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
@@ -276,7 +276,7 @@ namespace Transparent_Form
         }
         public DataTable searchMtars(string searchdata)
         {
-            MySqlCommand command = new MySqlCommand("SELECT `tool_name` AS Név, `tool_size` AS Méret, `modified_date` AS Dátum, `munkatars` AS Munkatárs FROM `history` WHERE CONCAT(`munkatars`) LIKE '%" + searchdata + "%'", connect.getconnection);
+            MySqlCommand command = new MySqlCommand("SELECT `tool_name` AS Név, `tool_size` AS Méret, `modified_date` AS Dátum, `munkatars` AS Munkatárs, `kiadott` AS Kiadott, `hozzaadott` AS Hozzáadott FROM `history` WHERE CONCAT(`munkatars`) LIKE '%" + searchdata + "%'", connect.getconnection);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);

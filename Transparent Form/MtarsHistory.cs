@@ -50,19 +50,23 @@ namespace Transparent_Form
         private void button_search_Click(object sender, EventArgs e)
         {
             DataGridView_mtars.DataSource = tool.searchSzerszam(textBox_search.Text);
+            comboBox_mtars.SelectedIndex = -1;
 
+            textBox_search.Clear();
         }
 
         private void button_reset_Click(object sender, EventArgs e)
         {
             textBox_search.Clear();
+            comboBox_mtars.SelectedIndex = -1;
+
             showTable();
         }
 
         private void button_mtarsSearch_Click(object sender, EventArgs e)
         {
             DataGridView_mtars.DataSource = tool.searchMtars(comboBox_mtars.Text);
-
+            textBox_search.Clear();
         }
     }
 }

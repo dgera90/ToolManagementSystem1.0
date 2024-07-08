@@ -11,6 +11,7 @@ using System.IO;
 using MySql.Data.MySqlClient;
 using System.Reflection.Emit;
 using Microsoft.VisualBasic;
+using Guna.UI2.WinForms.Suite;
 
 namespace Transparent_Form
 {
@@ -30,9 +31,15 @@ namespace Transparent_Form
 			button_out.Visible = false;
 			numericUpDown_qua.Visible = false;
             showTable();
-
-			DataGridView_tool.ReadOnly = true;
-
+            numericUpDown_limit.Visible = false;
+            label2.Visible = false;
+            label5.Visible = false;
+			label3.Visible = false;
+            textBox_details.Visible = false;
+            button_update.Visible = false;
+            DataGridView_tool.ReadOnly = true;
+			button_addQua.Visible = false;
+			checkBox1.Enabled = false;
 		}
 
 		// To show student list in DatagridView
@@ -65,12 +72,15 @@ namespace Transparent_Form
 			if (textBox_name.Text != "")
 			{
 				button_history.Visible = true;
-				button_update.Visible = true;
 				button_delete.Visible = true;
 				button_clear.Visible = true;
-                    button_out.Visible = true;
-                    numericUpDown_qua.Visible = true;
-
+                button_out.Visible = true;
+				button_addQua.Visible = true;
+                numericUpDown_qua.Visible = true;
+				label3.Visible = true;
+					label9.Visible = true;
+				comboBox_mtars.Visible = true;
+					checkBox1.Enabled = true;
                 }
             }
 
@@ -108,7 +118,15 @@ namespace Transparent_Form
 			button_clear.Visible = false;
 			numericUpDown_limit.Value = 1;
             button_out.Visible = false;
-
+			button_addQua.Visible = false;
+            numericUpDown_limit.Visible = false;
+            numericUpDown_qua.Visible = false;
+            label2.Visible = false;
+			label3.Visible = false;
+            label5.Visible = false;
+			label9.Visible = false;
+			comboBox_mtars.Visible = false;
+			hideInfo();
             changeState();
 
 
@@ -179,12 +197,7 @@ namespace Transparent_Form
 			textBox_size.Clear();
 			textBox_quantity.Clear();
 			textBox_details.Clear();
-			button_history.Visible = false;
-			button_update.Visible = false;
-			button_delete.Visible = false;
-			button_clear.Visible = false;
-            button_out.Visible = false;
-
+            hideInfo();
             comboBox_mtars.Items.Clear();
 			numericUpDown_limit.Value = 1;
 			changeState();
@@ -205,11 +218,7 @@ namespace Transparent_Form
 					button_clear.PerformClick();
 				}
 			}
-            button_delete.Visible = false;
-            button_update.Visible = false;
-			button_clear.Visible = false;
-			button_out.Visible = false;
-            numericUpDown_limit.Value = 1;
+            hideInfo();
             changeState();
 
 		}
@@ -267,6 +276,7 @@ namespace Transparent_Form
                             showTable();
                             MessageBox.Show("Eszköz kiadva.", "Sikeres kiadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             button_clear.PerformClick();
+                            hideInfo();
                         }
                     }
                 }
@@ -281,12 +291,7 @@ namespace Transparent_Form
 				MessageBox.Show("Nincs elég darabszám!", "Hiba", MessageBoxButtons.OK,MessageBoxIcon.Error);
 			}
 
-            
-            button_delete.Visible = false;
-            button_update.Visible = false;
-            button_clear.Visible = false;
-            button_out.Visible = false;
-            numericUpDown_limit.Value = 1;
+
             changeState();
 
         }
@@ -309,7 +314,8 @@ namespace Transparent_Form
 						showTable();
 						MessageBox.Show("Eszköz hozzáadva.", "Sikeres hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
 						button_clear.PerformClick();
-					}
+                        hideInfo();
+                    }
 				}
 			}
 			else
@@ -317,12 +323,47 @@ namespace Transparent_Form
                 MessageBox.Show("Munkatárs mező üres!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+            
+            changeState();
+        }
+
+
+        private void checkBox1_CheckStateChanged(object sender, EventArgs e)
+        {
+			if (checkBox1.Checked)
+			{
+				numericUpDown_limit.Visible = true;
+				label2.Visible = true;
+				label5.Visible = true;
+				textBox_details.Visible = true;
+				button_update.Visible = true;
+			}
+			else {
+                numericUpDown_limit.Visible = false;
+                label2.Visible = false;
+				label5.Visible = false;
+                textBox_details.Visible = false;
+                button_update.Visible = false;
+            }
+
+        }
+		public void hideInfo()
+		{
             button_delete.Visible = false;
             button_update.Visible = false;
             button_clear.Visible = false;
             button_out.Visible = false;
             numericUpDown_limit.Value = 1;
-            changeState();
+            numericUpDown_qua.Visible = false;
+            numericUpDown_limit.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            label5.Visible = false;
+			label9.Visible = false;
+			comboBox_mtars.Visible = false;
+            textBox_details.Visible = false;
+			checkBox1.Checked = false;
+			checkBox1.Enabled = false;
         }
     }
 		}
