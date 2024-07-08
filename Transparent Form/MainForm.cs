@@ -70,10 +70,8 @@ namespace Transparent_Form
         private void button_manageStd_Click(object sender, EventArgs e)
         {
             openChildForm(new ManageToolForm());
-            //...
-            //..Your code
-            //...
-            hideSubmenu();
+		
+			hideSubmenu();
         }
 
         private void button_status_Click(object sender, EventArgs e)

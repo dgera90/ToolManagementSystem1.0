@@ -22,27 +22,32 @@ namespace Transparent_Form
 		public ManageToolForm()
 		{
 			InitializeComponent();
+	
 			button_update.Visible = false;
 			button_delete.Visible = false;
 			button_clear.Visible = false;
+			
+			showTable();
+			DataGridView_tool.Columns[7].Visible = false;
+			DataGridView_tool.ReadOnly = true;
+
 		}
 
-		private void ManageToolForm_Load(object sender, EventArgs e)
-		{
-			showTable();
-			
-		}
 		// To show student list in DatagridView
 		public void showTable()
 		{
-			DataGridView_tool.DataSource = tool.getToollist(new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Darabszám, `description` AS Részletek FROM `eszkozok`"));
-			DataGridView_tool.ReadOnly = true;
-			DataGridView_tool.Columns["Azonosító"].Visible = true;
-        }
 
-		//Display student data from student to textbox
+			DataGridView_tool.DataSource = tool.getToollist(new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Darabszám, `description` AS Részletek, `limit` AS Figyelmeztetés FROM `eszkozok`"));
+			DataGridView_tool.ReadOnly = true;
+
+
+		}
+		//Display data from student to textbox
 		private void DataGridView_tool_Click(object sender, EventArgs e)
 		{
+
+
+
 			if (DataGridView_tool.Rows.Count>0)
 			{
 
@@ -99,11 +104,16 @@ namespace Transparent_Form
             button_delete.Visible = false;
             button_update.Visible = false;
 			button_clear.Visible = false;
-        }
+			changeState();
+
+
+		}
 
 		private void button_search_Click(object sender, EventArgs e)
 		{
 			DataGridView_tool.DataSource = tool.searchTool(textBox_search.Text);
+			changeState();
+
 		}
 		//create a function to verify
 		bool verify()
@@ -117,12 +127,12 @@ namespace Transparent_Form
 				return true;
 		}
 
+
 		private void button_update_Click(object sender, EventArgs e)
 		{
 			// update student record
 			int id = Convert.ToInt32(textBox_id.Text);
 			string name = textBox_name.Text;
-			string size = textBox_size.Text;
 			string quantity = textBox_quantity.Text;
 			string details = textBox_details.Text;
 			string mtars = comboBox_mtars.Text;
@@ -130,7 +140,7 @@ namespace Transparent_Form
 
 			if (verify())
 			{
-					string eszkozadatok = ($"Biztosan módosítani kívánja a következő eszközt?\nNév: {name}\nMéret: {size}\nDarabszám: {quantity}\nRészletek: {details}\nMunkatárs: {mtars}");
+					string eszkozadatok = ($"Biztosan módosítani kívánja a következő eszközt?\nNév: {name}\nDarabszám: {quantity}\nRészletek: {details}\nMunkatárs: {mtars}");
 					DialogResult result = MessageBox.Show($"{eszkozadatok}", "Eszköz felvétele", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 					if (result == DialogResult.Yes)
 					{
@@ -140,7 +150,7 @@ namespace Transparent_Form
 							{
 
 						
-								if (tool.updateTool(id, name, size, quantity, details, mtars))
+								if (tool.updateTool(id, name, quantity, details, mtars))
 								{
 									showTable();
 									MessageBox.Show("Bejegyzés adatainak módosítása", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -176,10 +186,11 @@ namespace Transparent_Form
             button_delete.Visible = false;
 			button_clear.Visible = false;
 			comboBox_mtars.Items.Clear();
+			changeState();
 
-        }
+		}
 
-        private void button_delete_Click(object sender, EventArgs e)
+		private void button_delete_Click(object sender, EventArgs e)
 		{
 			//remove the selected tool
 			int id = Convert.ToInt32(textBox_id.Text);
@@ -196,7 +207,9 @@ namespace Transparent_Form
             button_delete.Visible = false;
             button_update.Visible = false;
 			button_clear.Visible = false;
-        }
+			changeState();
+
+		}
 
 		private void button_history_Click(object sender, EventArgs e)
 		{
@@ -204,9 +217,32 @@ namespace Transparent_Form
 			History myForm = new History();
 			int toolid = Convert.ToInt32(textBox_id.Text);
 			myForm.Show();
+			changeState();
+
+		}
+
+
+		private void DataGridView_tool_Layout(object sender, LayoutEventArgs e)
+		{
+			changeState();
+		}
+
+		public void changeState()
+		{
+			foreach (DataGridViewRow r in DataGridView_tool.Rows)
+			{
+				int cellQuantity = Convert.ToInt32(r.Cells[5].Value);
+				int cellLimit = Convert.ToInt32(r.Cells[7].Value);
+				if (cellLimit > cellQuantity)
+				{
+					r.DefaultCellStyle.BackColor = Color.Red;
+					r.DefaultCellStyle.ForeColor = Color.White;
+					r.DefaultCellStyle.SelectionForeColor = Color.White;
+					r.DefaultCellStyle.SelectionBackColor = Color.Brown;
+				}
+			}
 		}
 	}
 	
 	
 	}
-

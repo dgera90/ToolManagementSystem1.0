@@ -32,10 +32,10 @@ namespace Transparent_Form
 		DBconnect connect = new DBconnect();
 		//create a function to add a new tool to the database
 
-		public bool InsertTool(string name, string size, string type, string quantity, string details)
+		public bool InsertTool(string name, string size, string type, string quantity, string details, int limit)
 		{
-			MySqlCommand command = new MySqlCommand("INSERT INTO `eszkozok`(`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`) VALUES(@nm, @sz, @dt, @tp, @qua, @det)", connect.getconnection);
-			MySqlCommand command2 = new MySqlCommand("INSERT INTO `felvetel`(`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`) VALUES(@nm, @sz, @dt, @tp, @qua, @det)", connect.getconnection);
+			MySqlCommand command = new MySqlCommand("INSERT INTO `eszkozok`(`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`,`limit`) VALUES(@nm, @sz, @dt, @tp, @qua, @det, @lm)", connect.getconnection);
+			MySqlCommand command2 = new MySqlCommand("INSERT INTO `felvetel`(`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`,`limit`) VALUES(@nm, @sz, @dt, @tp, @qua, @det, @lm)", connect.getconnection);
 
 
             //@nm, @sz, @dt, @tp, @qua, @det
@@ -45,6 +45,7 @@ namespace Transparent_Form
 			command.Parameters.Add("@tp", MySqlDbType.VarChar).Value = type;
 			command.Parameters.Add("@qua", MySqlDbType.VarChar).Value = quantity;
 			command.Parameters.Add("@det", MySqlDbType.VarChar).Value = details;
+			command.Parameters.Add("@lm", MySqlDbType.Int32).Value = limit;
 
             command2.Parameters.Add("@nm", MySqlDbType.VarChar).Value = name;
             command2.Parameters.Add("@sz", MySqlDbType.VarChar).Value = size;
@@ -52,9 +53,10 @@ namespace Transparent_Form
             command2.Parameters.Add("@tp", MySqlDbType.VarChar).Value = type;
             command2.Parameters.Add("@qua", MySqlDbType.VarChar).Value = quantity;
             command2.Parameters.Add("@det", MySqlDbType.VarChar).Value = details;
+			command2.Parameters.Add("@lm", MySqlDbType.Int32).Value = limit;
 
 
-            connect.openConnect();
+			connect.openConnect();
 
 				if (command.ExecuteNonQuery() == 1 && command2.ExecuteNonQuery() == 1)
 				{
@@ -136,16 +138,15 @@ namespace Transparent_Form
 			return table;
 		}
 		//create a function edit for tool
-		public bool updateTool(int id, string name, string size, string quantity, string details, string mtars)
+		public bool updateTool(int id, string name, string quantity, string details, string mtars)
 		{
-			MySqlCommand command = new MySqlCommand("UPDATE `eszkozok` SET `toolName`=@nm,`toolSize`=@sz,`quantity`=@qua,`description`=@det WHERE `id`= @id", connect.getconnection);
+			MySqlCommand command = new MySqlCommand("UPDATE `eszkozok` SET `toolName`=@nm,`quantity`=@qua,`description`=@det WHERE `id`= @id", connect.getconnection);
 			MySqlCommand commandHistory = new MySqlCommand("INSERT INTO `history`(`tool_id`,`modified_date`,`quantity`,`munkatars`) VALUES (@ti,@md,@qua,@mt)", connect.getconnection);
 
 
             //@id,@nm, @sz, @dt, @tp, @qua, @det
             command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
 			command.Parameters.Add("@nm", MySqlDbType.VarChar).Value = name;
-			command.Parameters.Add("@sz", MySqlDbType.VarChar).Value = size;
 			command.Parameters.Add("@qua", MySqlDbType.VarChar).Value = quantity;
 			command.Parameters.Add("@det", MySqlDbType.VarChar).Value = details;
 

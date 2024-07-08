@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using DGVPrinterHelper;
+using System.Drawing.Printing;
 
 namespace Transparent_Form
 {
@@ -57,7 +58,7 @@ namespace Transparent_Form
         {
             //We need DGVprinter helper for print pdf file
             printer.Title = "Szerszám és eszközlista";
-            printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date);
+            printer.SubTitle = string.Format("Date: {0}", DateTime.Now);
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
             printer.PageNumbers = true;
             printer.PageNumberInHeader = false;
@@ -66,7 +67,10 @@ namespace Transparent_Form
             printer.Footer = "foxlearn";
             printer.FooterSpacing = 15;
             printer.printDocument.DefaultPageSettings.Landscape = true;
+            printer.printDocument.DefaultPageSettings.PaperSize=new PaperSize("A4", 400, 600); // all sizes are converted from mm to inches & then multiplied by 100.
             printer.PrintDataGridView(DataGridView_tool);
+
+
         }
     }
 }

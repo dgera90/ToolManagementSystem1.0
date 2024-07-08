@@ -104,19 +104,20 @@ namespace Transparent_Form
             string quantity = textBox_quantity.Text;
             string details = textBox_details.Text;
             string type = radioButton_tool.Checked ? "Szerszám" : "Egyéb";
+            int limit = Convert.ToInt32(numericUpDown_limit.Value);
 
 
             if (verify())
             {
 
-                string eszkozadatok = ($"Biztosan hozzá kívánja adni a következő eszközt?\nNév: {name}\nMéret: {size}\nDarabszám: {quantity}\nTípus: {type}\nRészletek: {details}");
+                string eszkozadatok = ($"Biztosan hozzá kívánja adni a következő eszközt?\nNév: {name}\nMéret: {size}\nDarabszám: {quantity}\nTípus: {type}\nRészletek: {details}\nLimit: {limit}");
                 DialogResult result = MessageBox.Show($"{eszkozadatok}", "Eszköz felvétele", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result==DialogResult.Yes)
                 {
                     try
                     {
                        
-                        if (tool.InsertTool(name, size, type, quantity, details))
+                        if (tool.InsertTool(name, size, type, quantity, details, limit))
                         {
                             showTable();
                             MessageBox.Show("Új bejegyzés hozzáadva!", "Sikeres hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -126,6 +127,7 @@ namespace Transparent_Form
                             radioButton_tool.Checked = false;
                             radioButton_etc.Checked = false;
                             comboBox_name.Items.Clear();
+                            numericUpDown_limit.Value = 1;
                         }
                     }
                     catch (Exception ex)
@@ -159,6 +161,8 @@ namespace Transparent_Form
         {
             ModifyName myForm = new ModifyName();            
             myForm.Show();
+            radioButton_etc.Checked = false;
+            radioButton_tool.Checked = false;
         }
 
         private void textBox_size_KeyPress(object sender, KeyPressEventArgs e)
@@ -175,5 +179,6 @@ namespace Transparent_Form
                 e.Handled = true;
             }
         }
-    }
+
+	}
 }

@@ -19,10 +19,11 @@ namespace Transparent_Form
         public ModifyName()
         {
             InitializeComponent();
+            textBox1.ReadOnly = true;
         }
         private void radioButton_tool_CheckedChanged(object sender, EventArgs e)
         {
-
+            textBox1.ReadOnly = false;
             if (radioButton_tool.Checked)
             {
                 try
@@ -101,8 +102,9 @@ namespace Transparent_Form
                     radioButton_tool.Checked = false;
                     comboBox_list.Items.Clear();
 
-                }
-                else if (radioButton_etc.Checked)
+
+					}
+					else if (radioButton_etc.Checked)
                 {
                     try
                     {
@@ -126,8 +128,10 @@ namespace Transparent_Form
                     textBox1.Clear();
                     radioButton_etc.Checked = false;
                     radioButton_tool.Checked = false;
-                }
-                MessageBox.Show("Sikeres hozzáadás!", "Hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						textBox1.ReadOnly = true;
+
+					}
+					MessageBox.Show("Sikeres hozzáadás!", "Hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             comboBox_list.Items.Clear();
@@ -136,9 +140,11 @@ namespace Transparent_Form
             {
                 MessageBox.Show("Üres mező!","Hiba",MessageBoxButtons.OK, MessageBoxIcon.Information); 
             }
-        }
+			textBox1.ReadOnly = true;
 
-        private void button_deleteTool_Click(object sender, EventArgs e)
+		}
+
+		private void button_deleteTool_Click(object sender, EventArgs e)
         {
             if (comboBox_list.SelectedItem!=null)
             {
@@ -174,8 +180,10 @@ namespace Transparent_Form
                 radioButton_tool.Checked = false;
                 comboBox_list.Items.Clear();
                 textBox1.Clear();
-            }
-            else if (radioButton_etc.Checked) {
+					textBox1.ReadOnly = true;
+
+				}
+				else if (radioButton_etc.Checked) {
                 DialogResult result = MessageBox.Show("Valóban törölni kívánja a szerszámot?", "Törlés", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {

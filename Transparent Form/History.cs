@@ -56,6 +56,7 @@ namespace Transparent_Form
             _dlg.Location = new System.Drawing.Point(Left, Top);
             _dlg.MinimumSize = new System.Drawing.Size(375, 250);
             _dlg.UseAntiAlias = true;
+            _document.DefaultPageSettings.Landscape = true;
             // Setting up our document
             _dlg.Document = _document;
             // Show it
