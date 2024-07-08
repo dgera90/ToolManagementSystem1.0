@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using MySql.Data.MySqlClient;
 using System.Reflection.Emit;
+using Microsoft.VisualBasic;
 
 namespace Transparent_Form
 {
@@ -26,9 +27,10 @@ namespace Transparent_Form
 			button_update.Visible = false;
 			button_delete.Visible = false;
 			button_clear.Visible = false;
-			
-			showTable();
-			DataGridView_tool.Columns[7].Visible = false;
+			button_out.Visible = false;
+			numericUpDown_qua.Visible = false;
+            showTable();
+
 			DataGridView_tool.ReadOnly = true;
 
 		}
@@ -39,7 +41,7 @@ namespace Transparent_Form
 
 			DataGridView_tool.DataSource = tool.getToollist(new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Darabszám, `description` AS Részletek, `limit` AS Figyelmeztetés FROM `eszkozok`"));
 			DataGridView_tool.ReadOnly = true;
-
+			DataGridView_tool.Columns["Figyelmeztetés"].Visible = false;
 
 		}
 		//Display data from student to textbox
@@ -56,20 +58,21 @@ namespace Transparent_Form
 			textBox_name.Text = DataGridView_tool.CurrentRow.Cells[1].Value.ToString();
 			textBox_size.Text = DataGridView_tool.CurrentRow.Cells[2].Value.ToString();
 
-			dateTimePicker1.Value = (DateTime)DataGridView_tool.CurrentRow.Cells[3].Value;
 
-                textBox_quantity.Text = DataGridView_tool.CurrentRow.Cells[5].Value.ToString();
+            textBox_quantity.Text = DataGridView_tool.CurrentRow.Cells[5].Value.ToString();
 			textBox_details.Text = DataGridView_tool.CurrentRow.Cells[6].Value.ToString();
-
+			numericUpDown_limit.Value=Convert.ToInt32(DataGridView_tool.CurrentRow.Cells[7].Value);
 			if (textBox_name.Text != "")
 			{
 				button_history.Visible = true;
 				button_update.Visible = true;
 				button_delete.Visible = true;
 				button_clear.Visible = true;
+                    button_out.Visible = true;
+                    numericUpDown_qua.Visible = true;
 
-				}
-			}
+                }
+            }
 
             try
             {
@@ -99,12 +102,14 @@ namespace Transparent_Form
 			textBox_quantity.Clear();
 			textBox_details.Clear();
 			comboBox_mtars.Items.Clear();
-			dateTimePicker1.Value = DateTime.Now;
 			button_history.Visible = false;
             button_delete.Visible = false;
             button_update.Visible = false;
 			button_clear.Visible = false;
-			changeState();
+			numericUpDown_limit.Value = 1;
+            button_out.Visible = false;
+
+            changeState();
 
 
 		}
@@ -113,7 +118,6 @@ namespace Transparent_Form
 		{
 			DataGridView_tool.DataSource = tool.searchTool(textBox_search.Text);
 			changeState();
-
 		}
 		//create a function to verify
 		bool verify()
@@ -136,56 +140,53 @@ namespace Transparent_Form
 			string quantity = textBox_quantity.Text;
 			string details = textBox_details.Text;
 			string mtars = comboBox_mtars.Text;
-
+			int limit = Convert.ToInt32(numericUpDown_limit.Value);
 
 			if (verify())
 			{
-					string eszkozadatok = ($"Biztosan módosítani kívánja a következő eszközt?\nNév: {name}\nDarabszám: {quantity}\nRészletek: {details}\nMunkatárs: {mtars}");
-					DialogResult result = MessageBox.Show($"{eszkozadatok}", "Eszköz felvétele", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-					if (result == DialogResult.Yes)
+				string eszkozadatok = ($"Biztosan módosítani kívánja a következő eszközt?\nNév: {name}\nDarabszám: {quantity}\nRészletek: {details}\nMunkatárs: {mtars}\nLimit: {limit}");
+				DialogResult result = MessageBox.Show($"{eszkozadatok}", "Eszköz felvétele", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				if (result == DialogResult.Yes)
+				{
+					try
 					{
-						try
-						{
-							if (comboBox_mtars.Text != "")
-							{
 
-						
-								if (tool.updateTool(id, name, quantity, details, mtars))
+							
+								if (tool.updateTool(id, name, quantity, details, mtars, limit))
 								{
 									showTable();
 									MessageBox.Show("Bejegyzés adatainak módosítása", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Information);
 									button_clear.PerformClick();
+									numericUpDown_limit.Value = 1;
 								}
-							}
-							else
-							{
-								MessageBox.Show("Munkatárs mező üres!","Hiba", MessageBoxButtons.OK);
-
-							}
+							
+						
 						}
 						catch (Exception ex)
 
-						{
-							MessageBox.Show(ex.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-						}
+					{
+						MessageBox.Show(ex.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					}
-				
+				}
+
 			}
 			else
 			{
 				MessageBox.Show("Üres mező", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
-            textBox_id.Clear();
-            textBox_name.Clear();
-            textBox_size.Clear();
-            textBox_quantity.Clear();
-            textBox_details.Clear();
-            dateTimePicker1.Value = DateTime.Now;
-            button_history.Visible = false;
-            button_update.Visible = false;
-            button_delete.Visible = false;
+			textBox_id.Clear();
+			textBox_name.Clear();
+			textBox_size.Clear();
+			textBox_quantity.Clear();
+			textBox_details.Clear();
+			button_history.Visible = false;
+			button_update.Visible = false;
+			button_delete.Visible = false;
 			button_clear.Visible = false;
-			comboBox_mtars.Items.Clear();
+            button_out.Visible = false;
+
+            comboBox_mtars.Items.Clear();
+			numericUpDown_limit.Value = 1;
 			changeState();
 
 		}
@@ -207,7 +208,9 @@ namespace Transparent_Form
             button_delete.Visible = false;
             button_update.Visible = false;
 			button_clear.Visible = false;
-			changeState();
+			button_out.Visible = false;
+            numericUpDown_limit.Value = 1;
+            changeState();
 
 		}
 
@@ -218,8 +221,7 @@ namespace Transparent_Form
 			int toolid = Convert.ToInt32(textBox_id.Text);
 			myForm.Show();
 			changeState();
-
-		}
+        }
 
 
 		private void DataGridView_tool_Layout(object sender, LayoutEventArgs e)
@@ -242,7 +244,88 @@ namespace Transparent_Form
 				}
 			}
 		}
-	}
+
+
+        private void button_out_Click(object sender, EventArgs e)
+        {
+            string mtars = comboBox_mtars.Text;
+			DateTime dateTime = DateTime.Now;
+            int kiadott = Convert.ToInt32(numericUpDown_qua.Value);
+            int id = Convert.ToInt32(textBox_id.Text);
+			int quantity = Convert.ToInt32(textBox_quantity.Text);
+			string name = textBox_name.Text;
+			double size = Convert.ToDouble(textBox_size.Text);
+
+			if (quantity>=kiadott)
+			{
+				if (comboBox_mtars.Text!="")
+				{
+                    if (MessageBox.Show("Biztosan kiadod a szerszámot?", "Kiadás", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if (tool.kiadasTool(id, name, size, mtars, kiadott, quantity))
+                        {
+                            showTable();
+                            MessageBox.Show("Eszköz kiadva.", "Sikeres kiadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            button_clear.PerformClick();
+                        }
+                    }
+                }
+				else
+				{
+					MessageBox.Show("Munkatárs mező üres!","Hiba",MessageBoxButtons.OK,MessageBoxIcon.Error);
+				}
+                
+            }
+			else
+			{
+				MessageBox.Show("Nincs elég darabszám!", "Hiba", MessageBoxButtons.OK,MessageBoxIcon.Error);
+			}
+
+            
+            button_delete.Visible = false;
+            button_update.Visible = false;
+            button_clear.Visible = false;
+            button_out.Visible = false;
+            numericUpDown_limit.Value = 1;
+            changeState();
+
+        }
+
+        private void button_addQua_Click(object sender, EventArgs e)
+        {
+            string mtars = comboBox_mtars.Text;
+            DateTime dateTime = DateTime.Now;
+            int kiadott = Convert.ToInt32(numericUpDown_qua.Value);
+            int id = Convert.ToInt32(textBox_id.Text);
+            int quantity = Convert.ToInt32(textBox_quantity.Text);
+			string name = textBox_name.Text;
+			double size = Convert.ToDouble(textBox_size.Text);
+			if (comboBox_mtars.Text != "")
+			{
+				if (MessageBox.Show("Biztosan hozzáadod a darabszámot?", "Hozzáadás", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+				{
+					if (tool.hozzaadTool(id, name, size, mtars, kiadott, quantity))
+					{
+						showTable();
+						MessageBox.Show("Eszköz hozzáadva.", "Sikeres hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						button_clear.PerformClick();
+					}
+				}
+			}
+			else
+			{
+                MessageBox.Show("Munkatárs mező üres!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            button_delete.Visible = false;
+            button_update.Visible = false;
+            button_clear.Visible = false;
+            button_out.Visible = false;
+            numericUpDown_limit.Value = 1;
+            changeState();
+        }
+    }
+		}
 	
 	
-	}
+	

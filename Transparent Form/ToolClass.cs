@@ -138,10 +138,68 @@ namespace Transparent_Form
 			return table;
 		}
 		//create a function edit for tool
-		public bool updateTool(int id, string name, string quantity, string details, string mtars)
+
+		public bool kiadasTool(int id, string name, double size, string mtars,int kiadott,int quantity)
 		{
-			MySqlCommand command = new MySqlCommand("UPDATE `eszkozok` SET `toolName`=@nm,`quantity`=@qua,`description`=@det WHERE `id`= @id", connect.getconnection);
-			MySqlCommand commandHistory = new MySqlCommand("INSERT INTO `history`(`tool_id`,`modified_date`,`quantity`,`munkatars`) VALUES (@ti,@md,@qua,@mt)", connect.getconnection);
+			int remain = quantity - kiadott;
+            MySqlCommand command = new MySqlCommand("INSERT INTO `history`(`tool_id`,`tool_name`,`tool_size`,`modified_date`,`munkatars`,`kiadott`) VALUES (@id,@nm,@sz,@md,@mt,@kia)", connect.getconnection);
+            MySqlCommand command2 = new MySqlCommand("UPDATE `eszkozok` SET `quantity`=@qua WHERE `id`=@id", connect.getconnection);
+
+            command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+            command.Parameters.Add("@nm", MySqlDbType.VarChar).Value = name;
+            command.Parameters.Add("@sz", MySqlDbType.Double).Value = size;
+            command.Parameters.Add("@mt", MySqlDbType.VarChar).Value = mtars; 
+            command.Parameters.Add("@kia", MySqlDbType.Int32).Value = kiadott;
+            command.Parameters.Add("@md", MySqlDbType.DateTime).Value = DateTime.Now;
+
+            command2.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+			command2.Parameters.Add("@qua", MySqlDbType.Int32).Value = remain;
+
+            connect.openConnect();
+            if (command.ExecuteNonQuery() == 1 && command2.ExecuteNonQuery() == 1)
+            {
+                connect.closeConnect();
+                return true;
+            }
+            else
+            {
+                connect.closeConnect();
+                return false;
+            }
+        }
+
+        public bool hozzaadTool(int id, string name, double size, string mtars, int kiadott, int quantity)
+        {
+            int remain = quantity + kiadott;
+            MySqlCommand command = new MySqlCommand("INSERT INTO `history`(`tool_id`,`tool_name`,`tool_size`,`modified_date`,`munkatars`,`hozzaadott`) VALUES (@id,@nm,@sz,@md,@mt,@kia)", connect.getconnection);
+            MySqlCommand command2 = new MySqlCommand("UPDATE `eszkozok` SET `quantity`=@qua WHERE `id`=@id", connect.getconnection);
+
+            command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+            command.Parameters.Add("@nm", MySqlDbType.VarChar).Value = name;
+            command.Parameters.Add("@sz", MySqlDbType.Double).Value = size;
+            command.Parameters.Add("@mt", MySqlDbType.VarChar).Value = mtars;
+            command.Parameters.Add("@kia", MySqlDbType.Int32).Value = kiadott;
+            command.Parameters.Add("@md", MySqlDbType.DateTime).Value = DateTime.Now;
+
+            command2.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+            command2.Parameters.Add("@qua", MySqlDbType.Int32).Value = remain;
+
+            connect.openConnect();
+            if (command.ExecuteNonQuery() == 1 && command2.ExecuteNonQuery() == 1)
+            {
+                connect.closeConnect();
+                return true;
+            }
+            else
+            {
+                connect.closeConnect();
+                return false;
+            }
+        }
+
+        public bool updateTool(int id, string name, string quantity, string details, string mtars, int limit)
+		{
+			MySqlCommand command = new MySqlCommand("UPDATE `eszkozok` SET `toolName`=@nm,`quantity`=@qua,`description`=@det, `limit`=@lm WHERE `id`= @id", connect.getconnection);
 
 
             //@id,@nm, @sz, @dt, @tp, @qua, @det
@@ -149,15 +207,10 @@ namespace Transparent_Form
 			command.Parameters.Add("@nm", MySqlDbType.VarChar).Value = name;
 			command.Parameters.Add("@qua", MySqlDbType.VarChar).Value = quantity;
 			command.Parameters.Add("@det", MySqlDbType.VarChar).Value = details;
+			command.Parameters.Add("@lm", MySqlDbType.Int32).Value = limit;
 
-			commandHistory.Parameters.Add("@ti", MySqlDbType.Int32).Value = id;
-			commandHistory.Parameters.Add("@md", MySqlDbType.DateTime).Value = DateTime.Now;
-			commandHistory.Parameters.Add("@qua", MySqlDbType.Int32).Value = quantity;
-			commandHistory.Parameters.Add("@mt", MySqlDbType.VarChar).Value = mtars;
-
-
-			connect.openConnect();
-			if (command.ExecuteNonQuery() == 1 && commandHistory.ExecuteNonQuery() == 1)
+            connect.openConnect();
+			if (command.ExecuteNonQuery() == 1)
 			{
 				connect.closeConnect();
 				return true;
@@ -205,6 +258,29 @@ namespace Transparent_Form
 			adapter.Fill(table);
 			return table;
 		}
-       
+        public DataTable getMtarslist(MySqlCommand command)
+        {
+            command.Connection = connect.getconnection;
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+        public DataTable searchSzerszam(string searchdata)
+        {
+            MySqlCommand command = new MySqlCommand("SELECT `tool_name` AS Név, `tool_size` AS Méret, `modified_date` AS Dátum, `munkatars` AS Munkatárs FROM `history` WHERE CONCAT(`tool_name`,`tool_size`) LIKE '%" + searchdata + "%'", connect.getconnection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+        public DataTable searchMtars(string searchdata)
+        {
+            MySqlCommand command = new MySqlCommand("SELECT `tool_name` AS Név, `tool_size` AS Méret, `modified_date` AS Dátum, `munkatars` AS Munkatárs FROM `history` WHERE CONCAT(`munkatars`) LIKE '%" + searchdata + "%'", connect.getconnection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
     }
 }

@@ -144,5 +144,11 @@ namespace Transparent_Form
             //...
             hideSubmenu();
         }
+
+        private void button_mHistory_Click(object sender, EventArgs e)
+        {
+            openChildForm(new MtarsHistory());
+            hideSubmenu();
+        }
     }
 }

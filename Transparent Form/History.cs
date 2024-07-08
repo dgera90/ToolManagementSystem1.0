@@ -26,7 +26,7 @@ namespace Transparent_Form
         public History()
         {
             InitializeComponent();
-            DataGridView_history.DataSource = tool.getHistory(new MySqlCommand("SELECT `modified_date` AS 'Módosítva',`quantity` AS Darabszám, `munkatars` AS Munkatárs FROM `history` WHERE `tool_id`=@toolid"));
+            DataGridView_history.DataSource = tool.getHistory(new MySqlCommand("SELECT `modified_date` AS 'Módosítva', `munkatars` AS Munkatárs, `kiadott` AS Kiadva, `hozzaadott` AS Hozzáadva FROM `history` WHERE `tool_id`=@toolid"));
             DataGridView_history.ReadOnly = true;
             string toolid = ToolClass.toolid;
             
