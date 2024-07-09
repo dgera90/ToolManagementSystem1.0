@@ -136,6 +136,8 @@ namespace Transparent_Form
 		{
 			DataGridView_tool.DataSource = tool.searchTool(textBox_search.Text);
 			changeState();
+			DataGridView_tool.Columns["Figyelmeztetés"].Visible = false;
+
 		}
 		//create a function to verify
 		bool verify()
@@ -176,6 +178,7 @@ namespace Transparent_Form
 									MessageBox.Show("Bejegyzés adatainak módosítása", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Information);
 									button_clear.PerformClick();
 									numericUpDown_limit.Value = 1;
+									numericUpDown_qua.Value = 1;
 								}
 							
 						
@@ -200,6 +203,8 @@ namespace Transparent_Form
             hideInfo();
             comboBox_mtars.Items.Clear();
 			numericUpDown_limit.Value = 1;
+			numericUpDown_qua.Value = 1;
+
 			changeState();
 
 		}
@@ -244,7 +249,7 @@ namespace Transparent_Form
 			{
 				int cellQuantity = Convert.ToInt32(r.Cells[5].Value);
 				int cellLimit = Convert.ToInt32(r.Cells[7].Value);
-				if (cellLimit > cellQuantity)
+				if (cellLimit >= cellQuantity)
 				{
 					r.DefaultCellStyle.BackColor = Color.Red;
 					r.DefaultCellStyle.ForeColor = Color.White;

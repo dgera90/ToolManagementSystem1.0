@@ -99,7 +99,7 @@ namespace Transparent_Form
         private void button_add_Click(object sender, EventArgs e)
         {
             // add new tool
-            string name = comboBox_name.Text;
+            string name = comboBox_name.Text.ToUpper();
             string size = textBox_size.Text.Replace(",", "."); ;
             string quantity = textBox_quantity.Text;
             string details = textBox_details.Text;
@@ -128,6 +128,7 @@ namespace Transparent_Form
                             radioButton_etc.Checked = false;
                             comboBox_name.Items.Clear();
                             numericUpDown_limit.Value = 1;
+                            
                         }
                     }
                     catch (Exception ex)
@@ -154,7 +155,7 @@ namespace Transparent_Form
             radioButton_tool.Checked = false;
             radioButton_etc.Checked = false;
             comboBox_name.Items.Clear();
-
+            numericUpDown_limit.Value = 1;
         }
 
         private void button_addName_Click(object sender, EventArgs e)
@@ -180,5 +181,9 @@ namespace Transparent_Form
             }
         }
 
+		private void textBox_quantity_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+		}
 	}
 }

@@ -36,6 +36,8 @@ namespace Transparent_Form
 			this.label7 = new System.Windows.Forms.Label();
 			this.DataGridView_tool = new Guna.UI2.WinForms.Guna2DataGridView();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.numericUpDown_limit = new System.Windows.Forms.NumericUpDown();
+			this.label8 = new System.Windows.Forms.Label();
 			this.button_addName = new System.Windows.Forms.Button();
 			this.comboBox_name = new System.Windows.Forms.ComboBox();
 			this.textBox_quantity = new System.Windows.Forms.TextBox();
@@ -52,8 +54,6 @@ namespace Transparent_Form
 			this.label5 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
-			this.numericUpDown_limit = new System.Windows.Forms.NumericUpDown();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView_tool)).BeginInit();
 			this.panel2.SuspendLayout();
@@ -169,6 +169,35 @@ namespace Transparent_Form
 			this.panel2.Size = new System.Drawing.Size(1134, 491);
 			this.panel2.TabIndex = 14;
 			// 
+			// numericUpDown_limit
+			// 
+			this.numericUpDown_limit.Location = new System.Drawing.Point(300, 334);
+			this.numericUpDown_limit.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numericUpDown_limit.Name = "numericUpDown_limit";
+			this.numericUpDown_limit.Size = new System.Drawing.Size(120, 30);
+			this.numericUpDown_limit.TabIndex = 36;
+			this.numericUpDown_limit.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			// 
+			// label8
+			// 
+			this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label8.AutoSize = true;
+			this.label8.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			this.label8.Location = new System.Drawing.Point(32, 338);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(252, 23);
+			this.label8.TabIndex = 35;
+			this.label8.Text = "Figyelmeztetési limit:";
+			// 
 			// button_addName
 			// 
 			this.button_addName.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -198,6 +227,7 @@ namespace Transparent_Form
 			this.textBox_quantity.Name = "textBox_quantity";
 			this.textBox_quantity.Size = new System.Drawing.Size(156, 30);
 			this.textBox_quantity.TabIndex = 31;
+			this.textBox_quantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_quantity_KeyPress);
 			// 
 			// label6
 			// 
@@ -356,35 +386,6 @@ namespace Transparent_Form
 			this.label1.Size = new System.Drawing.Size(54, 23);
 			this.label1.TabIndex = 15;
 			this.label1.Text = "Név:";
-			// 
-			// label8
-			// 
-			this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.label8.AutoSize = true;
-			this.label8.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.label8.Location = new System.Drawing.Point(32, 338);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(252, 23);
-			this.label8.TabIndex = 35;
-			this.label8.Text = "Figyelmeztetési limit:";
-			// 
-			// numericUpDown_limit
-			// 
-			this.numericUpDown_limit.Location = new System.Drawing.Point(300, 334);
-			this.numericUpDown_limit.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.numericUpDown_limit.Name = "numericUpDown_limit";
-			this.numericUpDown_limit.Size = new System.Drawing.Size(120, 30);
-			this.numericUpDown_limit.TabIndex = 36;
-			this.numericUpDown_limit.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
 			// 
 			// RegisterForm
 			// 

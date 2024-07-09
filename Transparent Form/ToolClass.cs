@@ -131,7 +131,7 @@ namespace Transparent_Form
 		//create a function search for tool
 		public DataTable searchTool(string searchdata)
 		{
-			MySqlCommand command = new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok` WHERE CONCAT(`toolName`,`toolSize`,`description`) LIKE '%" + searchdata + "%'", connect.getconnection);
+			MySqlCommand command = new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek, `limit` AS Figyelmeztetés FROM `eszkozok` WHERE CONCAT(`toolName`,`toolSize`,`description`) LIKE '%" + searchdata + "%'", connect.getconnection);
 			MySqlDataAdapter adapter = new MySqlDataAdapter(command);
 			DataTable table = new DataTable();
 			adapter.Fill(table);
