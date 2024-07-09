@@ -12,6 +12,8 @@ using MySql.Data.MySqlClient;
 using System.Reflection.Emit;
 using Microsoft.VisualBasic;
 using Guna.UI2.WinForms.Suite;
+using System.Web.Configuration;
+using System.Management;
 
 namespace Transparent_Form
 {
@@ -102,9 +104,11 @@ namespace Transparent_Form
                 MessageBox.Show(ex.Message);
             }
             connect.closeConnect();
+            changeState();
+
         }
 
-		private void button_clear_Click(object sender, EventArgs e)
+        private void button_clear_Click(object sender, EventArgs e)
 		{
 			textBox_id.Clear();
 			textBox_name.Clear();
@@ -370,6 +374,12 @@ namespace Transparent_Form
 			checkBox1.Checked = false;
 			checkBox1.Enabled = false;
         }
+
+        private void DataGridView_tool_SelectionChanged(object sender, EventArgs e)
+        {
+			changeState();
+        }
+
     }
 		}
 	

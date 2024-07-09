@@ -282,5 +282,13 @@ namespace Transparent_Form
             adapter.Fill(table);
             return table;
         }
+        public DataTable getRed(MySqlCommand command)
+        {
+            command.Connection = connect.getconnection;
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
     }
 }

@@ -99,7 +99,7 @@ namespace Transparent_Form
         private void button_add_Click(object sender, EventArgs e)
         {
             // add new tool
-            string name = comboBox_name.Text.ToUpper();
+            string name = comboBox_name.Text;
             string size = textBox_size.Text.Replace(",", "."); ;
             string quantity = textBox_quantity.Text;
             string details = textBox_details.Text;
