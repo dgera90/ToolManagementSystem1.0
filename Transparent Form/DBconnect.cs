@@ -24,7 +24,7 @@ namespace Transparent_Form
         //static string port = "3307";
 
 
-        static string database = "eszkozTeszt";
+        static string database = "eszkozKmt";
         static string username = "denesgera";
         static string password = "deneske90";
         static string connectionString = $"Server={server};Port={port}; Database={database}; Uid={username}; Pwd={password};Connection Timeout=30;";

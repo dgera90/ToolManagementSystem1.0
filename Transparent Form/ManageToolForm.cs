@@ -37,6 +37,8 @@ namespace Transparent_Form
             label2.Visible = false;
             label5.Visible = false;
 			label3.Visible = false;
+			label9.Visible = false;
+			comboBox_mtars.Visible = false;
             textBox_details.Visible = false;
             button_update.Visible = false;
             DataGridView_tool.ReadOnly = true;
@@ -50,7 +52,7 @@ namespace Transparent_Form
 
 			DataGridView_tool.DataSource = tool.getToollist(new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Darabszám, `description` AS Részletek, `limit` AS Figyelmeztetés FROM `eszkozok`"));
 			DataGridView_tool.ReadOnly = true;
-			DataGridView_tool.Columns["Figyelmeztetés"].Visible = false;
+			DataGridView_tool.Columns[7].Visible = false;
 
 		}
 		//Display data from student to textbox
@@ -141,7 +143,7 @@ namespace Transparent_Form
 			DataGridView_tool.DataSource = tool.searchTool(textBox_search.Text);
 			changeState();
 			DataGridView_tool.Columns["Figyelmeztetés"].Visible = false;
-
+			hideInfo() ;
 		}
 		//create a function to verify
 		bool verify()
@@ -181,8 +183,7 @@ namespace Transparent_Form
 									showTable();
 									MessageBox.Show("Bejegyzés adatainak módosítása", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Information);
 									button_clear.PerformClick();
-									numericUpDown_limit.Value = 1;
-									numericUpDown_qua.Value = 1;
+
 								}
 							
 						
@@ -199,19 +200,18 @@ namespace Transparent_Form
 			{
 				MessageBox.Show("Üres mező", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
-			textBox_id.Clear();
-			textBox_name.Clear();
-			textBox_size.Clear();
-			textBox_quantity.Clear();
-			textBox_details.Clear();
-            hideInfo();
-            comboBox_mtars.Items.Clear();
-			numericUpDown_limit.Value = 1;
-			numericUpDown_qua.Value = 1;
+
 
 			changeState();
-
-		}
+            textBox_id.Clear();
+            textBox_name.Clear();
+            textBox_size.Clear();
+            textBox_quantity.Clear();
+            textBox_details.Clear();
+            hideInfo();
+            comboBox_mtars.Items.Clear();
+            numericUpDown_qua.Value = 1;
+        }
 
 		private void button_delete_Click(object sender, EventArgs e)
 		{
@@ -300,6 +300,7 @@ namespace Transparent_Form
 				MessageBox.Show("Nincs elég darabszám!", "Hiba", MessageBoxButtons.OK,MessageBoxIcon.Error);
 			}
 
+            numericUpDown_qua.Value = 1;
 
             changeState();
 
@@ -332,7 +333,8 @@ namespace Transparent_Form
                 MessageBox.Show("Munkatárs mező üres!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            
+			numericUpDown_qua.Value = 1;
+
             changeState();
         }
 
@@ -362,6 +364,8 @@ namespace Transparent_Form
             button_update.Visible = false;
             button_clear.Visible = false;
             button_out.Visible = false;
+			button_addQua.Visible = false;
+			button_history.Visible = false;
             numericUpDown_limit.Value = 1;
             numericUpDown_qua.Visible = false;
             numericUpDown_limit.Visible = false;
@@ -375,10 +379,7 @@ namespace Transparent_Form
 			checkBox1.Enabled = false;
         }
 
-        private void DataGridView_tool_SelectionChanged(object sender, EventArgs e)
-        {
-			changeState();
-        }
+
 
     }
 		}

@@ -2434,7 +2434,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Tool Management System 1.0"
         "ProductCode" = "8:{4B7233F1-0ED1-43AD-BEA9-D791560CF54B}"
-        "PackageCode" = "8:{D54DFE2D-7EA1-4349-A42E-6A3C8EF03B53}"
+        "PackageCode" = "8:{23D5FFB9-55D4-4510-8CD4-DC333839C982}"
         "UpgradeCode" = "8:{EDA2E9C4-A60B-45E8-95EF-A581C6C3FB2C}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"

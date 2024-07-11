@@ -259,7 +259,7 @@ namespace Transparent_Form
             this.DataGridView_tool.ThemeStyle.RowsStyle.Height = 80;
             this.DataGridView_tool.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataGridView_tool.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.DataGridView_tool.SelectionChanged += new System.EventHandler(this.DataGridView_tool_SelectionChanged);
+
             this.DataGridView_tool.Click += new System.EventHandler(this.DataGridView_tool_Click);
             this.DataGridView_tool.Layout += new System.Windows.Forms.LayoutEventHandler(this.DataGridView_tool_Layout);
             // 
