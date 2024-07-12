@@ -46,7 +46,7 @@ namespace Transparent_Form
 			checkBox1.Enabled = false;
 		}
 
-		// To show student list in DatagridView
+		// To show tool list in DatagridView
 		public void showTable()
 		{
 
@@ -55,7 +55,7 @@ namespace Transparent_Form
 			DataGridView_tool.Columns[7].Visible = false;
 
 		}
-		//Display data from student to textbox
+		//Display data from tool to textbox
 		private void DataGridView_tool_Click(object sender, EventArgs e)
 		{
 
@@ -160,7 +160,7 @@ namespace Transparent_Form
 
 		private void button_update_Click(object sender, EventArgs e)
 		{
-			// update student record
+			// update tool record
 			int id = Convert.ToInt32(textBox_id.Text);
 			string name = textBox_name.Text;
 			string quantity = textBox_quantity.Text;
