@@ -46,7 +46,7 @@ namespace Transparent_Form
 		public void showTable()
 		{
 
-			DataGridView_tool.DataSource = tool.getToollist(new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Darabszám, `description` AS Részletek, `limit` AS Figyelmeztetés FROM `eszkozok`"));
+			DataGridView_tool.DataSource = tool.getToollist(new MySqlCommand("SELECT `id` AS Azonosító,`forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Darabszám, `description` AS Részletek, `limit` AS Figyelmeztetés FROM `eszkozok`"));
 			DataGridView_tool.ReadOnly = true;
 			DataGridView_tool.Columns["Figyelmeztetés"].Visible = false;
 
@@ -62,13 +62,14 @@ namespace Transparent_Form
 
 			
 			textBox_id.Text = DataGridView_tool.CurrentRow.Cells[0].Value.ToString();
-			textBox_name.Text = DataGridView_tool.CurrentRow.Cells[1].Value.ToString();
-			textBox_size.Text = DataGridView_tool.CurrentRow.Cells[2].Value.ToString();
+			textBox_name.Text = DataGridView_tool.CurrentRow.Cells[3].Value.ToString();
+			textBox_size.Text = DataGridView_tool.CurrentRow.Cells[4].Value.ToString();
+			textBox_forg.Text = DataGridView_tool.CurrentRow.Cells[1].Value.ToString();
+			textBox_cikkszam.Text = DataGridView_tool.CurrentRow.Cells[2].Value.ToString();
 
-
-            textBox_quantity.Text = DataGridView_tool.CurrentRow.Cells[5].Value.ToString();
-			textBox_details.Text = DataGridView_tool.CurrentRow.Cells[6].Value.ToString();
-			numericUpDown_limit.Value=Convert.ToInt32(DataGridView_tool.CurrentRow.Cells[7].Value);
+            textBox_quantity.Text = DataGridView_tool.CurrentRow.Cells[7].Value.ToString();
+			textBox_details.Text = DataGridView_tool.CurrentRow.Cells[8].Value.ToString();
+			numericUpDown_limit.Value=Convert.ToInt32(DataGridView_tool.CurrentRow.Cells[9].Value);
 			if (textBox_name.Text != "")
 			{
 				button_history.Visible = true;
@@ -247,8 +248,8 @@ namespace Transparent_Form
 		{
 			foreach (DataGridViewRow r in DataGridView_tool.Rows)
 			{
-				int cellQuantity = Convert.ToInt32(r.Cells[5].Value);
-				int cellLimit = Convert.ToInt32(r.Cells[7].Value);
+				int cellQuantity = Convert.ToInt32(r.Cells[7].Value);
+				int cellLimit = Convert.ToInt32(r.Cells[9].Value);
 				if (cellLimit >= cellQuantity)
 				{
 					r.DefaultCellStyle.BackColor = Color.Red;
@@ -269,6 +270,8 @@ namespace Transparent_Form
 			int quantity = Convert.ToInt32(textBox_quantity.Text);
 			string name = textBox_name.Text;
 			double size = Convert.ToDouble(textBox_size.Text);
+			string forgalmazo = textBox_forg.Text;
+			double cikkszam = Convert.ToDouble(textBox_cikkszam.Text);
 
 			if (quantity>=kiadott)
 			{
@@ -276,7 +279,7 @@ namespace Transparent_Form
 				{
                     if (MessageBox.Show("Biztosan kiadod a szerszámot?", "Kiadás", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        if (tool.kiadasTool(id, name, size, mtars, kiadott, quantity))
+                        if (tool.kiadasTool(id, forgalmazo, cikkszam, name, size, mtars, kiadott, quantity))
                         {
                             showTable();
                             MessageBox.Show("Eszköz kiadva.", "Sikeres kiadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -310,11 +313,13 @@ namespace Transparent_Form
             int quantity = Convert.ToInt32(textBox_quantity.Text);
 			string name = textBox_name.Text;
 			double size = Convert.ToDouble(textBox_size.Text);
+			string forgalmazo = textBox_forg.Text;
+			double cikkszam = Convert.ToDouble(textBox_cikkszam.Text);
 			if (comboBox_mtars.Text != "")
 			{
 				if (MessageBox.Show("Biztosan hozzáadod a darabszámot?", "Hozzáadás", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 				{
-					if (tool.hozzaadTool(id, name, size, mtars, kiadott, quantity))
+					if (tool.hozzaadTool(id, forgalmazo, cikkszam, name, size, mtars, kiadott, quantity))
 					{
 						showTable();
 						MessageBox.Show("Eszköz hozzáadva.", "Sikeres hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);

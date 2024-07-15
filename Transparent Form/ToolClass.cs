@@ -32,10 +32,10 @@ namespace Transparent_Form
 		DBconnect connect = new DBconnect();
 		//create a function to add a new tool to the database
 
-		public bool InsertTool(string name, string size, string type, string quantity, string details, int limit)
+		public bool InsertTool(string forgalmazo, double cikkszam, string name, string size, string type, string quantity, string details, int limit)
 		{
-			MySqlCommand command = new MySqlCommand("INSERT INTO `eszkozok`(`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`,`limit`) VALUES(@nm, @sz, @dt, @tp, @qua, @det, @lm)", connect.getconnection);
-			MySqlCommand command2 = new MySqlCommand("INSERT INTO `felvetel`(`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`,`limit`) VALUES(@nm, @sz, @dt, @tp, @qua, @det, @lm)", connect.getconnection);
+			MySqlCommand command = new MySqlCommand("INSERT INTO `eszkozok`(`forg`,`cikkszam`,`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`,`limit`) VALUES(@fg, @csz, @nm, @sz, @dt, @tp, @qua, @det, @lm)", connect.getconnection);
+			MySqlCommand command2 = new MySqlCommand("INSERT INTO `felvetel`(`forg`,`cikkszam`,`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`,`limit`) VALUES(@fg, @csz, @nm, @sz, @dt, @tp, @qua, @det, @lm)", connect.getconnection);
 
 
             //@nm, @sz, @dt, @tp, @qua, @det
@@ -46,6 +46,8 @@ namespace Transparent_Form
 			command.Parameters.Add("@qua", MySqlDbType.VarChar).Value = quantity;
 			command.Parameters.Add("@det", MySqlDbType.VarChar).Value = details;
 			command.Parameters.Add("@lm", MySqlDbType.Int32).Value = limit;
+			command.Parameters.Add("@fg", MySqlDbType.VarChar).Value = forgalmazo;
+			command.Parameters.Add("@csz", MySqlDbType.Double).Value = cikkszam;
 
             command2.Parameters.Add("@nm", MySqlDbType.VarChar).Value = name;
             command2.Parameters.Add("@sz", MySqlDbType.VarChar).Value = size;
@@ -54,6 +56,8 @@ namespace Transparent_Form
             command2.Parameters.Add("@qua", MySqlDbType.VarChar).Value = quantity;
             command2.Parameters.Add("@det", MySqlDbType.VarChar).Value = details;
 			command2.Parameters.Add("@lm", MySqlDbType.Int32).Value = limit;
+			command2.Parameters.Add("@fg", MySqlDbType.VarChar).Value = forgalmazo;
+			command2.Parameters.Add("@csz", MySqlDbType.Double).Value = cikkszam;
 
 
 			connect.openConnect();
@@ -131,7 +135,7 @@ namespace Transparent_Form
 		//create a function search for tool
 		public DataTable searchTool(string searchdata)
 		{
-			MySqlCommand command = new MySqlCommand("SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek, `limit` AS Figyelmeztetés FROM `eszkozok` WHERE CONCAT(`toolName`,`toolSize`,`description`) LIKE '%" + searchdata + "%'", connect.getconnection);
+			MySqlCommand command = new MySqlCommand("SELECT `id` AS Azonosító,`forg` AS Forgalmazó, `cikkszam` AS Cikkszám `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek, `limit` AS Figyelmeztetés FROM `eszkozok` WHERE CONCAT(`forg`,`cikkszam`,`toolName`,`toolSize`,`description`) LIKE '%" + searchdata + "%'", connect.getconnection);
 			MySqlDataAdapter adapter = new MySqlDataAdapter(command);
 			DataTable table = new DataTable();
 			adapter.Fill(table);
@@ -139,10 +143,10 @@ namespace Transparent_Form
 		}
 		//create a function edit for tool
 
-		public bool kiadasTool(int id, string name, double size, string mtars,int kiadott,int quantity)
+		public bool kiadasTool(int id, string forgalmazo, double cikkszam, string name, double size, string mtars,int kiadott,int quantity)
 		{
 			int remain = quantity - kiadott;
-            MySqlCommand command = new MySqlCommand("INSERT INTO `history`(`tool_id`,`tool_name`,`tool_size`,`modified_date`,`munkatars`,`kiadott`) VALUES (@id,@nm,@sz,@md,@mt,@kia)", connect.getconnection);
+            MySqlCommand command = new MySqlCommand("INSERT INTO `history`(`tool_id`,`forg`,`cikkszam`,`tool_name`,`tool_size`,`modified_date`,`munkatars`,`kiadott`) VALUES (@id,@fg,@csz,@nm,@sz,@md,@mt,@kia)", connect.getconnection);
             MySqlCommand command2 = new MySqlCommand("UPDATE `eszkozok` SET `quantity`=@qua WHERE `id`=@id", connect.getconnection);
 
             command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
@@ -151,8 +155,10 @@ namespace Transparent_Form
             command.Parameters.Add("@mt", MySqlDbType.VarChar).Value = mtars; 
             command.Parameters.Add("@kia", MySqlDbType.Int32).Value = kiadott;
             command.Parameters.Add("@md", MySqlDbType.DateTime).Value = DateTime.Now;
+			command.Parameters.Add("@fg", MySqlDbType.VarChar).Value = forgalmazo;
+			command.Parameters.Add("@csz", MySqlDbType.Double).Value = cikkszam;
 
-            command2.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+			command2.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
 			command2.Parameters.Add("@qua", MySqlDbType.Int32).Value = remain;
 
             connect.openConnect();
@@ -168,10 +174,10 @@ namespace Transparent_Form
             }
         }
 
-        public bool hozzaadTool(int id, string name, double size, string mtars, int kiadott, int quantity)
+        public bool hozzaadTool(int id, string forgalmazo, double cikkszam, string name, double size, string mtars, int kiadott, int quantity)
         {
             int remain = quantity + kiadott;
-            MySqlCommand command = new MySqlCommand("INSERT INTO `history`(`tool_id`,`tool_name`,`tool_size`,`modified_date`,`munkatars`,`hozzaadott`) VALUES (@id,@nm,@sz,@md,@mt,@kia)", connect.getconnection);
+            MySqlCommand command = new MySqlCommand("INSERT INTO `history`(`tool_id`,`forg`,`cikkszam`,`tool_name`,`tool_size`,`modified_date`,`munkatars`,`hozzaadott`) VALUES (@id,@fg,@csz,@nm,@sz,@md,@mt,@kia)", connect.getconnection);
             MySqlCommand command2 = new MySqlCommand("UPDATE `eszkozok` SET `quantity`=@qua WHERE `id`=@id", connect.getconnection);
 
             command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
@@ -179,7 +185,9 @@ namespace Transparent_Form
             command.Parameters.Add("@sz", MySqlDbType.Double).Value = size;
             command.Parameters.Add("@mt", MySqlDbType.VarChar).Value = mtars;
             command.Parameters.Add("@kia", MySqlDbType.Int32).Value = kiadott;
-            command.Parameters.Add("@md", MySqlDbType.DateTime).Value = DateTime.Now;
+			command.Parameters.Add("@fg", MySqlDbType.VarChar).Value = forgalmazo;
+			command.Parameters.Add("@csz", MySqlDbType.Double).Value = cikkszam;
+			command.Parameters.Add("@md", MySqlDbType.DateTime).Value = DateTime.Now;
 
             command2.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
             command2.Parameters.Add("@qua", MySqlDbType.Int32).Value = remain;

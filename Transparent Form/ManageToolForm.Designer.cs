@@ -63,6 +63,10 @@ namespace Transparent_Form
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.button_search = new System.Windows.Forms.Button();
 			this.textBox_search = new System.Windows.Forms.TextBox();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
+			this.textBox_forg = new System.Windows.Forms.TextBox();
+			this.textBox_cikkszam = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView_tool)).BeginInit();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown_qua)).BeginInit();
@@ -275,7 +279,12 @@ namespace Transparent_Form
 			// 
 			// panel2
 			// 
+			this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.panel2.Controls.Add(this.textBox_cikkszam);
+			this.panel2.Controls.Add(this.textBox_forg);
+			this.panel2.Controls.Add(this.label11);
+			this.panel2.Controls.Add(this.label10);
 			this.panel2.Controls.Add(this.checkBox1);
 			this.panel2.Controls.Add(this.label3);
 			this.panel2.Controls.Add(this.button_addQua);
@@ -300,7 +309,6 @@ namespace Transparent_Form
 			this.panel2.Controls.Add(this.textBox_name);
 			this.panel2.Controls.Add(this.label5);
 			this.panel2.Controls.Add(this.label1);
-			this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.panel2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.panel2.Location = new System.Drawing.Point(0, 378);
 			this.panel2.Name = "panel2";
@@ -521,6 +529,48 @@ namespace Transparent_Form
 			this.textBox_search.Size = new System.Drawing.Size(156, 30);
 			this.textBox_search.TabIndex = 31;
 			// 
+			// label10
+			// 
+			this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.label10.AutoSize = true;
+			this.label10.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			this.label10.Location = new System.Drawing.Point(28, 150);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(131, 23);
+			this.label10.TabIndex = 47;
+			this.label10.Text = "Forgalmazó:";
+			// 
+			// label11
+			// 
+			this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.label11.AutoSize = true;
+			this.label11.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label11.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			this.label11.Location = new System.Drawing.Point(28, 196);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(109, 23);
+			this.label11.TabIndex = 48;
+			this.label11.Text = "Cikkszám:";
+			// 
+			// textBox_forg
+			// 
+			this.textBox_forg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.textBox_forg.Location = new System.Drawing.Point(165, 146);
+			this.textBox_forg.Name = "textBox_forg";
+			this.textBox_forg.ReadOnly = true;
+			this.textBox_forg.Size = new System.Drawing.Size(229, 30);
+			this.textBox_forg.TabIndex = 49;
+			// 
+			// textBox_cikkszam
+			// 
+			this.textBox_cikkszam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.textBox_cikkszam.Location = new System.Drawing.Point(165, 191);
+			this.textBox_cikkszam.Name = "textBox_cikkszam";
+			this.textBox_cikkszam.ReadOnly = true;
+			this.textBox_cikkszam.Size = new System.Drawing.Size(229, 30);
+			this.textBox_cikkszam.TabIndex = 50;
+			// 
 			// ManageToolForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -579,5 +629,9 @@ namespace Transparent_Form
         private System.Windows.Forms.Button button_addQua;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkBox1;
-    }
+		private System.Windows.Forms.TextBox textBox_cikkszam;
+		private System.Windows.Forms.TextBox textBox_forg;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Label label10;
+	}
 }

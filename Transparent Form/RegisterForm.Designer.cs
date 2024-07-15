@@ -29,9 +29,9 @@ namespace Transparent_Form
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.label7 = new System.Windows.Forms.Label();
 			this.DataGridView_tool = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -50,10 +50,15 @@ namespace Transparent_Form
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.textBox_size = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.comboBox_forg = new System.Windows.Forms.ComboBox();
+			this.textBox_cikkszam = new System.Windows.Forms.TextBox();
+			this.button_forg = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView_tool)).BeginInit();
 			this.panel2.SuspendLayout();
@@ -87,30 +92,30 @@ namespace Transparent_Form
 			// 
 			this.DataGridView_tool.AllowUserToAddRows = false;
 			this.DataGridView_tool.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-			this.DataGridView_tool.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+			this.DataGridView_tool.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
 			this.DataGridView_tool.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.DataGridView_tool.BackgroundColor = System.Drawing.Color.Gainsboro;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.DataGridView_tool.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.DataGridView_tool.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
 			this.DataGridView_tool.ColumnHeadersHeight = 24;
 			this.DataGridView_tool.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.DataGridView_tool.DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+			dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+			dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.DataGridView_tool.DefaultCellStyle = dataGridViewCellStyle12;
 			this.DataGridView_tool.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
 			this.DataGridView_tool.Location = new System.Drawing.Point(13, 57);
 			this.DataGridView_tool.Name = "DataGridView_tool";
@@ -146,6 +151,11 @@ namespace Transparent_Form
 			// 
 			this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.panel2.Controls.Add(this.button_forg);
+			this.panel2.Controls.Add(this.textBox_cikkszam);
+			this.panel2.Controls.Add(this.comboBox_forg);
+			this.panel2.Controls.Add(this.label10);
+			this.panel2.Controls.Add(this.label9);
 			this.panel2.Controls.Add(this.numericUpDown_limit);
 			this.panel2.Controls.Add(this.label8);
 			this.panel2.Controls.Add(this.button_addName);
@@ -171,7 +181,7 @@ namespace Transparent_Form
 			// 
 			// numericUpDown_limit
 			// 
-			this.numericUpDown_limit.Location = new System.Drawing.Point(300, 334);
+			this.numericUpDown_limit.Location = new System.Drawing.Point(300, 443);
 			this.numericUpDown_limit.Minimum = new decimal(new int[] {
             1,
             0,
@@ -192,7 +202,7 @@ namespace Transparent_Form
 			this.label8.AutoSize = true;
 			this.label8.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.label8.Location = new System.Drawing.Point(32, 338);
+			this.label8.Location = new System.Drawing.Point(32, 447);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(252, 23);
 			this.label8.TabIndex = 35;
@@ -203,7 +213,7 @@ namespace Transparent_Form
 			this.button_addName.BackColor = System.Drawing.SystemColors.ControlDark;
 			this.button_addName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.button_addName.ForeColor = System.Drawing.Color.White;
-			this.button_addName.Location = new System.Drawing.Point(489, 59);
+			this.button_addName.Location = new System.Drawing.Point(489, 168);
 			this.button_addName.Name = "button_addName";
 			this.button_addName.Size = new System.Drawing.Size(182, 43);
 			this.button_addName.TabIndex = 34;
@@ -215,7 +225,7 @@ namespace Transparent_Form
 			// 
 			this.comboBox_name.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBox_name.FormattingEnabled = true;
-			this.comboBox_name.Location = new System.Drawing.Point(194, 65);
+			this.comboBox_name.Location = new System.Drawing.Point(194, 174);
 			this.comboBox_name.Name = "comboBox_name";
 			this.comboBox_name.Size = new System.Drawing.Size(206, 33);
 			this.comboBox_name.TabIndex = 33;
@@ -223,7 +233,7 @@ namespace Transparent_Form
 			// textBox_quantity
 			// 
 			this.textBox_quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox_quantity.Location = new System.Drawing.Point(194, 253);
+			this.textBox_quantity.Location = new System.Drawing.Point(194, 362);
 			this.textBox_quantity.Name = "textBox_quantity";
 			this.textBox_quantity.Size = new System.Drawing.Size(156, 30);
 			this.textBox_quantity.TabIndex = 31;
@@ -235,7 +245,7 @@ namespace Transparent_Form
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.label6.Location = new System.Drawing.Point(32, 258);
+			this.label6.Location = new System.Drawing.Point(32, 367);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(120, 23);
 			this.label6.TabIndex = 30;
@@ -274,7 +284,7 @@ namespace Transparent_Form
 			// textBox_details
 			// 
 			this.textBox_details.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox_details.Location = new System.Drawing.Point(194, 171);
+			this.textBox_details.Location = new System.Drawing.Point(194, 280);
 			this.textBox_details.Multiline = true;
 			this.textBox_details.Name = "textBox_details";
 			this.textBox_details.Size = new System.Drawing.Size(378, 53);
@@ -320,7 +330,7 @@ namespace Transparent_Form
 			// textBox_size
 			// 
 			this.textBox_size.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox_size.Location = new System.Drawing.Point(194, 114);
+			this.textBox_size.Location = new System.Drawing.Point(194, 223);
 			this.textBox_size.Name = "textBox_size";
 			this.textBox_size.Size = new System.Drawing.Size(135, 30);
 			this.textBox_size.TabIndex = 21;
@@ -332,23 +342,11 @@ namespace Transparent_Form
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.label4.Location = new System.Drawing.Point(32, 119);
+			this.label4.Location = new System.Drawing.Point(32, 228);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(76, 23);
 			this.label4.TabIndex = 20;
 			this.label4.Text = "Méret:";
-			// 
-			// label2
-			// 
-			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.label2.Location = new System.Drawing.Point(32, 16);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(76, 23);
-			this.label2.TabIndex = 19;
-			this.label2.Text = "Típus:";
 			// 
 			// label5
 			// 
@@ -356,7 +354,7 @@ namespace Transparent_Form
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.label5.Location = new System.Drawing.Point(32, 171);
+			this.label5.Location = new System.Drawing.Point(32, 280);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(120, 23);
 			this.label5.TabIndex = 16;
@@ -381,11 +379,74 @@ namespace Transparent_Form
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.label1.Location = new System.Drawing.Point(32, 65);
+			this.label1.Location = new System.Drawing.Point(32, 174);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(54, 23);
 			this.label1.TabIndex = 15;
 			this.label1.Text = "Név:";
+			// 
+			// label2
+			// 
+			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			this.label2.Location = new System.Drawing.Point(32, 16);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(76, 23);
+			this.label2.TabIndex = 19;
+			this.label2.Text = "Típus:";
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			this.label9.Location = new System.Drawing.Point(32, 67);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(131, 23);
+			this.label9.TabIndex = 37;
+			this.label9.Text = "Forgalmazó:";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			this.label10.Location = new System.Drawing.Point(32, 114);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(109, 23);
+			this.label10.TabIndex = 38;
+			this.label10.Text = "Cikkszám:";
+			// 
+			// comboBox_forg
+			// 
+			this.comboBox_forg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBox_forg.FormattingEnabled = true;
+			this.comboBox_forg.Location = new System.Drawing.Point(194, 62);
+			this.comboBox_forg.Name = "comboBox_forg";
+			this.comboBox_forg.Size = new System.Drawing.Size(267, 33);
+			this.comboBox_forg.TabIndex = 39;
+			// 
+			// textBox_cikkszam
+			// 
+			this.textBox_cikkszam.Location = new System.Drawing.Point(194, 114);
+			this.textBox_cikkszam.Name = "textBox_cikkszam";
+			this.textBox_cikkszam.Size = new System.Drawing.Size(190, 30);
+			this.textBox_cikkszam.TabIndex = 40;
+			// 
+			// button_forg
+			// 
+			this.button_forg.BackColor = System.Drawing.SystemColors.ControlDark;
+			this.button_forg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.button_forg.ForeColor = System.Drawing.Color.White;
+			this.button_forg.Location = new System.Drawing.Point(504, 56);
+			this.button_forg.Name = "button_forg";
+			this.button_forg.Size = new System.Drawing.Size(182, 43);
+			this.button_forg.TabIndex = 41;
+			this.button_forg.Text = "Módosítás";
+			this.button_forg.UseVisualStyleBackColor = false;
+			this.button_forg.Click += new System.EventHandler(this.button_forg_Click);
 			// 
 			// RegisterForm
 			// 
@@ -403,6 +464,8 @@ namespace Transparent_Form
 			this.Name = "RegisterForm";
 			this.Text = "RegisterForm";
 			this.Load += new System.EventHandler(this.RegisterForm_Load);
+			this.Shown += new System.EventHandler(this.RegisterForm_Shown);
+			this.Layout += new System.Windows.Forms.LayoutEventHandler(this.RegisterForm_Layout);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView_tool)).EndInit();
@@ -428,7 +491,6 @@ namespace Transparent_Form
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox textBox_size;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
@@ -436,5 +498,11 @@ namespace Transparent_Form
         private System.Windows.Forms.Button button_addName;
 		private System.Windows.Forms.NumericUpDown numericUpDown_limit;
 		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.TextBox textBox_cikkszam;
+		private System.Windows.Forms.ComboBox comboBox_forg;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Button button_forg;
 	}
 }

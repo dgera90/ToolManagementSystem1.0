@@ -161,6 +161,12 @@
   <ItemGroup>
     <Compile Include="DBconnect.cs" />
     <Compile Include="DGVPrinter.cs" />
+    <Compile Include="Forgalmazo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forgalmazo.Designer.cs">
+      <DependentUpon>Forgalmazo.cs</DependentUpon>
+    </Compile>
     <Compile Include="History.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
       <DependentUpon>SplashForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ToolClass.cs" />
+    <EmbeddedResource Include="Forgalmazo.resx">
+      <DependentUpon>Forgalmazo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="History.resx">
       <DependentUpon>History.cs</DependentUpon>
     </EmbeddedResource>
