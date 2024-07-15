@@ -25,7 +25,7 @@ namespace Transparent_Form
 
         private void PrintStudent_Load(object sender, EventArgs e)
         {
-            showData(new MySqlCommand("SELECT `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok`"));
+            showData(new MySqlCommand("SELECT `forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség,`egysegar` AS Egységár, `osszar` AS Összár, `description` AS Részletek FROM `eszkozok`"));
         }
 
         // create a function to show the tool list in datagridview
@@ -33,6 +33,8 @@ namespace Transparent_Form
         {
             DataGridView_tool.ReadOnly = true;
             DataGridView_tool.DataSource = tool.getList(command);
+            DataGridView_tool.Columns[7].DefaultCellStyle.Format = "c";
+            DataGridView_tool.Columns[8].DefaultCellStyle.Format = "c";
         }
 
         private void button_search_Click(object sender, EventArgs e)
@@ -41,15 +43,15 @@ namespace Transparent_Form
             string selectQuery;
             if (radioButton_all.Checked)
             {
-                selectQuery = "SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok`";
+                selectQuery = "SELECT `forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség,`egysegar` AS Egységár, `osszar` AS Összár, `description` AS Részletek FROM `eszkozok`";
             }
             else if (radioButton_tool.Checked)
             {
-                selectQuery = "SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok` WHERE `type`='Szerszám'";
+                selectQuery = "SELECT `forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség,`egysegar` AS Egységár, `osszar` AS Összár, `description` AS Részletek FROM `eszkozok` WHERE `type`='Szerszám'";
             }
             else
             {
-                selectQuery = "SELECT `id` AS Azonosító, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek FROM `eszkozok` WHERE `type`='Egyéb'";
+                selectQuery = "SELECT `forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség,`egysegar` AS Egységár, `osszar` AS Összár, `description` AS Részletek FROM `eszkozok` WHERE `type`='Egyéb'";
             }
             showData(new MySqlCommand(selectQuery));
         }
@@ -64,7 +66,7 @@ namespace Transparent_Form
             printer.PageNumberInHeader = false;
             printer.PorportionalColumns = true;
             printer.HeaderCellAlignment = StringAlignment.Near;
-            printer.Footer = "foxlearn";
+            printer.Footer = "tms 1.0";
             printer.FooterSpacing = 15;
             printer.printDocument.DefaultPageSettings.Landscape = true;
             printer.printDocument.DefaultPageSettings.PaperSize=new PaperSize("A4", 400, 600); // all sizes are converted from mm to inches & then multiplied by 100.

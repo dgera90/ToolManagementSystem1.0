@@ -30,12 +30,13 @@ namespace Transparent_Form
             DataGridView_history.ReadOnly = true;
             string toolid = ToolClass.toolid;
             
-            DataOrigin.DataSource = tool.originTool(new MySqlCommand("SELECT `toolName` AS 'Név', `toolSize` AS 'Méret', `inDate` AS 'Felvétel ideje', `type` AS 'Típus', `quantity` AS 'Darabszám', `description` AS 'Részletek' FROM `felvetel` WHERE `id`=@toolid"));
+            DataOrigin.DataSource = tool.originTool(new MySqlCommand("SELECT `toolName` AS 'Név',`forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `toolSize` AS 'Méret', `inDate` AS 'Felvétel ideje', `type` AS 'Típus', `quantity` AS Darabszám,`egysegar` AS Egységár, `description` AS 'Részletek' FROM `felvetel` WHERE `id`=@toolid"));
             DataOrigin.ReadOnly = true;
+            DataOrigin.Columns[7].DefaultCellStyle.Format = "c";
 
 
         }
-    
+
         private void History_Load(object sender, EventArgs e)
 		{
             

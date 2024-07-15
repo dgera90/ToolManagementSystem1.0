@@ -115,9 +115,12 @@ namespace Transparent_Form
 						while (reader.Read())
 						{
 							comboBox_forg.Items.Add(reader.GetString("name"));
-						}
-					}
-					catch (Exception ex)
+
+                        }
+                        MessageBox.Show("Sikeres hozzáadás!", "Hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    catch (Exception ex)
 					{
 						MessageBox.Show(ex.Message);
 					}
@@ -127,7 +130,6 @@ namespace Transparent_Form
 
 				}
 
-				MessageBox.Show("Sikeres hozzáadás!", "Hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				comboBox_forg.Items.Clear();
 				try
 				{

@@ -17,11 +17,11 @@ namespace Transparent_Form
     {
         //to create connection
 
-        //static string server = "denesgera.dyndns.hu";
-        //static string port = "13605";
+        static string server = "denesgera.dyndns.hu";
+        static string port = "13605";
 
-        static string server = "192.168.1.75";
-        static string port = "3307";
+        //static string server = "192.168.1.75";
+        //static string port = "3307";
 
 
         static string database = "eszkozBeko";

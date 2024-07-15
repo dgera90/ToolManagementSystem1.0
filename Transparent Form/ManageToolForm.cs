@@ -12,6 +12,7 @@ using MySql.Data.MySqlClient;
 using System.Reflection.Emit;
 using Microsoft.VisualBasic;
 using Guna.UI2.WinForms.Suite;
+using System.Globalization;
 
 namespace Transparent_Form
 {
@@ -40,19 +41,23 @@ namespace Transparent_Form
             DataGridView_tool.ReadOnly = true;
 			button_addQua.Visible = false;
 			checkBox1.Enabled = false;
+			label_ar.Visible = false;
+			textBox_ar.Visible = false;
 		}
 
 		// To show student list in DatagridView
 		public void showTable()
 		{
-
-			DataGridView_tool.DataSource = tool.getToollist(new MySqlCommand("SELECT `id` AS Azonosító,`forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Darabszám, `description` AS Részletek, `limit` AS Figyelmeztetés FROM `eszkozok`"));
+            DataGridView_tool.DataSource = tool.getToollist(new MySqlCommand("SELECT `id` AS Azonosító,`forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Darabszám, `description` AS Részletek, `limit` AS Figyelmeztetés, `egysegar` AS Egységár, `osszar` AS 'Össz érték' FROM `eszkozok`"));
 			DataGridView_tool.ReadOnly = true;
 			DataGridView_tool.Columns["Figyelmeztetés"].Visible = false;
+			DataGridView_tool.Columns["Azonosító"].Visible = false;
+            DataGridView_tool.Columns["Egységár"].DefaultCellStyle.Format = "c";
+            DataGridView_tool.Columns["Össz érték"].DefaultCellStyle.Format = "c";
 
-		}
-		//Display data from student to textbox
-		private void DataGridView_tool_Click(object sender, EventArgs e)
+        }
+        //Display data from student to textbox
+        private void DataGridView_tool_Click(object sender, EventArgs e)
 		{
 
 
@@ -61,16 +66,19 @@ namespace Transparent_Form
 			{
 
 			
-			textBox_id.Text = DataGridView_tool.CurrentRow.Cells[0].Value.ToString();
-			textBox_name.Text = DataGridView_tool.CurrentRow.Cells[3].Value.ToString();
-			textBox_size.Text = DataGridView_tool.CurrentRow.Cells[4].Value.ToString();
-			textBox_forg.Text = DataGridView_tool.CurrentRow.Cells[1].Value.ToString();
-			textBox_cikkszam.Text = DataGridView_tool.CurrentRow.Cells[2].Value.ToString();
+			textBox_id.Text = DataGridView_tool.CurrentRow.Cells["Azonosító"].Value.ToString();
+			textBox_name.Text = DataGridView_tool.CurrentRow.Cells["Név"].Value.ToString();
+			textBox_size.Text = DataGridView_tool.CurrentRow.Cells["Méret"].Value.ToString();
+			textBox_forg.Text = DataGridView_tool.CurrentRow.Cells["Forgalmazó"].Value.ToString();
+			textBox_cikkszam.Text = DataGridView_tool.CurrentRow.Cells["Cikkszám"].Value.ToString();
 
-            textBox_quantity.Text = DataGridView_tool.CurrentRow.Cells[7].Value.ToString();
-			textBox_details.Text = DataGridView_tool.CurrentRow.Cells[8].Value.ToString();
-			numericUpDown_limit.Value=Convert.ToInt32(DataGridView_tool.CurrentRow.Cells[9].Value);
-			if (textBox_name.Text != "")
+            textBox_quantity.Text = DataGridView_tool.CurrentRow.Cells["Darabszám"].Value.ToString();
+			textBox_details.Text = DataGridView_tool.CurrentRow.Cells["Részletek"].Value.ToString();
+			numericUpDown_limit.Value=Convert.ToInt32(DataGridView_tool.CurrentRow.Cells["Figyelmeztetés"].Value);
+			textBox_ar.Text = Convert.ToString(DataGridView_tool.CurrentRow.Cells["Egységár"].Value);
+			textBox_ossz.Text = Convert.ToString(Convert.ToDouble(DataGridView_tool.CurrentRow.Cells["Össz érték"].Value) * Convert.ToDouble(textBox_quantity.Text));
+
+                if (textBox_name.Text != "")
 			{
 				button_history.Visible = true;
 				button_delete.Visible = true;
@@ -79,9 +87,9 @@ namespace Transparent_Form
 				button_addQua.Visible = true;
                 numericUpDown_qua.Visible = true;
 				label3.Visible = true;
-					label9.Visible = true;
+				label9.Visible = true;
 				comboBox_mtars.Visible = true;
-					checkBox1.Enabled = true;
+				checkBox1.Enabled = true;
                 }
             }
 
@@ -138,10 +146,14 @@ namespace Transparent_Form
 			DataGridView_tool.DataSource = tool.searchTool(textBox_search.Text);
 			changeState();
 			DataGridView_tool.Columns["Figyelmeztetés"].Visible = false;
+			DataGridView_tool.Columns["Azonosító"].Visible = false;
+            DataGridView_tool.Columns["Egységár"].DefaultCellStyle.Format = "c";
+            DataGridView_tool.Columns["Össz érték"].DefaultCellStyle.Format = "c";
 
-		}
-		//create a function to verify
-		bool verify()
+
+        }
+        //create a function to verify
+        bool verify()
 		{
 			if ((textBox_name.Text == "") || (textBox_size.Text == "") ||
 				(textBox_quantity.Text == ""))
@@ -158,14 +170,15 @@ namespace Transparent_Form
 			// update student record
 			int id = Convert.ToInt32(textBox_id.Text);
 			string name = textBox_name.Text;
-			string quantity = textBox_quantity.Text;
+			int quantity = Convert.ToInt32(textBox_quantity.Text);
 			string details = textBox_details.Text;
 			string mtars = comboBox_mtars.Text;
 			int limit = Convert.ToInt32(numericUpDown_limit.Value);
+			double ar = Convert.ToDouble(textBox_ar.Text);
 
 			if (verify())
 			{
-				string eszkozadatok = ($"Biztosan módosítani kívánja a következő eszközt?\nNév: {name}\nDarabszám: {quantity}\nRészletek: {details}\nMunkatárs: {mtars}\nLimit: {limit}");
+				string eszkozadatok = ($"Biztosan módosítani kívánja a következő eszközt?\nNév: {name}\nDarabszám: {quantity}\nRészletek: {details}\nMunkatárs: {mtars}\nLimit: {limit}\nÁr: {ar}");
 				DialogResult result = MessageBox.Show($"{eszkozadatok}", "Eszköz felvétele", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 				if (result == DialogResult.Yes)
 				{
@@ -173,7 +186,7 @@ namespace Transparent_Form
 					{
 
 							
-								if (tool.updateTool(id, name, quantity, details, mtars, limit))
+								if (tool.updateTool(id, name, quantity, details, mtars, limit, ar))
 								{
 									showTable();
 									MessageBox.Show("Bejegyzés adatainak módosítása", "Módosítás", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -248,8 +261,8 @@ namespace Transparent_Form
 		{
 			foreach (DataGridViewRow r in DataGridView_tool.Rows)
 			{
-				int cellQuantity = Convert.ToInt32(r.Cells[7].Value);
-				int cellLimit = Convert.ToInt32(r.Cells[9].Value);
+				int cellQuantity = Convert.ToInt32(r.Cells["Darabszám"].Value);
+				int cellLimit = Convert.ToInt32(r.Cells["Figyelmeztetés"].Value);
 				if (cellLimit >= cellQuantity)
 				{
 					r.DefaultCellStyle.BackColor = Color.Red;
@@ -272,6 +285,7 @@ namespace Transparent_Form
 			double size = Convert.ToDouble(textBox_size.Text);
 			string forgalmazo = textBox_forg.Text;
 			double cikkszam = Convert.ToDouble(textBox_cikkszam.Text);
+			double ar = Convert.ToDouble(textBox_ar.Text);
 
 			if (quantity>=kiadott)
 			{
@@ -279,7 +293,7 @@ namespace Transparent_Form
 				{
                     if (MessageBox.Show("Biztosan kiadod a szerszámot?", "Kiadás", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        if (tool.kiadasTool(id, forgalmazo, cikkszam, name, size, mtars, kiadott, quantity))
+                        if (tool.kiadasTool(id, forgalmazo, cikkszam, name, size, mtars, kiadott, quantity, ar))
                         {
                             showTable();
                             MessageBox.Show("Eszköz kiadva.", "Sikeres kiadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -315,11 +329,12 @@ namespace Transparent_Form
 			double size = Convert.ToDouble(textBox_size.Text);
 			string forgalmazo = textBox_forg.Text;
 			double cikkszam = Convert.ToDouble(textBox_cikkszam.Text);
+			double ar = Convert.ToDouble(textBox_ar.Text);
 			if (comboBox_mtars.Text != "")
 			{
 				if (MessageBox.Show("Biztosan hozzáadod a darabszámot?", "Hozzáadás", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 				{
-					if (tool.hozzaadTool(id, forgalmazo, cikkszam, name, size, mtars, kiadott, quantity))
+					if (tool.hozzaadTool(id, forgalmazo, cikkszam, name, size, mtars, kiadott, quantity, ar))
 					{
 						showTable();
 						MessageBox.Show("Eszköz hozzáadva.", "Sikeres hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -347,13 +362,17 @@ namespace Transparent_Form
 				label5.Visible = true;
 				textBox_details.Visible = true;
 				button_update.Visible = true;
-			}
+                label_ar.Visible = true;
+                textBox_ar.Visible = true;
+            }
 			else {
                 numericUpDown_limit.Visible = false;
                 label2.Visible = false;
 				label5.Visible = false;
                 textBox_details.Visible = false;
-                button_update.Visible = false;
+                button_update.Visible = false; 
+				label_ar.Visible = false;
+                textBox_ar.Visible = false;
             }
 
         }
@@ -374,6 +393,16 @@ namespace Transparent_Form
             textBox_details.Visible = false;
 			checkBox1.Checked = false;
 			checkBox1.Enabled = false;
+            label_ar.Visible = false;
+            textBox_ar.Visible = false;
+        }
+
+        private void button_reload_Click(object sender, EventArgs e)
+        {
+			showTable();
+			textBox_search.Clear();
+			changeState();
+			hideInfo();
         }
     }
 		}

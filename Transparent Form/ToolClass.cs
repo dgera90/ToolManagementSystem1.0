@@ -32,10 +32,10 @@ namespace Transparent_Form
 		DBconnect connect = new DBconnect();
 		//create a function to add a new tool to the database
 
-		public bool InsertTool(string forgalmazo, double cikkszam, string name, string size, string type, string quantity, string details, int limit)
+		public bool InsertTool(string forgalmazo, string cikkszam, string name, string size, string type, int quantity, string details, int limit, double ar, double ossz)
 		{
-			MySqlCommand command = new MySqlCommand("INSERT INTO `eszkozok`(`forg`,`cikkszam`,`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`,`limit`) VALUES(@fg, @csz, @nm, @sz, @dt, @tp, @qua, @det, @lm)", connect.getconnection);
-			MySqlCommand command2 = new MySqlCommand("INSERT INTO `felvetel`(`forg`,`cikkszam`,`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`,`limit`) VALUES(@fg, @csz, @nm, @sz, @dt, @tp, @qua, @det, @lm)", connect.getconnection);
+			MySqlCommand command = new MySqlCommand("INSERT INTO `eszkozok`(`forg`,`cikkszam`,`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`,`limit`,`egysegar`,`osszar`) VALUES(@fg, @csz, @nm, @sz, @dt, @tp, @qua, @det, @lm, @ar, @os)", connect.getconnection);
+			MySqlCommand command2 = new MySqlCommand("INSERT INTO `felvetel`(`forg`,`cikkszam`,`toolName`, `toolSize`, `inDate`, `type`, `quantity`, `description`,`limit`,`egysegar`,`osszar`) VALUES(@fg, @csz, @nm, @sz, @dt, @tp, @qua, @det, @lm, @ar, @os)", connect.getconnection);
 
 
             //@nm, @sz, @dt, @tp, @qua, @det
@@ -43,24 +43,30 @@ namespace Transparent_Form
 			command.Parameters.Add("@sz", MySqlDbType.VarChar).Value = size;
 			command.Parameters.Add("@dt", MySqlDbType.DateTime).Value = DateTime.Now;
 			command.Parameters.Add("@tp", MySqlDbType.VarChar).Value = type;
-			command.Parameters.Add("@qua", MySqlDbType.VarChar).Value = quantity;
+			command.Parameters.Add("@qua", MySqlDbType.Int32).Value = quantity;
 			command.Parameters.Add("@det", MySqlDbType.VarChar).Value = details;
 			command.Parameters.Add("@lm", MySqlDbType.Int32).Value = limit;
 			command.Parameters.Add("@fg", MySqlDbType.VarChar).Value = forgalmazo;
-			command.Parameters.Add("@csz", MySqlDbType.Double).Value = cikkszam;
+			command.Parameters.Add("@csz", MySqlDbType.VarChar).Value = cikkszam;
+			command.Parameters.Add("@ar", MySqlDbType.Double).Value = ar;
+			command.Parameters.Add("@os", MySqlDbType.Double).Value = ossz;
 
             command2.Parameters.Add("@nm", MySqlDbType.VarChar).Value = name;
             command2.Parameters.Add("@sz", MySqlDbType.VarChar).Value = size;
             command2.Parameters.Add("@dt", MySqlDbType.DateTime).Value = DateTime.Now;
             command2.Parameters.Add("@tp", MySqlDbType.VarChar).Value = type;
-            command2.Parameters.Add("@qua", MySqlDbType.VarChar).Value = quantity;
+            command2.Parameters.Add("@qua", MySqlDbType.Int32).Value = quantity;
             command2.Parameters.Add("@det", MySqlDbType.VarChar).Value = details;
 			command2.Parameters.Add("@lm", MySqlDbType.Int32).Value = limit;
 			command2.Parameters.Add("@fg", MySqlDbType.VarChar).Value = forgalmazo;
-			command2.Parameters.Add("@csz", MySqlDbType.Double).Value = cikkszam;
+			command2.Parameters.Add("@csz", MySqlDbType.VarChar).Value = cikkszam;
+            command2.Parameters.Add("@ar", MySqlDbType.Double).Value = ar;
+            command2.Parameters.Add("@os", MySqlDbType.Double).Value = ossz;
 
 
-			connect.openConnect();
+
+
+            connect.openConnect();
 
 				if (command.ExecuteNonQuery() == 1 && command2.ExecuteNonQuery() == 1)
 				{
@@ -135,7 +141,7 @@ namespace Transparent_Form
 		//create a function search for tool
 		public DataTable searchTool(string searchdata)
 		{
-			MySqlCommand command = new MySqlCommand("SELECT `id` AS Azonosító,`forg` AS Forgalmazó, `cikkszam` AS Cikkszám `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Mennyiség, `description` AS Részletek, `limit` AS Figyelmeztetés FROM `eszkozok` WHERE CONCAT(`forg`,`cikkszam`,`toolName`,`toolSize`,`description`) LIKE '%" + searchdata + "%'", connect.getconnection);
+			MySqlCommand command = new MySqlCommand("SELECT `id` AS Azonosító,`forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `toolName` AS Név, `toolSize` AS Méret, `inDate` AS 'Felvétel ideje', `type` AS Típus, `quantity` AS Darabszám, `description` AS Részletek,`egysegar` AS Egységár, `osszar` AS 'Össz érték', `limit` AS Figyelmeztetés FROM `eszkozok` WHERE CONCAT(`forg`,`cikkszam`,`toolName`,`toolSize`,`description`) LIKE '%" + searchdata + "%'", connect.getconnection);
 			MySqlDataAdapter adapter = new MySqlDataAdapter(command);
 			DataTable table = new DataTable();
 			adapter.Fill(table);
@@ -143,11 +149,11 @@ namespace Transparent_Form
 		}
 		//create a function edit for tool
 
-		public bool kiadasTool(int id, string forgalmazo, double cikkszam, string name, double size, string mtars,int kiadott,int quantity)
+		public bool kiadasTool(int id, string forgalmazo, double cikkszam, string name, double size, string mtars,int kiadott,int quantity, double ar)
 		{
 			int remain = quantity - kiadott;
             MySqlCommand command = new MySqlCommand("INSERT INTO `history`(`tool_id`,`forg`,`cikkszam`,`tool_name`,`tool_size`,`modified_date`,`munkatars`,`kiadott`) VALUES (@id,@fg,@csz,@nm,@sz,@md,@mt,@kia)", connect.getconnection);
-            MySqlCommand command2 = new MySqlCommand("UPDATE `eszkozok` SET `quantity`=@qua WHERE `id`=@id", connect.getconnection);
+            MySqlCommand command2 = new MySqlCommand("UPDATE `eszkozok` SET `quantity`=@qua, `osszar`=" + (quantity-kiadott) * ar + " WHERE `id`=@id", connect.getconnection);
 
             command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
             command.Parameters.Add("@nm", MySqlDbType.VarChar).Value = name;
@@ -174,11 +180,11 @@ namespace Transparent_Form
             }
         }
 
-        public bool hozzaadTool(int id, string forgalmazo, double cikkszam, string name, double size, string mtars, int kiadott, int quantity)
+        public bool hozzaadTool(int id, string forgalmazo, double cikkszam, string name, double size, string mtars, int kiadott, int quantity, double ar)
         {
             int remain = quantity + kiadott;
             MySqlCommand command = new MySqlCommand("INSERT INTO `history`(`tool_id`,`forg`,`cikkszam`,`tool_name`,`tool_size`,`modified_date`,`munkatars`,`hozzaadott`) VALUES (@id,@fg,@csz,@nm,@sz,@md,@mt,@kia)", connect.getconnection);
-            MySqlCommand command2 = new MySqlCommand("UPDATE `eszkozok` SET `quantity`=@qua WHERE `id`=@id", connect.getconnection);
+            MySqlCommand command2 = new MySqlCommand("UPDATE `eszkozok` SET `quantity`=@qua, `osszar`=" + (quantity+kiadott) * ar + " WHERE `id`=@id", connect.getconnection);
 
             command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
             command.Parameters.Add("@nm", MySqlDbType.VarChar).Value = name;
@@ -205,9 +211,9 @@ namespace Transparent_Form
             }
         }
 
-        public bool updateTool(int id, string name, string quantity, string details, string mtars, int limit)
+        public bool updateTool(int id, string name, int quantity, string details, string mtars, int limit, double ar)
 		{
-			MySqlCommand command = new MySqlCommand("UPDATE `eszkozok` SET `toolName`=@nm,`quantity`=@qua,`description`=@det, `limit`=@lm WHERE `id`= @id", connect.getconnection);
+			MySqlCommand command = new MySqlCommand("UPDATE `eszkozok` SET `toolName`=@nm,`quantity`=@qua,`description`=@det, `limit`=@lm, `egysegar`=@ar, `osszar`=" + quantity * ar + " WHERE `id`= @id", connect.getconnection);
 
 
             //@id,@nm, @sz, @dt, @tp, @qua, @det
@@ -216,6 +222,7 @@ namespace Transparent_Form
 			command.Parameters.Add("@qua", MySqlDbType.VarChar).Value = quantity;
 			command.Parameters.Add("@det", MySqlDbType.VarChar).Value = details;
 			command.Parameters.Add("@lm", MySqlDbType.Int32).Value = limit;
+			command.Parameters.Add("@ar", MySqlDbType.Double).Value = ar;
 
             connect.openConnect();
 			if (command.ExecuteNonQuery() == 1)
@@ -276,7 +283,7 @@ namespace Transparent_Form
         }
         public DataTable searchSzerszam(string searchdata)
         {
-            MySqlCommand command = new MySqlCommand("SELECT `tool_name` AS Név, `tool_size` AS Méret, `modified_date` AS Dátum, `munkatars` AS Munkatárs, `kiadott` AS Kiadott, `hozzaadott` AS Hozzáadott FROM `history` WHERE CONCAT(`tool_name`,`tool_size`) LIKE '%" + searchdata + "%'", connect.getconnection);
+            MySqlCommand command = new MySqlCommand("SELECT `forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `tool_name` AS Név, `tool_size` AS Méret, `modified_date` AS Dátum, `munkatars` AS Munkatárs, `kiadott` AS Kiadott, `hozzaadott` AS Hozzáadott FROM `history` WHERE CONCAT(`forg`,`cikkszam`,`tool_name`,`tool_size`) LIKE '%" + searchdata + "%'", connect.getconnection);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
@@ -284,7 +291,7 @@ namespace Transparent_Form
         }
         public DataTable searchMtars(string searchdata)
         {
-            MySqlCommand command = new MySqlCommand("SELECT `tool_name` AS Név, `tool_size` AS Méret, `modified_date` AS Dátum, `munkatars` AS Munkatárs, `kiadott` AS Kiadott, `hozzaadott` AS Hozzáadott FROM `history` WHERE CONCAT(`munkatars`) LIKE '%" + searchdata + "%'", connect.getconnection);
+            MySqlCommand command = new MySqlCommand("SELECT `forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `tool_name` AS Név, `tool_size` AS Méret, `modified_date` AS Dátum, `munkatars` AS Munkatárs, `kiadott` AS Kiadott, `hozzaadott` AS Hozzáadott FROM `history` WHERE CONCAT(`munkatars`) LIKE '%" + searchdata + "%'", connect.getconnection);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);

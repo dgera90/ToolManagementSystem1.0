@@ -91,8 +91,10 @@ namespace Transparent_Form
                         {
                             comboBox_list.Items.Add(reader.GetString("name"));
                         }
-                    }
-                    catch (Exception ex)
+                            MessageBox.Show("Sikeres hozzáadás!", "Hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+                        catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
@@ -118,8 +120,10 @@ namespace Transparent_Form
                         {
                             comboBox_list.Items.Add(reader.GetString("name"));
                         }
-                    }
-                    catch (Exception ex)
+                            MessageBox.Show("Sikeres hozzáadás!", "Hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+                        catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
@@ -131,7 +135,6 @@ namespace Transparent_Form
 						textBox1.ReadOnly = true;
 
 					}
-					MessageBox.Show("Sikeres hozzáadás!", "Hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             comboBox_list.Items.Clear();

@@ -23,6 +23,7 @@ namespace Transparent_Form
         {
             InitializeComponent();
             comboBox_forg.Enabled = false;
+            textBox_ar.Text = "0";
 		}
 
         private void radioButton_tool_CheckedChanged(object sender, EventArgs e)
@@ -80,7 +81,7 @@ namespace Transparent_Form
         bool verify()
         {
             if ((comboBox_forg.Text == "") || (textBox_cikkszam.Text == "") || (comboBox_name.Text == "") || (textBox_size.Text == "") ||
-                (textBox_quantity.Text == ""))
+                (textBox_quantity.Text == "") || (Convert.ToDouble(textBox_ar.Text)==0))
             {
                 return false;
             }
@@ -98,7 +99,6 @@ namespace Transparent_Form
         public void showTable()
         {
             DataGridView_tool.DataSource = tool.getToollist(new MySqlCommand("SELECT * FROM `eszkozok`"));
-            
         }
 
         private void button_add_Click(object sender, EventArgs e)
@@ -106,43 +106,39 @@ namespace Transparent_Form
             // add new tool
             string name = comboBox_name.Text;
             string size = textBox_size.Text.Replace(",", "."); ;
-            string quantity = textBox_quantity.Text;
+            int quantity = Convert.ToInt32(textBox_quantity.Text);
             string details = textBox_details.Text;
             string type = radioButton_tool.Checked ? "Szerszám" : "Egyéb";
             int limit = Convert.ToInt32(numericUpDown_limit.Value);
             string forgalmazo = comboBox_forg.Text;
-            double cikkszam = Convert.ToDouble(textBox_cikkszam.Text);
-
+            string cikkszam = textBox_cikkszam.Text;
+            double ar = Convert.ToDouble(textBox_ar.Text);
+            double ossz = Convert.ToDouble(ar * quantity);
 
             if (verify())
             {
 
-                string eszkozadatok = ($"Biztosan hozzá kívánja adni a következő eszközt?\nForgalmazó: {forgalmazo}\nCikkszám: {cikkszam}\nNév: {name}\nMéret: {size}\nDarabszám: {quantity}\nTípus: {type}\nRészletek: {details}\nLimit: {limit}");
+                string eszkozadatok = ($"Biztosan hozzá kívánja adni a következő eszközt?\nForgalmazó: {forgalmazo}\nCikkszám: {cikkszam}\nNév: {name}\nMéret: {size}\nDarabszám: {quantity}\nTípus: {type}\nRészletek: {details}\nLimit: {limit}\nÁr: {ar}");
                 DialogResult result = MessageBox.Show($"{eszkozadatok}", "Eszköz felvétele", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result==DialogResult.Yes)
                 {
                     try
                     {
                        
-                        if (tool.InsertTool(forgalmazo, cikkszam, name, size, type, quantity, details, limit))
+                        if (tool.InsertTool(forgalmazo, cikkszam, name, size, type, quantity, details, limit, ar, ossz))
                         {
                             showTable();
                             MessageBox.Show("Új bejegyzés hozzáadva!", "Sikeres hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            textBox_size.Clear();
-                            textBox_quantity.Clear();
-                            textBox_details.Clear();
-                            radioButton_tool.Checked = false;
-                            radioButton_etc.Checked = false;
-                            comboBox_name.Items.Clear();
-                            numericUpDown_limit.Value = 1;
-                            textBox_cikkszam.Clear();
-                            comboBox_forg.SelectedIndex = 0;
+                            clearFields();
+
                         }
                     }
                     catch (Exception ex)
 
                     {
                         MessageBox.Show(ex.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        clearFields();
+
                     }
                 }
                 
@@ -157,13 +153,7 @@ namespace Transparent_Form
 
         private void button_clear_Click(object sender, EventArgs e)
         {
-            textBox_size.Clear();
-            textBox_quantity.Clear();
-            textBox_details.Clear();
-            radioButton_tool.Checked = false;
-            radioButton_etc.Checked = false;
-            comboBox_name.Items.Clear();
-            numericUpDown_limit.Value = 1;
+            clearFields();
         }
 
         private void button_addName_Click(object sender, EventArgs e)
@@ -235,6 +225,35 @@ namespace Transparent_Form
 			connect.closeConnect();
 
 		}
+        public void clearFields()
+        {
+            textBox_size.Clear();
+            textBox_quantity.Clear();
+            textBox_details.Clear();
+            radioButton_tool.Checked = false;
+            radioButton_etc.Checked = false;
+            comboBox_name.Items.Clear();
+            numericUpDown_limit.Value = 1;
+            comboBox_forg.SelectedIndex = -1;
+            textBox_cikkszam.Clear();
+            textBox_ar.Clear();
+            textBox_ar.Text = "0";
 
-	}
+        }
+
+        private void textBox_ar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+               (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && (textBox_size.Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+    }
 }

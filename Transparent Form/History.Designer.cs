@@ -66,7 +66,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(934, 56);
+            this.panel1.Size = new System.Drawing.Size(1184, 56);
             this.panel1.TabIndex = 5;
             // 
             // label6
@@ -125,7 +125,7 @@
             this.DataGridView_history.RowHeadersVisible = false;
             this.DataGridView_history.RowHeadersWidth = 51;
             this.DataGridView_history.RowTemplate.ReadOnly = true;
-            this.DataGridView_history.Size = new System.Drawing.Size(917, 373);
+            this.DataGridView_history.Size = new System.Drawing.Size(1167, 521);
             this.DataGridView_history.TabIndex = 6;
             this.DataGridView_history.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.DataGridView_history.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -156,7 +156,7 @@
             this.printButton.BackColor = System.Drawing.SystemColors.HotTrack;
             this.printButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.printButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.printButton.Location = new System.Drawing.Point(364, 544);
+            this.printButton.Location = new System.Drawing.Point(364, 692);
             this.printButton.MaximumSize = new System.Drawing.Size(193, 59);
             this.printButton.MinimumSize = new System.Drawing.Size(193, 59);
             this.printButton.Name = "printButton";
@@ -175,9 +175,11 @@
             this.DataOrigin.AllowUserToResizeRows = false;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             this.DataOrigin.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.DataOrigin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DataOrigin.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DataOrigin.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
@@ -187,17 +189,17 @@
             this.DataOrigin.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.DataOrigin.ColumnHeadersHeight = 25;
             this.DataOrigin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataOrigin.DefaultCellStyle = dataGridViewCellStyle7;
             this.DataOrigin.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataOrigin.Location = new System.Drawing.Point(9, 85);
-            this.DataOrigin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DataOrigin.Margin = new System.Windows.Forms.Padding(2);
             this.DataOrigin.Name = "DataOrigin";
             this.DataOrigin.ReadOnly = true;
             this.DataOrigin.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -208,7 +210,7 @@
             this.DataOrigin.RowTemplate.Height = 24;
             this.DataOrigin.RowTemplate.ReadOnly = true;
             this.DataOrigin.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataOrigin.Size = new System.Drawing.Size(914, 62);
+            this.DataOrigin.Size = new System.Drawing.Size(1163, 62);
             this.DataOrigin.TabIndex = 8;
             this.DataOrigin.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.DataOrigin.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -247,7 +249,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 613);
+            this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.DataOrigin);
             this.Controls.Add(this.printButton);
