@@ -43,17 +43,19 @@ namespace Transparent_Form
         public void showTable()
         {
 
-            DataGridView_mtars.DataSource = tool.getMtarslist(new MySqlCommand("SELECT `forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `tool_name` AS Név, `tool_size` AS Méret, `modified_date` AS Dátum, `munkatars` AS Munkatárs, `kiadott` AS Kiadott, `hozzaadott` AS Hozzáadott FROM `history`"));
+            DataGridView_mtars.DataSource = tool.getMtarslist(new MySqlCommand("SELECT `forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `tool_name` AS Név, `tool_size` AS Méret, `modified_date` AS Dátum, `munkatars` AS Munkatárs, `kiadott` AS Kiadott, `hozzaadott` AS Hozzáadott, `egysegar` AS Egységár, `osszar` AS 'Össz érték' FROM `history`"));
             DataGridView_mtars.ReadOnly = true;
-
-        }
+			DataGridView_mtars.Columns["Egységár"].DefaultCellStyle.Format = "c";
+			DataGridView_mtars.Columns["Össz érték"].DefaultCellStyle.Format = "c";
+		}
 
         private void button_search_Click(object sender, EventArgs e)
         {
             DataGridView_mtars.DataSource = tool.searchSzerszam(textBox_search.Text);
             comboBox_mtars.SelectedIndex = -1;
-
-            textBox_search.Clear();
+			DataGridView_mtars.Columns["Egységár"].DefaultCellStyle.Format = "c";
+			DataGridView_mtars.Columns["Össz érték"].DefaultCellStyle.Format = "c";
+			textBox_search.Clear();
         }
 
         private void button_reset_Click(object sender, EventArgs e)
@@ -68,7 +70,9 @@ namespace Transparent_Form
         {
             DataGridView_mtars.DataSource = tool.searchMtars(comboBox_mtars.Text);
             textBox_search.Clear();
-        }
+			DataGridView_mtars.Columns["Egységár"].DefaultCellStyle.Format = "c";
+			DataGridView_mtars.Columns["Össz érték"].DefaultCellStyle.Format = "c";
+		}
 
 		private void button_print_Click(object sender, EventArgs e)
 		{

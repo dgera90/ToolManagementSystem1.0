@@ -152,7 +152,7 @@ namespace Transparent_Form
 		public bool kiadasTool(int id, string forgalmazo, double cikkszam, string name, double size, string mtars,int kiadott,int quantity, double ar)
 		{
 			int remain = quantity - kiadott;
-            MySqlCommand command = new MySqlCommand("INSERT INTO `history`(`tool_id`,`forg`,`cikkszam`,`tool_name`,`tool_size`,`modified_date`,`munkatars`,`kiadott`) VALUES (@id,@fg,@csz,@nm,@sz,@md,@mt,@kia)", connect.getconnection);
+            MySqlCommand command = new MySqlCommand("INSERT INTO `history`(`tool_id`,`forg`,`cikkszam`,`tool_name`,`tool_size`,`modified_date`,`munkatars`,`kiadott`,`egysegar`,`osszar`) VALUES (@id,@fg,@csz,@nm,@sz,@md,@mt,@kia,@ar,@osszar)", connect.getconnection);
             MySqlCommand command2 = new MySqlCommand("UPDATE `eszkozok` SET `quantity`=@qua, `osszar`=" + (quantity-kiadott) * ar + " WHERE `id`=@id", connect.getconnection);
 
             command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
@@ -163,6 +163,8 @@ namespace Transparent_Form
             command.Parameters.Add("@md", MySqlDbType.DateTime).Value = DateTime.Now;
 			command.Parameters.Add("@fg", MySqlDbType.VarChar).Value = forgalmazo;
 			command.Parameters.Add("@csz", MySqlDbType.Double).Value = cikkszam;
+			command.Parameters.Add("@ar", MySqlDbType.Double).Value = ar;
+			command.Parameters.Add("@osszar", MySqlDbType.Double).Value = ar * kiadott;
 
 			command2.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
 			command2.Parameters.Add("@qua", MySqlDbType.Int32).Value = remain;
@@ -183,7 +185,7 @@ namespace Transparent_Form
         public bool hozzaadTool(int id, string forgalmazo, double cikkszam, string name, double size, string mtars, int kiadott, int quantity, double ar)
         {
             int remain = quantity + kiadott;
-            MySqlCommand command = new MySqlCommand("INSERT INTO `history`(`tool_id`,`forg`,`cikkszam`,`tool_name`,`tool_size`,`modified_date`,`munkatars`,`hozzaadott`) VALUES (@id,@fg,@csz,@nm,@sz,@md,@mt,@kia)", connect.getconnection);
+            MySqlCommand command = new MySqlCommand("INSERT INTO `history`(`tool_id`,`forg`,`cikkszam`,`tool_name`,`tool_size`,`modified_date`,`munkatars`,`hozzaadott`,`egysegar`,`osszar`) VALUES (@id,@fg,@csz,@nm,@sz,@md,@mt,@kia,@ar,@osszar)", connect.getconnection);
             MySqlCommand command2 = new MySqlCommand("UPDATE `eszkozok` SET `quantity`=@qua, `osszar`=" + (quantity+kiadott) * ar + " WHERE `id`=@id", connect.getconnection);
 
             command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
@@ -193,6 +195,8 @@ namespace Transparent_Form
             command.Parameters.Add("@kia", MySqlDbType.Int32).Value = kiadott;
 			command.Parameters.Add("@fg", MySqlDbType.VarChar).Value = forgalmazo;
 			command.Parameters.Add("@csz", MySqlDbType.Double).Value = cikkszam;
+			command.Parameters.Add("@ar", MySqlDbType.Double).Value = ar;
+			command.Parameters.Add("@osszar", MySqlDbType.Double).Value = ar*kiadott;
 			command.Parameters.Add("@md", MySqlDbType.DateTime).Value = DateTime.Now;
 
             command2.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
@@ -283,7 +287,7 @@ namespace Transparent_Form
         }
         public DataTable searchSzerszam(string searchdata)
         {
-            MySqlCommand command = new MySqlCommand("SELECT `forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `tool_name` AS Név, `tool_size` AS Méret, `modified_date` AS Dátum, `munkatars` AS Munkatárs, `kiadott` AS Kiadott, `hozzaadott` AS Hozzáadott FROM `history` WHERE CONCAT(`forg`,`cikkszam`,`tool_name`,`tool_size`) LIKE '%" + searchdata + "%'", connect.getconnection);
+            MySqlCommand command = new MySqlCommand("SELECT `forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `tool_name` AS Név, `tool_size` AS Méret, `modified_date` AS Dátum, `munkatars` AS Munkatárs, `kiadott` AS Kiadott, `hozzaadott` AS Hozzáadott, `egysegar` AS Egységár, `osszar` AS 'Össz érték' FROM `history` WHERE CONCAT(`forg`,`cikkszam`,`tool_name`,`tool_size`) LIKE '%" + searchdata + "%'", connect.getconnection);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
@@ -291,7 +295,7 @@ namespace Transparent_Form
         }
         public DataTable searchMtars(string searchdata)
         {
-            MySqlCommand command = new MySqlCommand("SELECT `forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `tool_name` AS Név, `tool_size` AS Méret, `modified_date` AS Dátum, `munkatars` AS Munkatárs, `kiadott` AS Kiadott, `hozzaadott` AS Hozzáadott FROM `history` WHERE CONCAT(`munkatars`) LIKE '%" + searchdata + "%'", connect.getconnection);
+            MySqlCommand command = new MySqlCommand("SELECT `forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `tool_name` AS Név, `tool_size` AS Méret, `modified_date` AS Dátum, `munkatars` AS Munkatárs, `kiadott` AS Kiadott, `hozzaadott` AS Hozzáadott, `egysegar` AS Egységár, `osszar` AS 'Össz érték' FROM `history` WHERE CONCAT(`munkatars`) LIKE '%" + searchdata + "%'", connect.getconnection);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);

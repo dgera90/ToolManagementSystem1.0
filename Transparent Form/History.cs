@@ -26,13 +26,16 @@ namespace Transparent_Form
         public History()
         {
             InitializeComponent();
-            DataGridView_history.DataSource = tool.getHistory(new MySqlCommand("SELECT `modified_date` AS 'Módosítva', `munkatars` AS Munkatárs, `kiadott` AS Kiadva, `hozzaadott` AS Hozzáadva FROM `history` WHERE `tool_id`=@toolid"));
+            DataGridView_history.DataSource = tool.getHistory(new MySqlCommand("SELECT `modified_date` AS 'Módosítva', `munkatars` AS Munkatárs, `kiadott` AS Kiadva, `hozzaadott` AS Hozzáadva, `egysegar` AS Egységár, `osszar` AS 'Össz érték' FROM `history` WHERE `tool_id`=@toolid"));
             DataGridView_history.ReadOnly = true;
-            string toolid = ToolClass.toolid;
+			DataGridView_history.Columns["Egységár"].DefaultCellStyle.Format = "c";
+			DataGridView_history.Columns["Össz érték"].DefaultCellStyle.Format = "c";
+			string toolid = ToolClass.toolid;
             
-            DataOrigin.DataSource = tool.originTool(new MySqlCommand("SELECT `toolName` AS 'Név',`forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `toolSize` AS 'Méret', `inDate` AS 'Felvétel ideje', `type` AS 'Típus', `quantity` AS Darabszám,`egysegar` AS Egységár, `description` AS 'Részletek' FROM `felvetel` WHERE `id`=@toolid"));
+            DataOrigin.DataSource = tool.originTool(new MySqlCommand("SELECT `toolName` AS 'Név',`forg` AS Forgalmazó, `cikkszam` AS Cikkszám, `toolSize` AS 'Méret', `inDate` AS 'Felvétel ideje', `type` AS 'Típus', `quantity` AS Darabszám,`egysegar` AS Egységár,`osszar` AS 'Össz érték', `description` AS 'Részletek' FROM `felvetel` WHERE `id`=@toolid"));
             DataOrigin.ReadOnly = true;
-            DataOrigin.Columns[7].DefaultCellStyle.Format = "c";
+            DataOrigin.Columns["Egységár"].DefaultCellStyle.Format = "c";
+            DataOrigin.Columns["Össz érték"].DefaultCellStyle.Format = "c";
 
 
         }
