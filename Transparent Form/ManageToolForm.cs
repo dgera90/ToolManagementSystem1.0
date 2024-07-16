@@ -386,6 +386,7 @@ namespace Transparent_Form
             numericUpDown_limit.Value = 1;
             numericUpDown_qua.Visible = false;
             numericUpDown_limit.Visible = false;
+			numericUpDown_qua.Value = 1;
             label2.Visible = false;
             label3.Visible = false;
             label5.Visible = false;
